@@ -1,0 +1,29 @@
+# Godot 4+ import cache (regenerated on open — never commit)
+.godot/
+
+# Godot auto-generated translation files
+*.translation
+
+# Mono artifacts (defensive — this project is GDScript-only)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Build / export artifacts
+build/
+export/
+*.pck
+
+# System / editor cruft
+.DS_Store
+*.swp
+*.tmp
+
+# Claude Code per-machine local overrides (global settings in .claude/settings.json ARE tracked)
+.claude/settings.local.json
+
+# Aseprite local backups
+*.aseprite-bak
+
+# NOTE: Godot 4's *.import files next to assets ARE tracked — they contain
+# canonical import settings. Do NOT add *.import here.

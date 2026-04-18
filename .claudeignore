@@ -1,0 +1,19 @@
+# Godot import cache and generated artifacts
+.godot/
+*.import
+
+# Build / export artifacts
+build/
+export/
+*.pck
+*.apk
+*.exe
+*.dmg
+
+# macOS / editor cruft
+.DS_Store
+*.tmp
+*.swp
+
+# Aseprite working/backup files
+*.aseprite-bak
