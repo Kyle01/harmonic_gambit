@@ -20,5 +20,13 @@ export/
 # Claude Code per-machine local overrides (global .claude/settings.json IS tracked)
 .claude/settings.local.json
 
+# godot-api skill: generated/cloned content (bootstrap script regenerates on demand)
+.claude/skills/godot-api/doc_source/
+.claude/skills/godot-api/doc_api/
+
+# Python bytecode (from skill helper scripts)
+__pycache__/
+*.pyc
+
 # Aseprite local backups
 *.aseprite-bak
