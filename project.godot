@@ -16,6 +16,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+EventBus="*res://scripts/autoload/event_bus.gd"
+RNG="*res://scripts/autoload/rng.gd"
+GameState="*res://scripts/autoload/game_state.gd"
+CardCatalog="*res://scripts/autoload/card_catalog.gd"
+TurnManager="*res://scripts/autoload/turn_manager.gd"
+GambitEngine="*res://scripts/autoload/gambit_engine.gd"
+BandComposer="*res://scripts/autoload/band_composer.gd"
 MCPScreenshot="*res://addons/godot_mcp/mcp_screenshot_service.gd"
 MCPInputService="*res://addons/godot_mcp/mcp_input_service.gd"
 MCPGameInspector="*res://addons/godot_mcp/mcp_game_inspector_service.gd"
