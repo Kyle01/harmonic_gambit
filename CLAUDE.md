@@ -59,12 +59,27 @@ Autoload registry + signal contract in [`docs/architecture.md`](docs/architectur
 
 ## Validation Before Commit
 
+**Hard gate before every PR — CI will reject the branch otherwise.** Run all three on the staged `.gd` files and fix any failures before `git push`:
+
 ```bash
-gdparse scripts/**/*.gd scenes/**/*.gd    # syntax check
-gdlint  scripts/**/*.gd scenes/**/*.gd    # style check
+FILES=$(git ls-files '*.gd' | grep -v '^addons/')
+echo "$FILES" | xargs gdparse            # syntax
+echo "$FILES" | xargs gdlint             # style
+echo "$FILES" | xargs gdformat --check   # formatting
 ```
 
+`gdformat` (without `--check`) auto-fixes formatting in place. `gdlint` failures must be hand-fixed — do not disable rules without approval.
+
 For non-trivial `.tscn` / `.tres` changes: open the scene in Godot via MCP and screenshot it. Type/lint passing is necessary but not sufficient — **run the game** via Godot MCP Pro and visually confirm the feature before claiming it's done.
+
+## CI (GitHub Actions)
+
+Two workflows run on every PR into `main`:
+
+- **`validate.yml`** — blocking. Runs `gdparse`, `gdlint`, `gdformat --check`, and a Godot headless import (`godot --headless --import --quit`) to catch broken scene/resource links. Merge is blocked until it passes.
+- **`ai-review.yml`** — advisory only. Runs an OpenAI reasoning-model review scoped to the diff across four focus areas: Godot architecture, video-game design fundamentals, extensibility, and security. Posts a comment on the PR. Re-runs automatically when you push follow-ups. Observations only — no verdict, never blocks merge.
+
+Branch protection on `main`: PR required, `validate.yml` must pass, no force-push, no approval required (solo dev), admin bypass enabled.
 
 ---
 
@@ -101,7 +116,7 @@ For non-trivial `.tscn` / `.tres` changes: open the scene in Godot via MCP and s
 ## Testing Workflow
 
 After any non-trivial change:
-1. `gdparse` + `gdlint` pass on all staged `.gd` files.
+1. `gdparse` + `gdlint` + `gdformat --check` pass on all staged `.gd` files.
 2. Run the game via Godot MCP Pro (`play_scene` tool).
 3. Capture a screenshot of the relevant state.
 4. Visually verify the feature behaves as expected.
