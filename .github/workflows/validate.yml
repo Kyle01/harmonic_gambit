@@ -1,0 +1,99 @@
+name: validate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: "4.6-stable"
+  GDTOOLKIT_VERSION: "4.5.*"
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install gdtoolkit
+        run: pip install "gdtoolkit==${GDTOOLKIT_VERSION}"
+
+      - name: Collect .gd files
+        id: gd_files
+        run: |
+          files=$(git ls-files '*.gd' | grep -v '^addons/' || true)
+          if [ -z "$files" ]; then
+            echo "No project .gd files found; subsequent lint steps will be skipped."
+          fi
+          {
+            echo "files<<EOF"
+            echo "$files"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: gdparse (syntax)
+        if: steps.gd_files.outputs.files != ''
+        run: printf '%s\n' "${{ steps.gd_files.outputs.files }}" | xargs gdparse
+
+      - name: gdlint (style)
+        if: steps.gd_files.outputs.files != ''
+        run: printf '%s\n' "${{ steps.gd_files.outputs.files }}" | xargs gdlint
+
+      - name: gdformat --check
+        if: steps.gd_files.outputs.files != ''
+        run: printf '%s\n' "${{ steps.gd_files.outputs.files }}" | xargs gdformat --check
+
+      - name: Cache Godot binary
+        id: godot_cache
+        uses: actions/cache@v4
+        with:
+          path: ~/godot
+          key: godot-${{ env.GODOT_VERSION }}-linux-x86_64
+
+      - name: Download Godot ${{ env.GODOT_VERSION }}
+        if: steps.godot_cache.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          mkdir -p ~/godot
+          url="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          curl -fL -o /tmp/godot.zip "$url"
+          unzip -q /tmp/godot.zip -d ~/godot
+          mv "$HOME/godot/Godot_v${GODOT_VERSION}_linux.x86_64" ~/godot/godot
+          chmod +x ~/godot/godot
+
+      - name: Cache Godot import artifacts
+        uses: actions/cache@v4
+        with:
+          path: .godot
+          key: godot-import-${{ env.GODOT_VERSION }}-${{ hashFiles('project.godot', '**/*.tscn', '**/*.tres') }}
+          restore-keys: |
+            godot-import-${{ env.GODOT_VERSION }}-
+
+      - name: Godot headless import
+        run: |
+          set -uo pipefail
+          ~/godot/godot --headless --import --quit 2>&1 | tee import.log
+          # Exit-code on `--import` is unreliable across Godot 4 builds, so
+          # we post-check the log for real errors instead of trusting $?.
+          if grep -E "SCRIPT ERROR|ERROR:|CORE ERROR" import.log; then
+            echo "::error::Godot headless import reported errors (see log above)"
+            exit 1
+          fi
