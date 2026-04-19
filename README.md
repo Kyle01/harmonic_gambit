@@ -4,7 +4,7 @@
 
 > `harmonic_rogue` is a working-directory slug, not the final game title.
 
-**Status:** pre-alpha. Hello-world combat pipeline validated — see `screenshots/phase4_hello_world.png` and commit `5bd0e13`.
+**Status:** pre-alpha. Hello-world combat pipeline validated (see commit `5bd0e13`).
 
 ## Docs map
 
@@ -92,8 +92,6 @@ scripts/
 resources/   # .tres instances filling those schemas: actual gambits, enemies, events, cards
 
 docs/        # design + architecture docs
-
-screenshots/ # QA screenshots from Godot MCP runs
 ```
 
 ---
