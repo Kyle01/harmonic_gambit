@@ -19,7 +19,7 @@ The third-party skills are pinned to the **last GDScript commit before the 2026-
 | `godogen` | User asks to "make a game" / "build a game" (whole-game generation). | godogen (pinned) | Orchestrator. Rarely triggers — our architecture is hand-directed. Harmless to keep. |
 | `godot-api` | Looking up Godot class APIs (methods, properties, signals). | godogen (pinned) | **Critical** — lazy-loaded docs for 754 classes. Prevents Python-idiom hallucinations in GDScript. |
 | `visual-qa` | Analyzing game screenshots for defects against a reference. | godogen (pinned) | Complements the Godot MCP Pro screenshot workflow. Uses Gemini Flash by default. |
-| `open-pr` | User wants to open a PR for current work. | first-party | Classic-git flow: branches work, pushes, hands off the GitHub compare URL + pre-filled body. No `gh` CLI. |
+| `open-pr` | User wants to open a PR for current work. | first-party | End-to-end: branches work, drafts cover page (summary / changes / testing / ntfy-hosted screenshots), pushes, opens PR via `gh pr create`. Returns the PR URL. Requires `gh` (`brew install gh && gh auth login`). |
 
 ## Reinstall / refresh procedure
 
