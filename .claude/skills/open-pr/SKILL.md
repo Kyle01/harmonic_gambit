@@ -11,7 +11,9 @@ description: |
 
 $ARGUMENTS
 
-You are preparing a pull request for the user. Execute the full sequence: prepare the branch, draft the cover page, get the user's approval, push the branch, and hand off the GitHub compare URL with the pre-filled body. Do not skip the approval step.
+You are preparing a pull request for the user. Execute the full sequence end-to-end without stopping for approval: prepare the branch, draft the cover page, push the branch, and hand off the GitHub compare URL with the pre-filled body. The user reviews on GitHub, not in chat — your job is to make that review possible as quickly as possible.
+
+Use best judgment for decisions the skill historically asked the user about (branch name, which screenshots to include, title wording). Only stop if you genuinely can't proceed — working tree dirty, no commits to push, push fails, etc.
 
 ## Why no `gh` CLI
 
@@ -29,11 +31,12 @@ Branch rules (per `feedback_dev_workflow.md`):
 
 - **Working tree dirty:** tell the user to commit or stash first. Stop — do not auto-stash.
 - **On a `feature/*` / `fix/*` / `docs/*` / `chore/*` branch with commits ahead of origin/main:** use it as-is.
-- **On `main` with unpushed commits ahead of origin/main:** follow-up-to-unpushed-PR convention left work on local main. To open the PR, migrate:
-  1. Propose a branch name derived from the dominant commit theme (e.g., commits around the main menu → `feature/main-menu`). Confirm with the user before proceeding.
-  2. `git checkout -b <branch>` — creates the feature branch at current HEAD.
-  3. `git checkout main && git reset --hard origin/main` — rewinds local main to match upstream. Commits are preserved on the feature branch. Confirm this reset with the user before running it.
-  4. `git checkout <branch>` — continue on the feature branch.
+- **On `main` with unpushed commits ahead of origin/main:** follow-up-to-unpushed-PR convention left work on local main. Migrate without asking:
+  1. Pick a branch name derived from the dominant commit theme (e.g., commits around the main menu → `feature/main-menu`). Prefix: `feature/` for new features, `fix/` for bugfixes, `docs/` for docs-only, `chore/` for tooling/cleanup. Use best judgment.
+  2. If a branch with that name already exists **and is stale** (its tip is reachable from current HEAD or from origin/main already), delete it with `git branch -D` and recreate at HEAD. If the name is taken by unrelated in-progress work, pick a different name with a `-v2` or date suffix.
+  3. `git checkout -b <branch>` — creates the feature branch at current HEAD.
+  4. `git checkout main && git reset --hard origin/main` — rewinds local main to match upstream. Safe because the commits are preserved on the feature branch.
+  5. `git checkout <branch>` — continue on the feature branch.
 - **No commits ahead of origin/main:** nothing to PR. Stop.
 
 ## Step 2 — Gather PR scope
@@ -58,10 +61,9 @@ Do not invent testing that didn't happen. If something wasn't tested, say so in 
 
 `screenshots/` is gitignored (per `feedback_screenshots_ephemeral.md`). To show them in the PR cover page, upload to ntfy.sh and embed the URLs inline. The user will later drag-drop the PNGs into the PR web UI for permanent GitHub-hosted copies.
 
-If relevant screenshots exist:
+If relevant screenshots exist, include them without asking — default is all that match the PR's scope, use judgment to drop obvious duplicates or noise. If `screenshots/` is empty but the PR is a UI feature, regenerate 1–3 representative screenshots via Godot MCP Pro (`play_scene` → `get_game_screenshot save_path="res://screenshots/<name>.png"` → `stop_scene`) before uploading.
 
-1. Ask which to include (default: all that match the PR's scope).
-2. Upload each:
+Upload each:
    ```bash
    set -a; source ~/.config/harmonic_rogue/ntfy.conf; set +a
    curl -sS -T <local-path> \
@@ -118,11 +120,7 @@ _Screenshots are hosted on ntfy.sh and expire in ~3 hours. Drag-drop the PNGs fr
 
 Do **not** include "Co-Authored-By" lines in the PR body — those belong in commit trailers.
 
-## Step 6 — Review with the user
-
-Show the drafted title and body in chat (rendered as it will appear on GitHub). Ask: "Ship with this, or edit?" **Wait for approval.** Make any requested edits before pushing.
-
-## Step 7 — Push the branch
+## Step 6 — Push the branch
 
 ```bash
 git push -u origin <branch>
@@ -130,22 +128,26 @@ git push -u origin <branch>
 
 If push fails (network, auth, non-fast-forward, etc.), show the error, stop, and don't print the compare URL yet.
 
-## Step 8 — Hand off
+## Step 7 — Hand off
 
-Print a final message with these three pieces clearly separated so the user can copy them into GitHub:
+Print a terse final message. The user's next action is to review the PR on GitHub — optimize for them clicking through immediately.
 
-1. **Compare URL:** `https://github.com/<owner>/<repo>/compare/main...<branch>?expand=1` (tell them to open it).
-2. **Title** (ready to paste).
-3. **Body** — inside a fenced code block so it's one copy-paste into the PR description field.
+Structure the handoff as:
 
-Also remind them: if any ntfy-hosted screenshots are embedded, drag-drop the PNGs from `screenshots/` into the web UI after creating the PR for permanent GitHub-hosted copies (ntfy URLs expire in ~3 hours).
+1. **One-line status:** e.g., "Pushed `feature/main-menu` → open the PR." — keep it under 15 words.
+2. **Compare URL** on its own line so it renders as tappable in the Claude Code iOS app: `https://github.com/<owner>/<repo>/compare/main...<branch>?expand=1`
+3. **Title** on its own line, ready to paste.
+4. **Body** inside a fenced code block so it's one copy-paste into the PR description field.
+5. **Footnote** (only if ntfy-hosted screenshots were embedded): "Drag-drop the PNGs from `screenshots/` into the PR web UI after creating the PR — ntfy URLs expire in ~3 hours."
+
+Do **not** ask "anything else?" or re-summarize what was done. The PR page is the user's next context.
 
 ## Arguments
 
-Freeform `$ARGUMENTS` may include hints — use them as overrides rather than asking again:
+Freeform `$ARGUMENTS` may include hints — apply silently without asking:
 
 - A proposed branch name (e.g., "branch=feature/main-menu").
 - "--no-screenshots" → skip the screenshot step entirely.
 - A title override in quotes → use as-is.
 
-Otherwise: derive everything from the commit history, conversation, and user confirmation.
+Otherwise: derive everything from the commit history and conversation.
