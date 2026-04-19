@@ -79,6 +79,15 @@ For non-trivial `.tscn` / `.tres` changes: open the scene in Godot via MCP and s
 
 ---
 
+## Branch Workflow
+
+- **Never commit directly to `main`.** Every non-trivial change starts on a `feature/<slug>` or `docs/<slug>` branch.
+- Validate on the branch via Godot MCP Pro (`play_scene` + screenshot + interaction test) before merging.
+- Fast-forward merge to `main` only after validation passes.
+- Trivial single-line fixes can be an exception — use judgment, but when in doubt, branch.
+
+---
+
 ## Commit Discipline
 
 - Small, frequent commits. One logical change per commit.

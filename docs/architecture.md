@@ -105,6 +105,39 @@ inheritance. Expected families:
 Components should expose signals for their own state changes; `EventBus`
 is for *cross-system* traffic, not *within-actor* traffic.
 
+## UI
+
+### Target resolution
+
+**1280×720 base viewport** (Switch handheld native, 16:9). Set in
+`project.godot [display]` with `stretch/mode=canvas_items` +
+`stretch/aspect=keep`. Scales proportionally to any window — 1:1 on
+Switch handheld, 1.5× on Switch docked (1920×1080), free scale on
+desktop with letterboxing on non-16:9. Design all UI against the
+1280×720 logical grid.
+
+### Fonts
+
+- `assets/fonts/alagard.ttf` — display / titles (medieval-fantasy
+  pixel).
+- `assets/fonts/silkscreen.ttf` — UI body, buttons, labels (clean
+  pixel sans).
+
+Applied inline via `theme_override_fonts/font` until enough UI exists
+to justify a shared `theme.tres`.
+
+### Navigation
+
+Scene transitions use `get_tree().change_scene_to_file(path)` directly
+— no router. The main menu (`scenes/ui/main_menu.tscn`) wires each
+button to a placeholder page; each placeholder shares
+`placeholder_page.gd`, which handles the Back button and `ui_cancel`.
+
+Promote to a `SceneRouter` autoload when run-flow (map → combat →
+rewards) needs cross-cutting transition state (fade animations,
+back-stack, carry-over params). Until then, direct transitions are the
+pattern.
+
 ## Validation
 
 Before commit:

@@ -4,7 +4,7 @@
 
 > `harmonic_rogue` is a working-directory slug, not the final game title.
 
-**Status:** pre-alpha. Hello-world combat pipeline validated — see `screenshots/phase4_hello_world.png` and commit `5bd0e13`.
+**Status:** pre-alpha. Hello-world combat pipeline validated (see commit `5bd0e13`).
 
 ## Docs map
 
@@ -46,11 +46,15 @@ These are configured in `~/.claude.json` (local scope, auto-approved). The repo 
 # open in the Godot editor
 godot .
 
-# or run the current main scene directly
-godot --path . res://scenes/levels/test_arena.tscn
+# or run the main scene directly
+godot --path . res://scenes/ui/main_menu.tscn
 ```
 
-The main scene is `scenes/levels/test_arena.tscn` — a minimal arena with one player, one goblin, and the shared-timer combat loop wired through. Combat starts on `_ready`; watch the log label for the gambit-evaluation cycle.
+The main scene is `scenes/ui/main_menu.tscn` — the "Gambits & Grooves" title screen with five buttons (Start, Catalog, Options, Credits, ADMIN). Each routes to a placeholder page via `get_tree().change_scene_to_file()`; every placeholder has a Back button that returns to the menu.
+
+Viewport is **1280×720** (Switch handheld native) with `canvas_items` stretch + `keep` aspect — scales cleanly to docked Switch (1920×1080) and desktop, letterboxes on non-16:9.
+
+`scenes/levels/test_arena.tscn` is still in the tree — a minimal arena with one player, one goblin, and the shared-timer combat loop wired through. Run it via the editor's "Play Scene" (F6) for combat-loop dev work.
 
 ---
 
@@ -69,13 +73,14 @@ For non-trivial scene or resource changes: open the scene in Godot (via MCP or m
 
 ```
 assets/
-  sprites/{characters,enemies,items,tilesets}/   # art (PixelLab → Aseprite → .tres)
-  audio/ fonts/
+  sprites/{characters,enemies,items,tilesets,ui}/   # art (PixelLab → Aseprite → .tres)
+  audio/
+  fonts/    # alagard.ttf (title display), silkscreen.ttf (UI body)
 
 scenes/
   actors/   # player.tscn, goblin.tscn, etc. — paired with per-scene .gd
   levels/   # test_arena.tscn and future combat/map scenes
-  ui/       # rhythm_prompt.tscn and future HUD/menus
+  ui/       # main_menu.tscn, *_placeholder.tscn, rhythm_prompt.tscn, …
   events/ items/
 
 scripts/
@@ -87,8 +92,6 @@ scripts/
 resources/   # .tres instances filling those schemas: actual gambits, enemies, events, cards
 
 docs/        # design + architecture docs
-
-screenshots/ # QA screenshots from Godot MCP runs
 ```
 
 ---

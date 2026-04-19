@@ -30,3 +30,6 @@ __pycache__/
 
 # Aseprite local backups
 *.aseprite-bak
+
+# QA screenshots — ephemeral; attach to PRs or ntfy-deliver, never commit
+screenshots/
