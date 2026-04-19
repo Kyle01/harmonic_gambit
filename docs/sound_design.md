@@ -87,12 +87,16 @@ Use `text_to_sound_effects`.
 
 ## Volume defaults
 
-- Music: `0.8` linear (≈ −1.9 dB)
+- Music: `0.0` linear (muted) — **dev-only default, revert to `0.8` before ship**
 - SFX: `0.8` linear (≈ −1.9 dB)
 
-Rationale: 1.0 is "full headroom, no attenuation", which on most laptop
-speakers is fine but on desktop speakers or headphones can be uncomfortably
-loud at OS-level 50%. 0.8 gives the player room to raise as well as lower.
+Rationale: music is temporarily muted by default because the developer
+is iterating and doesn't want the theme playing on every launch. Flip
+`UserSettings.music_volume_linear` back to `0.8` before shipping — the
+player should hear the theme the first time they open the menu. SFX
+stays at 0.8: 1.0 is full headroom / no attenuation, which on desktop
+speakers or headphones can be uncomfortably loud at OS-level 50%, and
+0.8 gives room to raise as well as lower.
 
 ## Implementation pointers
 
