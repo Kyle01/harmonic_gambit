@@ -9,7 +9,7 @@ missing secrets never fail the job — they produce a short fallback body.
 Environment:
     OPENAI_API_KEY          required for a real call; if unset the script
                             writes a one-line fallback and exits 0.
-    MODEL                   model id (default: gpt-5).
+    MODEL                   model id (default: gpt-5.4).
     MAX_COMPLETION_TOKENS   response-token cap (default: 4000).
     MAX_DIFF_BYTES          skip review if diff exceeds this (default: 51200).
     GITHUB_SHA              optional; included in the footer for traceability.
@@ -154,7 +154,7 @@ def main() -> int:
             context_parts.append(f"=== {rel} ===\n{content}")
     context_blob = "\n\n".join(context_parts)
 
-    model = os.environ.get("MODEL", "gpt-5")
+    model = os.environ.get("MODEL", "gpt-5.4")
     max_completion = int(os.environ.get("MAX_COMPLETION_TOKENS", "4000"))
 
     user_payload = textwrap.dedent(
