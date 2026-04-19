@@ -1,6 +1,8 @@
 # Claude Code Skills — harmonic_rogue
 
-All skills here are from **htdt/godogen**, pinned to the **last GDScript commit before the 2026-04-06 C# migration**.
+Mix of third-party (pinned from `htdt/godogen`) and first-party (written for this repo — see `open-pr`).
+
+The third-party skills are pinned to the **last GDScript commit before the 2026-04-06 C# migration**.
 
 - **Pinned commit:** `71364d6`
 - **Commit message:** "Update Tripo3D: add P1-20260311 + v3.1, simplify to two quality presets"
@@ -12,11 +14,12 @@ All skills here are from **htdt/godogen**, pinned to the **last GDScript commit 
 
 ## Skills installed
 
-| Skill | Activates when | Notes |
-|---|---|---|
-| `godogen` | User asks to "make a game" / "build a game" (whole-game generation). | Orchestrator. Rarely triggers — our architecture is hand-directed. Harmless to keep. |
-| `godot-api` | Looking up Godot class APIs (methods, properties, signals). | **Critical** — lazy-loaded docs for 754 classes. Prevents Python-idiom hallucinations in GDScript. |
-| `visual-qa` | Analyzing game screenshots for defects against a reference. | Complements the Godot MCP Pro screenshot workflow. Uses Gemini Flash by default. |
+| Skill | Activates when | Source | Notes |
+|---|---|---|---|
+| `godogen` | User asks to "make a game" / "build a game" (whole-game generation). | godogen (pinned) | Orchestrator. Rarely triggers — our architecture is hand-directed. Harmless to keep. |
+| `godot-api` | Looking up Godot class APIs (methods, properties, signals). | godogen (pinned) | **Critical** — lazy-loaded docs for 754 classes. Prevents Python-idiom hallucinations in GDScript. |
+| `visual-qa` | Analyzing game screenshots for defects against a reference. | godogen (pinned) | Complements the Godot MCP Pro screenshot workflow. Uses Gemini Flash by default. |
+| `open-pr` | User wants to open a PR for current work. | first-party | Classic-git flow: branches work, pushes, hands off the GitHub compare URL + pre-filled body. No `gh` CLI. |
 
 ## Reinstall / refresh procedure
 
