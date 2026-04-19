@@ -47,6 +47,26 @@ Branch rules (per `feedback_dev_workflow.md`):
   5. `git checkout <branch>` — continue on the feature branch.
 - **No commits ahead of origin/main:** nothing to PR. Stop.
 
+## Step 1.5 — Validate (hard gate)
+
+CI (`.github/workflows/validate.yml`) will reject the PR if `gdparse`, `gdlint`, or `gdformat --check` fails. Run the trio locally before pushing so we never burn a CI round-trip on a preventable miss:
+
+```bash
+FILES=$(git ls-files '*.gd' | grep -v '^addons/')
+if [ -n "$FILES" ]; then
+  echo "$FILES" | xargs gdparse
+  echo "$FILES" | xargs gdlint
+  echo "$FILES" | xargs gdformat --check
+fi
+```
+
+Rules:
+
+- **Any of the three failing blocks PR creation.** Do not push, do not call `gh pr create`. Surface the failing output to the user and stop so they can fix it.
+- **`gdformat --check` failures can be auto-fixed** by re-running without `--check` (`echo "$FILES" | xargs gdformat`), committing the result, and re-validating. Do this silently — no need to ask.
+- **`gdparse` and `gdlint` failures must be hand-fixed.** Do not disable lint rules or add `# gdlint: ignore=...` to paper over problems unless the user explicitly approves.
+- Capture the clean output (e.g., `25 files would be left unchanged`) for the PR body's **Testing** section — the user wants a record that CI's gate passed locally first.
+
 ## Step 2 — Gather PR scope
 
 ```bash
@@ -101,7 +121,7 @@ ntfy.sh free tier stores files ~3h — fine for the user's immediate review; the
 
 ## Testing
 
-- `gdparse` + `gdlint`: <pass, or specific findings>
+- `gdparse` + `gdlint` + `gdformat --check`: <pass summary, or specific findings — this is the Step 1.5 gate>
 - Godot MCP Pro: <what was loaded, what was clicked, what screenshots captured>
 - Manual: <anything verified by hand>
 

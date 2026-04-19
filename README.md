@@ -13,6 +13,7 @@
 | [`docs/gdd.md`](docs/gdd.md) | Game design — vision, pillars, combat timing, run structure. **Start here if you want to understand the game.** |
 | [`docs/architecture.md`](docs/architecture.md) | Code architecture — three-layer rules, autoloads, signal contract, Resource schemas. |
 | [`CLAUDE.md`](CLAUDE.md) | AI-agent rules — hard constraints, forbidden actions, validation steps. Governs any Claude / AI session working in this repo. |
+| [`.github/workflows/`](.github/workflows) | CI — `validate.yml` (blocking lint/parse/headless-import) and `ai-review.yml` (advisory OpenAI review). |
 
 ---
 
@@ -61,9 +62,13 @@ Viewport is **1280×720** (Switch handheld native) with `canvas_items` stretch +
 ## Validate before committing
 
 ```sh
-gdparse scripts/**/*.gd scenes/**/*.gd  # syntax
-gdlint  scripts/**/*.gd scenes/**/*.gd  # style
+FILES=$(git ls-files '*.gd' | grep -v '^addons/')
+echo "$FILES" | xargs gdparse            # syntax
+echo "$FILES" | xargs gdlint             # style
+echo "$FILES" | xargs gdformat --check   # formatting (drop --check to auto-fix)
 ```
+
+CI (`.github/workflows/validate.yml`) runs the same three checks plus a Godot headless import on every PR and blocks merge on failure. `.github/workflows/ai-review.yml` posts an advisory OpenAI review comment on each PR (re-runs on every push); observations only, never blocks merge.
 
 For non-trivial scene or resource changes: open the scene in Godot (via MCP or manually), screenshot, visually verify. Type/lint passing is necessary but not sufficient — **run the game** and confirm the feature works before claiming a task is done.
 

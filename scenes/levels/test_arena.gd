@@ -54,7 +54,9 @@ func _on_actor_window(actor: Node) -> void:
 func _apply_action(action: ResolvedAction) -> void:
 	rhythm_prompt.pulse()
 	var damage: int = PLAYER_DAMAGE if action.actor == player else GOBLIN_DAMAGE
-	_log("%s → %s on %s (%d dmg)" % [action.actor.name, action.action_id, action.target.name, damage])
+	_log(
+		"%s → %s on %s (%d dmg)" % [action.actor.name, action.action_id, action.target.name, damage]
+	)
 	match action.action_id:
 		&"attack":
 			action.target.take_damage(damage)
