@@ -44,9 +44,11 @@ Resets between runs. **Nothing here persists across runs** — that's
 `CardCatalog`.
 
 ### 4. `CardCatalog` (`card_catalog.gd`)
-The **only** cross-run persistent state besides achievements. Tracks
-discovered cards / enemies / characters. Serializes to
-`user://catalog.tres`. No power meta-progression ever lands here.
+The **only** cross-run persistent state besides achievements and user
+audio preferences. Tracks discovered cards / enemies / characters.
+Serializes to `user://catalog.tres`. No power meta-progression ever
+lands here. (User audio preferences persist separately via
+`AudioSettings` to `user://settings.tres`.)
 
 ### 5. `TurnManager` (`turn_manager.gd`)
 Authoritative combat heartbeat. One shared party action-timer paced by
@@ -72,6 +74,21 @@ and will tighten once the schema lands.
 Evaluates the current party's instrument roles against the equipped
 `BandCard.required_roles`. On match transitions, emits
 `EventBus.band_bonus_changed(bonus)`.
+
+### 8. `AudioSettings` (`audio_settings.gd`)
+Authoritative volume state for the `Music` and `SFX` buses. Loads a
+`UserSettings` resource from `user://settings.tres` on ready, applies it to
+`AudioServer`, and re-saves on every change. The only code in the project
+that should call `AudioServer.set_bus_volume_db` — UI talks to this
+autoload via `set_music_volume` / `set_sfx_volume`, then subscribes to
+`EventBus.music_volume_changed` / `sfx_volume_changed` for display sync.
+
+Bus layout lives at `res://default_bus_layout.tres`, registered via
+`project.godot [audio] buses/default_bus_layout`.
+
+Sound design philosophy — the continuity brief for music + SFX — is in
+[`docs/sound_design.md`](sound_design.md). Read before generating any new
+audio.
 
 ## Data schemas (`scripts/data/`)
 
