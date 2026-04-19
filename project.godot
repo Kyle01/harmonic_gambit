@@ -24,14 +24,22 @@ CardCatalog="*res://scripts/autoload/card_catalog.gd"
 TurnManager="*res://scripts/autoload/turn_manager.gd"
 GambitEngine="*res://scripts/autoload/gambit_engine.gd"
 BandComposer="*res://scripts/autoload/band_composer.gd"
+AudioSettings="*res://scripts/autoload/audio_settings.gd"
+MusicDirector="*res://scripts/autoload/music_director.gd"
 MCPScreenshot="*res://addons/godot_mcp/mcp_screenshot_service.gd"
 MCPInputService="*res://addons/godot_mcp/mcp_input_service.gd"
 MCPGameInspector="*res://addons/godot_mcp/mcp_game_inspector_service.gd"
+
+[audio]
+
+buses/default_bus_layout="res://default_bus_layout.tres"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/window_width_override=2560
+window/size/window_height_override=1440
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep"
 

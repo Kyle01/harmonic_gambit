@@ -11,7 +11,7 @@ extends Control
 func _ready() -> void:
 	start_button.pressed.connect(_go.bind("res://scenes/ui/start_placeholder.tscn"))
 	catalog_button.pressed.connect(_go.bind("res://scenes/ui/catalog_placeholder.tscn"))
-	options_button.pressed.connect(_go.bind("res://scenes/ui/options_placeholder.tscn"))
+	options_button.pressed.connect(_go.bind("res://scenes/ui/options_menu.tscn"))
 	credits_button.pressed.connect(_go.bind("res://scenes/ui/credits_placeholder.tscn"))
 	admin_button.pressed.connect(_go.bind("res://scenes/ui/admin_placeholder.tscn"))
 	start_button.grab_focus()
