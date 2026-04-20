@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/admin_combat.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/levels/test_arena.tscn" id="2_arena"]
+[ext_resource type="FontFile" path="res://assets/fonts/silkscreen.ttf" id="3_ui_font"]
+
+[node name="AdminCombat" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Arena" parent="." instance=ExtResource("2_arena")]
+
+[node name="BackLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="BackButton" type="Button" parent="BackLayer"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 220.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.78, 0.94, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.82, 0.98, 1)
+theme_override_colors/font_focus_color = Color(1, 0.82, 0.98, 1)
+theme_override_fonts/font = ExtResource("3_ui_font")
+theme_override_font_sizes/font_size = 22
+text = "Back to Admin"

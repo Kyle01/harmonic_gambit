@@ -11,3 +11,5 @@ extends Resource
 @export var max_hp: int = 20
 @export var speed: float = 1.0
 @export var starting_gambits: Array[GambitDef] = []
+@export var portrait: Texture2D = null
+@export var flavor: String = ""

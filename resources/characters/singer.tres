@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/singer.png" id="2_portrait"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"singer"
+display_name = "Singer"
+sprite_frames = null
+instrument_role = &"vocals"
+max_hp = 20
+speed = 1.0
+starting_gambits = []
+portrait = ExtResource("2_portrait")
+flavor = "A balanced voice. Carries the room."
