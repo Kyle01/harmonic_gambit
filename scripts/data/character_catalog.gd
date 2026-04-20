@@ -29,4 +29,6 @@ static func _is_resource_file(file_name: String) -> bool:
 
 
 static func _by_display_name(a: CharacterDef, b: CharacterDef) -> bool:
-	return a.display_name.naturalnocasecmp_to(b.display_name) < 0
+	var a_key: String = a.display_name if a.display_name != "" else str(a.id)
+	var b_key: String = b.display_name if b.display_name != "" else str(b.id)
+	return a_key.naturalnocasecmp_to(b_key) < 0
