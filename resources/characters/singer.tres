@@ -10,8 +10,8 @@ script = ExtResource("4_ability")
 id = &"sharp_pitch"
 display_name = "Sharp Pitch"
 flavor = "A piercing note that breaks an enemy's stance."
-category = &"damage"
-scope = &"single"
+category = "damage"
+scope = "single"
 base_power = 5
 mp_cost = 0
 
@@ -20,8 +20,8 @@ script = ExtResource("4_ability")
 id = &"harmony"
 display_name = "Harmony"
 flavor = "A sustained note that mends a bandmate's wounds."
-category = &"support"
-scope = &"single"
+category = "support"
+scope = "single"
 base_power = 6
 mp_cost = 3
 
@@ -30,8 +30,8 @@ script = ExtResource("4_ability")
 id = &"chorus"
 display_name = "Chorus"
 flavor = "The chorus swells behind an ally, sharpening their strikes."
-category = &"support"
-scope = &"single"
+category = "support"
+scope = "single"
 base_power = 4
 mp_cost = 2
 
@@ -40,8 +40,8 @@ script = ExtResource("4_ability")
 id = &"crescendo"
 display_name = "Crescendo"
 flavor = "The song swells — every hostile caught in the wall of sound."
-category = &"damage"
-scope = &"all"
+category = "damage"
+scope = "all"
 base_power = 6
 mp_cost = 6
 
@@ -50,8 +50,8 @@ script = ExtResource("4_ability")
 id = &"echo_volley"
 display_name = "Echo Volley"
 flavor = "A ricocheting note that hops from enemy to enemy."
-category = &"damage"
-scope = &"chain"
+category = "damage"
+scope = "chain"
 base_power = 5
 mp_cost = 4
 

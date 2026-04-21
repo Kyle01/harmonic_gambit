@@ -32,6 +32,7 @@ func _ready() -> void:
 		push_warning("AdminCharacterDetail: target_def not set")
 		return
 	_apply_static()
+	_apply_slider_range()
 	_refresh(int(level_slider.value))
 
 
@@ -58,17 +59,29 @@ func _on_level_changed(value: float) -> void:
 
 func _refresh(level: int) -> void:
 	level_label.text = "Level %d" % level
-	hp_value.text = str(_stat(target_def.base_hp, target_def.hp_growth, level))
-	mp_value.text = str(_stat(target_def.base_mp, target_def.mp_growth, level))
-	atk_value.text = str(_stat(target_def.base_atk, target_def.atk_growth, level))
-	def_value.text = str(_stat(target_def.base_def, target_def.def_growth, level))
-	pow_value.text = str(_stat(target_def.base_pow, target_def.pow_growth, level))
-	spd_value.text = str(_stat(target_def.base_spd, target_def.spd_growth, level))
+	hp_value.text = str(CharacterDef.stat_at_level(target_def.base_hp, target_def.hp_growth, level))
+	mp_value.text = str(CharacterDef.stat_at_level(target_def.base_mp, target_def.mp_growth, level))
+	atk_value.text = str(
+		CharacterDef.stat_at_level(target_def.base_atk, target_def.atk_growth, level)
+	)
+	def_value.text = str(
+		CharacterDef.stat_at_level(target_def.base_def, target_def.def_growth, level)
+	)
+	pow_value.text = str(
+		CharacterDef.stat_at_level(target_def.base_pow, target_def.pow_growth, level)
+	)
+	spd_value.text = str(
+		CharacterDef.stat_at_level(target_def.base_spd, target_def.spd_growth, level)
+	)
 	_rebuild_learn_list(level)
 
 
-static func _stat(base: int, growth: int, level: int) -> int:
-	return base + growth * (level - 1)
+func _apply_slider_range() -> void:
+	var max_level: int = 1
+	for entry: LearnEntry in target_def.learn_list:
+		if entry != null:
+			max_level = max(max_level, entry.level)
+	level_slider.max_value = float(max_level)
 
 
 func _rebuild_learn_list(slider_level: int) -> void:
@@ -113,7 +126,7 @@ static func _meta_line(ability: AbilityDef) -> String:
 	return (
 		"%s · %s · Power %d · MP %d"
 		% [
-			str(ability.category).to_upper(),
+			ability.category.to_upper(),
 			_scope_label(ability.scope),
 			ability.base_power,
 			ability.mp_cost,
@@ -121,11 +134,11 @@ static func _meta_line(ability: AbilityDef) -> String:
 	)
 
 
-static func _scope_label(scope: StringName) -> String:
+static func _scope_label(scope: String) -> String:
 	match scope:
-		&"all":
+		"all":
 			return "AoE"
-		&"chain":
+		"chain":
 			return "Chain"
 		_:
 			return "Single"

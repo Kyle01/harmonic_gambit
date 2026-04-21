@@ -34,3 +34,7 @@ extends Resource
 @export_group("Presentation")
 @export var portrait: Texture2D = null
 @export var flavor: String = ""
+
+
+static func stat_at_level(base: int, growth: int, level: int) -> int:
+	return base + growth * (level - 1)

@@ -107,12 +107,12 @@ All `class_name`'d. Typed fields only. No logic.
   base + linear-growth stats (`HP/ATK/DEF/POW/SPD`), `learn_list:
   Array[LearnEntry]` gating abilities by level.
 - **`AbilityDef`** — atomic move referenced by `LearnEntry` and (today
-  stringly, later typed) by `GambitDef.action_id`. `category` (`&"damage"` |
-  `&"support"`) drives category-rigid stat scaling (damage→ATK, support→POW);
-  `scope` (`&"single"` | `&"all"` | `&"chain"`) declares targeting pattern;
-  `mp_cost` is the caster's MP spend (basics are 0 / always usable).
-  Authored inline as SubResources inside a character's `.tres`, not as
-  standalone ability files.
+  stringly, later typed) by `GambitDef.action_id`. `category` (`"damage"` |
+  `"support"`, editor-enforced via `@export_enum`) drives category-rigid
+  stat scaling (damage→ATK, support→POW); `scope` (`"single"` | `"all"` |
+  `"chain"`, same constraint) declares targeting pattern; `mp_cost` is the
+  caster's MP spend (basics are 0 / always usable). Authored inline as
+  SubResources inside a character's `.tres`, not as standalone ability files.
 - **`LearnEntry`** — `{level, ability}` pair in a `CharacterDef.learn_list`.
 - **`EventNode`** — a node in the FTL-style run map (`COMBAT`, `ELITE`,
   `LORE`, `SHOP`, `REST`).
