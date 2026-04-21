@@ -102,6 +102,9 @@ All `class_name`'d. Typed fields only. No logic.
 - **`GambitCard extends Card`** — wraps `GambitDef`.
 - **`BandCard extends Card`** — `required_roles: Array[StringName]`,
   `bonus_payload: Resource` (tightens to `BandBonus` later).
+  `required_roles` entries must come from the canonical instrument-role
+  vocabulary (see below); authoring against free-form strings will
+  silently fail to match at `BandComposer` evaluation time.
 - **`EnemyDef`** — stats, `sprite_frames`, `default_gambits`.
 - **`CharacterDef`** — playable character template: `instrument_role`,
   base + linear-growth stats (`HP/ATK/DEF/POW/SPD`), `learn_list:
@@ -109,13 +112,42 @@ All `class_name`'d. Typed fields only. No logic.
 - **`AbilityDef`** — atomic move referenced by `LearnEntry` and (today
   stringly, later typed) by `GambitDef.action_id`. `category` (`"damage"` |
   `"support"`, editor-enforced via `@export_enum`) drives category-rigid
-  stat scaling (damage→ATK, support→POW); `scope` (`"single"` | `"all"` |
-  `"chain"`, same constraint) declares targeting pattern; `mp_cost` is the
-  caster's MP spend (basics are 0 / always usable). Authored inline as
+  stat scaling (damage→ATK, support→POW); `scope` (`"single"` | `"splash"` |
+  `"chain"` | `"all"`, same constraint) declares targeting pattern —
+  `single` hits the primary target, `splash` hits the primary at full power
+  and adjacent enemies at a reduced fraction, `chain` bounces with
+  decaying probability, `all` hits every enemy; `mp_cost` is the caster's
+  MP spend (basics are 0 / always usable). Authored inline as
   SubResources inside a character's `.tres`, not as standalone ability files.
 - **`LearnEntry`** — `{level, ability}` pair in a `CharacterDef.learn_list`.
 - **`EventNode`** — a node in the FTL-style run map (`COMBAT`, `ELITE`,
   `LORE`, `SHOP`, `REST`).
+
+### Instrument-role vocabulary
+
+`CharacterDef.instrument_role` and `BandCard.required_roles` share one
+namespace. The authored roster defines the canonical set — keep this
+list and the character `.tres` files in lockstep, and update any
+`BandCard.required_roles` in the same PR that renames or adds a role.
+
+| Role (StringName) | Character |
+|---|---|
+| `&"vocals"` | Singer |
+| `&"lead_guitar"` | Guitar |
+| `&"drums"` | Drummer |
+| `&"keys"` | Keyboard |
+| `&"violin"` | Violin |
+| `&"bass"` | Bass |
+| `&"upright_bass"` | Standing Bass |
+| `&"turntables"` | DJ |
+| `&"sax"` | Saxophone |
+| `&"harp"` | Harp |
+| `&"cello"` | Cello |
+| `&"accordion"` | Accordion |
+
+Promote to a typed `BandRoles` constants file (or enum) once the set
+stabilizes — string-typed `StringName`s are load-bearing until then and
+typos will silently fail to match.
 
 ## Components (`scripts/components/`)
 

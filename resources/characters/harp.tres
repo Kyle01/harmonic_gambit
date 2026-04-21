@@ -1,0 +1,118 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/harp.png" id="2_portrait"]
+[ext_resource type="Script" path="res://scripts/data/learn_entry.gd" id="3_learn"]
+[ext_resource type="Script" path="res://scripts/data/ability_def.gd" id="4_ability"]
+
+[sub_resource type="Resource" id="Ability_harp_pluck"]
+script = ExtResource("4_ability")
+id = &"pluck"
+display_name = "Pluck"
+flavor = "A single bright string — soft but pointed."
+category = "damage"
+scope = "single"
+base_power = 3
+mp_cost = 0
+
+[sub_resource type="Resource" id="Ability_harp_soothing_chord"]
+script = ExtResource("4_ability")
+id = &"soothing_chord"
+display_name = "Soothing Chord"
+flavor = "A long, warm chord — an ally's wounds soften."
+category = "support"
+scope = "single"
+base_power = 7
+mp_cost = 3
+
+[sub_resource type="Resource" id="Ability_harp_call_back"]
+script = ExtResource("4_ability")
+id = &"call_back"
+display_name = "Call Back"
+flavor = "A melody the fallen cannot ignore — they come back to the stage."
+category = "support"
+scope = "single"
+base_power = 6
+mp_cost = 6
+
+[sub_resource type="Resource" id="Ability_harp_cascade"]
+script = ExtResource("4_ability")
+id = &"cascade"
+display_name = "Cascade"
+flavor = "Notes tumble across the strings — the whole party is lifted."
+category = "support"
+scope = "all"
+base_power = 5
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_harp_glissando"]
+script = ExtResource("4_ability")
+id = &"glissando"
+display_name = "Glissando"
+flavor = "A sweep across the strings — notes ricochet through the enemies."
+category = "damage"
+scope = "chain"
+base_power = 4
+mp_cost = 3
+
+[sub_resource type="Resource" id="Ability_harp_celestial_choir"]
+script = ExtResource("4_ability")
+id = &"celestial_choir"
+display_name = "Celestial Choir"
+flavor = "A chorus beyond the stage — the party is made whole."
+category = "support"
+scope = "all"
+base_power = 9
+mp_cost = 6
+
+[sub_resource type="Resource" id="LearnEntry_harp_lv1"]
+script = ExtResource("3_learn")
+level = 1
+ability = SubResource("Ability_harp_pluck")
+
+[sub_resource type="Resource" id="LearnEntry_harp_lv3"]
+script = ExtResource("3_learn")
+level = 3
+ability = SubResource("Ability_harp_soothing_chord")
+
+[sub_resource type="Resource" id="LearnEntry_harp_lv5"]
+script = ExtResource("3_learn")
+level = 5
+ability = SubResource("Ability_harp_call_back")
+
+[sub_resource type="Resource" id="LearnEntry_harp_lv6"]
+script = ExtResource("3_learn")
+level = 6
+ability = SubResource("Ability_harp_cascade")
+
+[sub_resource type="Resource" id="LearnEntry_harp_lv8"]
+script = ExtResource("3_learn")
+level = 8
+ability = SubResource("Ability_harp_glissando")
+
+[sub_resource type="Resource" id="LearnEntry_harp_lv10"]
+script = ExtResource("3_learn")
+level = 10
+ability = SubResource("Ability_harp_celestial_choir")
+
+[resource]
+script = ExtResource("1_script")
+id = &"harp"
+display_name = "Harp"
+sprite_frames = null
+instrument_role = &"harp"
+base_hp = 20
+hp_growth = 2
+base_mp = 4
+mp_growth = 1
+base_atk = 4
+atk_growth = 1
+base_def = 3
+def_growth = 1
+base_pow = 9
+pow_growth = 2
+base_spd = 5
+spd_growth = 1
+learn_list = [SubResource("LearnEntry_harp_lv1"), SubResource("LearnEntry_harp_lv3"), SubResource("LearnEntry_harp_lv5"), SubResource("LearnEntry_harp_lv6"), SubResource("LearnEntry_harp_lv8"), SubResource("LearnEntry_harp_lv10")]
+portrait = ExtResource("2_portrait")
+flavor = "Thirty-six strings, thirty-six answers. The band plays on."

@@ -1,0 +1,103 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/violin.png" id="2_portrait"]
+[ext_resource type="Script" path="res://scripts/data/learn_entry.gd" id="3_learn"]
+[ext_resource type="Script" path="res://scripts/data/ability_def.gd" id="4_ability"]
+
+[sub_resource type="Resource" id="Ability_violin_staccato"]
+script = ExtResource("4_ability")
+id = &"staccato"
+display_name = "Staccato"
+flavor = "A clipped, stinging note — quick and sharp."
+category = "damage"
+scope = "single"
+base_power = 4
+mp_cost = 0
+
+[sub_resource type="Resource" id="Ability_violin_arpeggio_strike"]
+script = ExtResource("4_ability")
+id = &"arpeggio_strike"
+display_name = "Arpeggio Strike"
+flavor = "A cascade of notes — may bounce between enemies."
+category = "damage"
+scope = "chain"
+base_power = 4
+mp_cost = 2
+
+[sub_resource type="Resource" id="Ability_violin_allegro"]
+script = ExtResource("4_ability")
+id = &"allegro"
+display_name = "Allegro"
+flavor = "The bow blurs — notes ricochet across the enemy line."
+category = "damage"
+scope = "chain"
+base_power = 5
+mp_cost = 3
+
+[sub_resource type="Resource" id="Ability_violin_fortissimo"]
+script = ExtResource("4_ability")
+id = &"fortissimo"
+display_name = "Fortissimo"
+flavor = "A single, shattering note — loud enough to bruise."
+category = "damage"
+scope = "single"
+base_power = 9
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_violin_presto_finale"]
+script = ExtResource("4_ability")
+id = &"presto_finale"
+display_name = "Presto Finale"
+flavor = "The final flourish — the stage goes white."
+category = "damage"
+scope = "all"
+base_power = 6
+mp_cost = 6
+
+[sub_resource type="Resource" id="LearnEntry_violin_lv1"]
+script = ExtResource("3_learn")
+level = 1
+ability = SubResource("Ability_violin_staccato")
+
+[sub_resource type="Resource" id="LearnEntry_violin_lv2"]
+script = ExtResource("3_learn")
+level = 2
+ability = SubResource("Ability_violin_arpeggio_strike")
+
+[sub_resource type="Resource" id="LearnEntry_violin_lv5"]
+script = ExtResource("3_learn")
+level = 5
+ability = SubResource("Ability_violin_allegro")
+
+[sub_resource type="Resource" id="LearnEntry_violin_lv7"]
+script = ExtResource("3_learn")
+level = 7
+ability = SubResource("Ability_violin_fortissimo")
+
+[sub_resource type="Resource" id="LearnEntry_violin_lv10"]
+script = ExtResource("3_learn")
+level = 10
+ability = SubResource("Ability_violin_presto_finale")
+
+[resource]
+script = ExtResource("1_script")
+id = &"violin"
+display_name = "Violin"
+sprite_frames = null
+instrument_role = &"violin"
+base_hp = 18
+hp_growth = 2
+base_mp = 3
+mp_growth = 1
+base_atk = 6
+atk_growth = 2
+base_def = 3
+def_growth = 1
+base_pow = 5
+pow_growth = 1
+base_spd = 8
+spd_growth = 1
+learn_list = [SubResource("LearnEntry_violin_lv1"), SubResource("LearnEntry_violin_lv2"), SubResource("LearnEntry_violin_lv5"), SubResource("LearnEntry_violin_lv7"), SubResource("LearnEntry_violin_lv10")]
+portrait = ExtResource("2_portrait")
+flavor = "Fleet bow, faster tongue. Hits many, hits often."

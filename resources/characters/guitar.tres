@@ -1,0 +1,103 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/guitar.png" id="2_portrait"]
+[ext_resource type="Script" path="res://scripts/data/learn_entry.gd" id="3_learn"]
+[ext_resource type="Script" path="res://scripts/data/ability_def.gd" id="4_ability"]
+
+[sub_resource type="Resource" id="Ability_guitar_riff"]
+script = ExtResource("4_ability")
+id = &"riff"
+display_name = "Riff"
+flavor = "A gritty chord stab that gets under an enemy's skin."
+category = "damage"
+scope = "single"
+base_power = 6
+mp_cost = 0
+
+[sub_resource type="Resource" id="Ability_guitar_power_chord"]
+script = ExtResource("4_ability")
+id = &"power_chord"
+display_name = "Power Chord"
+flavor = "Both hands, full force — one enemy wears it."
+category = "damage"
+scope = "single"
+base_power = 8
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_guitar_feedback"]
+script = ExtResource("4_ability")
+id = &"feedback"
+display_name = "Feedback"
+flavor = "Distortion rattles the target's guard."
+category = "damage"
+scope = "single"
+base_power = 9
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_guitar_shred"]
+script = ExtResource("4_ability")
+id = &"shred"
+display_name = "Shred"
+flavor = "Distortion rips through adjacent targets."
+category = "damage"
+scope = "splash"
+base_power = 7
+mp_cost = 5
+
+[sub_resource type="Resource" id="Ability_guitar_wall_of_sound"]
+script = ExtResource("4_ability")
+id = &"wall_of_sound"
+display_name = "Wall of Sound"
+flavor = "A standing wave that flattens the whole room."
+category = "damage"
+scope = "all"
+base_power = 9
+mp_cost = 6
+
+[sub_resource type="Resource" id="LearnEntry_guitar_lv1"]
+script = ExtResource("3_learn")
+level = 1
+ability = SubResource("Ability_guitar_riff")
+
+[sub_resource type="Resource" id="LearnEntry_guitar_lv3"]
+script = ExtResource("3_learn")
+level = 3
+ability = SubResource("Ability_guitar_power_chord")
+
+[sub_resource type="Resource" id="LearnEntry_guitar_lv5"]
+script = ExtResource("3_learn")
+level = 5
+ability = SubResource("Ability_guitar_feedback")
+
+[sub_resource type="Resource" id="LearnEntry_guitar_lv8"]
+script = ExtResource("3_learn")
+level = 8
+ability = SubResource("Ability_guitar_shred")
+
+[sub_resource type="Resource" id="LearnEntry_guitar_lv10"]
+script = ExtResource("3_learn")
+level = 10
+ability = SubResource("Ability_guitar_wall_of_sound")
+
+[resource]
+script = ExtResource("1_script")
+id = &"guitar"
+display_name = "Guitar"
+sprite_frames = null
+instrument_role = &"lead_guitar"
+base_hp = 18
+hp_growth = 2
+base_mp = 3
+mp_growth = 1
+base_atk = 10
+atk_growth = 3
+base_def = 3
+def_growth = 1
+base_pow = 3
+pow_growth = 1
+base_spd = 4
+spd_growth = 1
+learn_list = [SubResource("LearnEntry_guitar_lv1"), SubResource("LearnEntry_guitar_lv3"), SubResource("LearnEntry_guitar_lv5"), SubResource("LearnEntry_guitar_lv8"), SubResource("LearnEntry_guitar_lv10")]
+portrait = ExtResource("2_portrait")
+flavor = "All volume, all swagger. Built to break things."

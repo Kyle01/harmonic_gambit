@@ -140,6 +140,8 @@ static func _scope_label(scope: String) -> String:
 			return "AoE"
 		"chain":
 			return "Chain"
+		"splash":
+			return "Splash"
 		_:
 			return "Single"
 

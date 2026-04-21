@@ -1,0 +1,103 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/dj.png" id="2_portrait"]
+[ext_resource type="Script" path="res://scripts/data/learn_entry.gd" id="3_learn"]
+[ext_resource type="Script" path="res://scripts/data/ability_def.gd" id="4_ability"]
+
+[sub_resource type="Resource" id="Ability_dj_scratch"]
+script = ExtResource("4_ability")
+id = &"scratch"
+display_name = "Scratch"
+flavor = "Vinyl grinds under a quick hand — sharp and abrasive."
+category = "damage"
+scope = "single"
+base_power = 5
+mp_cost = 0
+
+[sub_resource type="Resource" id="Ability_dj_sample"]
+script = ExtResource("4_ability")
+id = &"sample"
+display_name = "Sample"
+flavor = "Captures an ally's sound and amps it — their next strike lands harder."
+category = "support"
+scope = "single"
+base_power = 5
+mp_cost = 3
+
+[sub_resource type="Resource" id="Ability_dj_crossfade"]
+script = ExtResource("4_ability")
+id = &"crossfade"
+display_name = "Crossfade"
+flavor = "Bass waves roll out — the adjacent feel it too."
+category = "damage"
+scope = "splash"
+base_power = 5
+mp_cost = 3
+
+[sub_resource type="Resource" id="Ability_dj_remix"]
+script = ExtResource("4_ability")
+id = &"remix"
+display_name = "Remix"
+flavor = "Rewinds an ally's state — wounds un-happen."
+category = "support"
+scope = "single"
+base_power = 7
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_dj_full_mix"]
+script = ExtResource("4_ability")
+id = &"full_mix"
+display_name = "Full Mix"
+flavor = "Every track drops at once. The whole floor feels it."
+category = "damage"
+scope = "all"
+base_power = 6
+mp_cost = 6
+
+[sub_resource type="Resource" id="LearnEntry_dj_lv1"]
+script = ExtResource("3_learn")
+level = 1
+ability = SubResource("Ability_dj_scratch")
+
+[sub_resource type="Resource" id="LearnEntry_dj_lv3"]
+script = ExtResource("3_learn")
+level = 3
+ability = SubResource("Ability_dj_sample")
+
+[sub_resource type="Resource" id="LearnEntry_dj_lv5"]
+script = ExtResource("3_learn")
+level = 5
+ability = SubResource("Ability_dj_crossfade")
+
+[sub_resource type="Resource" id="LearnEntry_dj_lv8"]
+script = ExtResource("3_learn")
+level = 8
+ability = SubResource("Ability_dj_remix")
+
+[sub_resource type="Resource" id="LearnEntry_dj_lv10"]
+script = ExtResource("3_learn")
+level = 10
+ability = SubResource("Ability_dj_full_mix")
+
+[resource]
+script = ExtResource("1_script")
+id = &"dj"
+display_name = "DJ"
+sprite_frames = null
+instrument_role = &"turntables"
+base_hp = 22
+hp_growth = 2
+base_mp = 3
+mp_growth = 1
+base_atk = 6
+atk_growth = 1
+base_def = 4
+def_growth = 1
+base_pow = 6
+pow_growth = 1
+base_spd = 6
+spd_growth = 1
+learn_list = [SubResource("LearnEntry_dj_lv1"), SubResource("LearnEntry_dj_lv3"), SubResource("LearnEntry_dj_lv5"), SubResource("LearnEntry_dj_lv8"), SubResource("LearnEntry_dj_lv10")]
+portrait = ExtResource("2_portrait")
+flavor = "Mix, scratch, drop. A little of everything, a lot of energy."

@@ -57,9 +57,9 @@ Autoload registry + signal contract in [`docs/architecture.md`](docs/architectur
 
 ---
 
-## Validation Before Commit
+## Validation Before PR
 
-**Hard gate before every PR — CI will reject the branch otherwise.** Run all three on the staged `.gd` files and fix any failures before `git push`:
+**Hard gate before every PR — CI will reject the branch otherwise.** Run all three on the staged `.gd` files and fix any failures before pushing:
 
 ```bash
 FILES=$(git ls-files '*.gd' | grep -v '^addons/')
@@ -104,20 +104,21 @@ Branch protection on `main`: PR required, `validate.yml` must pass, no force-pus
 
 ---
 
-## Commit Discipline
+## PR Hygiene
 
-- Small, frequent commits. One logical change per commit.
-- Imperative messages with type prefixes: `feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `test:`.
-- If `gdlint` fails, fix-forward in a follow-up commit — do not amend.
-- Never `--no-verify` to bypass hooks. Fix the underlying issue.
+Commit shape is not policed. PR shape is. A PR is the unit of review and the unit of value.
 
----
+- **One PR, one digestible unit of value.** Each PR should land something a reviewer can hold in their head — a feature, a fix, a refactor with a clear motivation.
+- **Don't stack PRs without being asked.** Default to folding new work into the active PR via a new commit. Only split into a separate PR when the user explicitly asks for it. If follow-up work emerges mid-review, fold it in and update the cover page.
+- **The PR must be complete.** Code, data, assets, and any doc updates needed to make the change coherent all land together. No "I'll fix the docs in a follow-up." If it's worth doing, it's worth doing in the same PR.
+- **Fill out the cover page.** Every PR needs a Summary (what changed and why, including design motivation for non-trivial work) and a Test plan (how it was verified — lint, headless import, MCP screenshot, manual play). Blank or one-line PR bodies are not acceptable. Update the cover page when scope grows.
+- **Only humans merge.** Never enable auto-merge, never merge an AI-authored PR automatically. Agents open PRs and wait for a human.
 
 ## Testing Workflow
 
-After any non-trivial change:
+Before opening a PR, after any non-trivial change:
 1. `gdparse` + `gdlint` + `gdformat --check` pass on all staged `.gd` files.
 2. Run the game via Godot MCP Pro (`play_scene` tool).
 3. Capture a screenshot of the relevant state.
 4. Visually verify the feature behaves as expected.
-5. Only then commit.
+5. Only then open the PR.

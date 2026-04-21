@@ -1,0 +1,118 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/sax.png" id="2_portrait"]
+[ext_resource type="Script" path="res://scripts/data/learn_entry.gd" id="3_learn"]
+[ext_resource type="Script" path="res://scripts/data/ability_def.gd" id="4_ability"]
+
+[sub_resource type="Resource" id="Ability_sax_blow"]
+script = ExtResource("4_ability")
+id = &"blow"
+display_name = "Blow"
+flavor = "A clean sharp note — bright and cutting."
+category = "damage"
+scope = "single"
+base_power = 4
+mp_cost = 0
+
+[sub_resource type="Resource" id="Ability_sax_riff_trade"]
+script = ExtResource("4_ability")
+id = &"riff_trade"
+display_name = "Riff Trade"
+flavor = "Trading phrases — notes bounce between enemies."
+category = "damage"
+scope = "chain"
+base_power = 4
+mp_cost = 2
+
+[sub_resource type="Resource" id="Ability_sax_smooth_tone"]
+script = ExtResource("4_ability")
+id = &"smooth_tone"
+display_name = "Smooth Tone"
+flavor = "A held, smoky note — an ally stands a little taller."
+category = "support"
+scope = "single"
+base_power = 6
+mp_cost = 3
+
+[sub_resource type="Resource" id="Ability_sax_groove"]
+script = ExtResource("4_ability")
+id = &"groove"
+display_name = "Groove"
+flavor = "The band locks in — party ATK-up."
+category = "support"
+scope = "all"
+base_power = 5
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_sax_solo_spotlight"]
+script = ExtResource("4_ability")
+id = &"solo_spotlight"
+display_name = "Solo Spotlight"
+flavor = "Stops the room — one ally becomes the whole song."
+category = "support"
+scope = "single"
+base_power = 8
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_sax_eight_bar_break"]
+script = ExtResource("4_ability")
+id = &"eight_bar_break"
+display_name = "Eight-Bar Break"
+flavor = "The drums drop — the band flies. Party ATK and SPD up."
+category = "support"
+scope = "all"
+base_power = 7
+mp_cost = 6
+
+[sub_resource type="Resource" id="LearnEntry_sax_lv1"]
+script = ExtResource("3_learn")
+level = 1
+ability = SubResource("Ability_sax_blow")
+
+[sub_resource type="Resource" id="LearnEntry_sax_lv2"]
+script = ExtResource("3_learn")
+level = 2
+ability = SubResource("Ability_sax_riff_trade")
+
+[sub_resource type="Resource" id="LearnEntry_sax_lv4"]
+script = ExtResource("3_learn")
+level = 4
+ability = SubResource("Ability_sax_smooth_tone")
+
+[sub_resource type="Resource" id="LearnEntry_sax_lv6"]
+script = ExtResource("3_learn")
+level = 6
+ability = SubResource("Ability_sax_groove")
+
+[sub_resource type="Resource" id="LearnEntry_sax_lv8"]
+script = ExtResource("3_learn")
+level = 8
+ability = SubResource("Ability_sax_solo_spotlight")
+
+[sub_resource type="Resource" id="LearnEntry_sax_lv10"]
+script = ExtResource("3_learn")
+level = 10
+ability = SubResource("Ability_sax_eight_bar_break")
+
+[resource]
+script = ExtResource("1_script")
+id = &"sax"
+display_name = "Saxophone"
+sprite_frames = null
+instrument_role = &"sax"
+base_hp = 22
+hp_growth = 2
+base_mp = 4
+mp_growth = 1
+base_atk = 5
+atk_growth = 1
+base_def = 4
+def_growth = 1
+base_pow = 8
+pow_growth = 2
+base_spd = 5
+spd_growth = 1
+learn_list = [SubResource("LearnEntry_sax_lv1"), SubResource("LearnEntry_sax_lv2"), SubResource("LearnEntry_sax_lv4"), SubResource("LearnEntry_sax_lv6"), SubResource("LearnEntry_sax_lv8"), SubResource("LearnEntry_sax_lv10")]
+portrait = ExtResource("2_portrait")
+flavor = "Smoky, soulful. Lifts the whole band in one breath."
