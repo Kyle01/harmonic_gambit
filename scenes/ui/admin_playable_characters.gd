@@ -3,6 +3,7 @@ extends Control
 
 const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_placeholder.tscn"
 const CHARACTER_DETAIL_PATH: String = "res://scenes/ui/admin_character_detail.tscn"
+const CHARACTER_DETAIL_SCRIPT = preload("res://scenes/ui/admin_character_detail.gd")
 const CARD_TILE_SCENE: PackedScene = preload("res://scenes/ui/components/character_card_tile.tscn")
 
 @onready var card_grid: GridContainer = $Scroll/CardGrid
@@ -31,7 +32,7 @@ func _populate() -> void:
 
 
 func _on_tile_selected(def: CharacterDef) -> void:
-	AdminCharacterDetail.target_def = def
+	CHARACTER_DETAIL_SCRIPT.target_def = def
 	get_tree().change_scene_to_file(CHARACTER_DETAIL_PATH)
 
 
