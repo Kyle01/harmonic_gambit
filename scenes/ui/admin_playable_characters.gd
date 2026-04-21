@@ -2,6 +2,7 @@ class_name AdminPlayableCharacters
 extends Control
 
 const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_placeholder.tscn"
+const CHARACTER_DETAIL_PATH: String = "res://scenes/ui/admin_character_detail.tscn"
 const CARD_TILE_SCENE: PackedScene = preload("res://scenes/ui/components/character_card_tile.tscn")
 
 @onready var card_grid: GridContainer = $Scroll/CardGrid
@@ -26,6 +27,12 @@ func _populate() -> void:
 		var tile: CharacterCardTile = CARD_TILE_SCENE.instantiate() as CharacterCardTile
 		card_grid.add_child(tile)
 		tile.setup(def)
+		tile.selected.connect(_on_tile_selected)
+
+
+func _on_tile_selected(def: CharacterDef) -> void:
+	AdminCharacterDetail.target_def = def
+	get_tree().change_scene_to_file(CHARACTER_DETAIL_PATH)
 
 
 func _back() -> void:

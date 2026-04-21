@@ -74,9 +74,11 @@ No stat upgrades, no permanent unlocks that make future runs mechanically easier
 Starts **solo.** Party recruitment happens during runs via events / shop nodes. Max **10 members.**
 
 Each character has:
-- Base stats (HP, speed).
+- **Stats:** HP, ATK, DEF, POW, SPD + an MP pool. HP and MP are pools; ATK/DEF/POW/SPD are per-hit magnitudes. Stats scale magnitudes (ATK → damage output, POW → support output); rhythm-prompt quality scales whether an ability lands.
+- **MP economy:** basic abilities are free; stronger abilities cost MP. Regen is a **per-turn drip** during combat, and the pool **resets full between battles** (unlike HP, which persists across combats within a run). Potions refill MP mid-combat.
 - An **instrument role** (feeds band composition).
-- A starting gambit list (editable during the run as gambit cards drop).
+- A **learn list** gating abilities by level — level-1 entries are starters, higher-level entries unlock as the character gains XP within the run.
+- A gambit list (editable during the run as gambit cards drop) referencing the character's known abilities.
 
 ---
 
@@ -130,3 +132,5 @@ These may surface later but shouldn't influence current architecture decisions.
 2. **Shared-timer vs. per-actor ATB.** The shared timer is the current bet; keep `SchedulingModel` swappable until prototyping validates.
 3. **Band bonus UX.** How does the player see which band card is active and what the composition requirements are? Needs design pass during UI work.
 4. **Card rarity / drop economy.** Not yet designed. Will inform how many cards need to exist at ship.
+5. **Character growth-curve shape.** Stats currently grow as `base + growth * (level - 1)` — a linear model. Whether some characters should feel *late-bloomer* or *front-loaded* (non-linear curves) is deferred until balance passes reveal whether linear can hit the intended feel.
+6. **MP regeneration specifics.** Per-turn drip is chosen; the exact drip amount (global vs. per-character), whether rhythm-hit quality refunds MP, and whether any buffs modify regen are all unresolved. Balance passes will tune.

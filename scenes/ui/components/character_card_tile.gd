@@ -1,7 +1,10 @@
 class_name CharacterCardTile
 extends PanelContainer
 
+signal selected(def: CharacterDef)
+
 var _pending_def: CharacterDef = null
+var _def: CharacterDef = null
 
 @onready var portrait_rect: TextureRect = $Margin/Rows/Portrait
 @onready var name_label: Label = $Margin/Rows/NameLabel
@@ -10,6 +13,7 @@ var _pending_def: CharacterDef = null
 
 
 func setup(def: CharacterDef) -> void:
+	_def = def
 	if is_node_ready():
 		_apply(def)
 	else:
@@ -31,3 +35,18 @@ func _apply(def: CharacterDef) -> void:
 		portrait_rect.visible = true
 	else:
 		portrait_rect.texture = null
+
+
+func _gui_input(event: InputEvent) -> void:
+	if _def == null:
+		return
+	var fired: bool = false
+	if event is InputEventMouseButton:
+		var mb: InputEventMouseButton = event
+		if mb.button_index == MOUSE_BUTTON_LEFT and mb.pressed:
+			fired = true
+	elif event.is_action_pressed("ui_accept"):
+		fired = true
+	if fired:
+		selected.emit(_def)
+		accept_event()
