@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/drummer.png" id="2_portrait"]
+[ext_resource type="Script" path="res://scripts/data/learn_entry.gd" id="3_learn"]
+[ext_resource type="Script" path="res://scripts/data/ability_def.gd" id="4_ability"]
+
+[sub_resource type="Resource" id="Ability_drummer_snare_hit"]
+script = ExtResource("4_ability")
+id = &"snare_hit"
+display_name = "Snare Hit"
+flavor = "A sharp crack that keeps the tempo honest."
+category = "damage"
+scope = "single"
+base_power = 5
+mp_cost = 0
+
+[sub_resource type="Resource" id="Ability_drummer_downbeat"]
+script = ExtResource("4_ability")
+id = &"downbeat"
+display_name = "Downbeat"
+flavor = "A deep pulse that demands attention — enemies focus on the drummer."
+category = "support"
+scope = "single"
+base_power = 5
+mp_cost = 3
+
+[sub_resource type="Resource" id="Ability_drummer_backbeat"]
+script = ExtResource("4_ability")
+id = &"backbeat"
+display_name = "Backbeat"
+flavor = "The beat steadies the whole band — party DEF-up."
+category = "support"
+scope = "all"
+base_power = 5
+mp_cost = 4
+
+[sub_resource type="Resource" id="Ability_drummer_thunder_roll"]
+script = ExtResource("4_ability")
+id = &"thunder_roll"
+display_name = "Thunder Roll"
+flavor = "A drum solo that shakes the whole stage."
+category = "damage"
+scope = "all"
+base_power = 7
+mp_cost = 6
+
+[sub_resource type="Resource" id="LearnEntry_drummer_lv1"]
+script = ExtResource("3_learn")
+level = 1
+ability = SubResource("Ability_drummer_snare_hit")
+
+[sub_resource type="Resource" id="LearnEntry_drummer_lv4"]
+script = ExtResource("3_learn")
+level = 4
+ability = SubResource("Ability_drummer_downbeat")
+
+[sub_resource type="Resource" id="LearnEntry_drummer_lv7"]
+script = ExtResource("3_learn")
+level = 7
+ability = SubResource("Ability_drummer_backbeat")
+
+[sub_resource type="Resource" id="LearnEntry_drummer_lv10"]
+script = ExtResource("3_learn")
+level = 10
+ability = SubResource("Ability_drummer_thunder_roll")
+
+[resource]
+script = ExtResource("1_script")
+id = &"drummer"
+display_name = "Drummer"
+sprite_frames = null
+instrument_role = &"drums"
+base_hp = 30
+hp_growth = 3
+base_mp = 2
+mp_growth = 1
+base_atk = 6
+atk_growth = 1
+base_def = 7
+def_growth = 2
+base_pow = 4
+pow_growth = 1
+base_spd = 3
+spd_growth = 1
+learn_list = [SubResource("LearnEntry_drummer_lv1"), SubResource("LearnEntry_drummer_lv4"), SubResource("LearnEntry_drummer_lv7"), SubResource("LearnEntry_drummer_lv10")]
+portrait = ExtResource("2_portrait")
+flavor = "Keeps time. Takes hits. Time keeps itself."
