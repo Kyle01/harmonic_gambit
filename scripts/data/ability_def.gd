@@ -23,6 +23,6 @@ extends Resource
 @export var display_name: String = ""
 @export var flavor: String = ""
 @export_enum("damage", "support") var category: String = "damage"
-@export_enum("single", "all", "chain") var scope: String = "single"
+@export_enum("single", "splash", "chain", "all") var scope: String = "single"
 @export var base_power: int = 0
 @export var mp_cost: int = 0
