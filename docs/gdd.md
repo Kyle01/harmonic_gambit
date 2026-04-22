@@ -4,7 +4,7 @@ Human-facing design reference. Hard engineering rules live in `CLAUDE.md`; code 
 
 ## Pitch
 
-A pixel-art **roguelite RPG** where combat is a musical performance. You don't directly control your party — you compose the AI that fights for you (FF12-style gambits), build musical band lineups from drops, and play rhythm prompts on every action. Pitched as *Synthwave Pandora*: vaporwave × high fantasy, in the lineage of *Brütal Legend*.
+A pixel-art **roguelite RPG** where combat is a musical performance. You don't directly control your party — you compose the AI that fights for you (FF12-style gambits), build musical band lineups from drops, and play rhythm prompts on every action. Set inside **The Realm** — a shared hippie-dreamscape the archetype-musicians slip into. Full fiction and tonal direction in [`world.md`](world.md). *Brütal Legend* is retained as the music-as-combat touchstone; the world's tone and aesthetic are fully distinct.
 
 `harmonic_rogue` is a working-directory slug, not the final title.
 
@@ -85,7 +85,7 @@ Each character has:
 ## Aesthetic
 
 - **Pixel art**, 32-tile base grid (flexible up).
-- **Vaporwave × high fantasy** — neon pastels, synthwave palettes, mystic fantasy motifs. Picture *Synthwave Pandora*.
+- **Fictional and visual tonal direction: see [`world.md`](world.md).** The Realm is a hippie-dreamscape; color, shape, and prose voice are anchored there.
 - Combat screen feels like a stage performance, not a battlefield.
 - Music is diegetic — the band you've assembled is what plays. The rhythm prompts are *them playing*.
 
