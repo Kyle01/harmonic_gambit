@@ -1,13 +1,14 @@
-class_name AdminCombat
-extends Node2D
+class_name AdminRegions
+extends Control
 
 const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_hub.tscn"
 
-@onready var back_button: Button = $BackLayer/BackButton
+@onready var back_button: Button = $BackButton
 
 
 func _ready() -> void:
 	back_button.pressed.connect(_back)
+	back_button.grab_focus()
 
 
 func _unhandled_input(event: InputEvent) -> void:

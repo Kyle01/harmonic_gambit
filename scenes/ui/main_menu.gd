@@ -13,7 +13,7 @@ func _ready() -> void:
 	catalog_button.pressed.connect(_go.bind("res://scenes/ui/catalog_placeholder.tscn"))
 	options_button.pressed.connect(_go.bind("res://scenes/ui/options_menu.tscn"))
 	credits_button.pressed.connect(_go.bind("res://scenes/ui/credits_placeholder.tscn"))
-	admin_button.pressed.connect(_go.bind("res://scenes/ui/admin_placeholder.tscn"))
+	admin_button.pressed.connect(_go.bind("res://scenes/ui/admin_hub.tscn"))
 	start_button.grab_focus()
 
 

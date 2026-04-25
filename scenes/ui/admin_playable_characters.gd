@@ -1,7 +1,7 @@
 class_name AdminPlayableCharacters
 extends Control
 
-const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_placeholder.tscn"
+const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_hub.tscn"
 const CHARACTER_DETAIL_PATH: String = "res://scenes/ui/admin_character_detail.tscn"
 const CHARACTER_DETAIL_SCRIPT = preload("res://scenes/ui/admin_character_detail.gd")
 const CARD_TILE_SCENE: PackedScene = preload("res://scenes/ui/components/character_card_tile.tscn")
