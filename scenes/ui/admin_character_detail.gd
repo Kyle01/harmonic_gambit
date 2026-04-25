@@ -4,7 +4,7 @@ extends Control
 const ADMIN_PC_PATH: String = "res://scenes/ui/admin_playable_characters.tscn"
 const UI_FONT: Font = preload("res://assets/fonts/munro_small.ttf")
 const COLOR_TITLE: Color = Color(1, 0.898, 0.4, 1)
-const COLOR_META: Color = Color(1, 0.5608, 0.8314, 1)
+const COLOR_META: Color = Color(0.9569, 0.9333, 0.8392, 1)
 const COLOR_LOCKED: Color = Color(0.5, 0.5, 0.5, 1)
 
 static var target_def: CharacterDef = null

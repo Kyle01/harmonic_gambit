@@ -22,7 +22,7 @@ jobs:
     env:
       MODEL: gpt-5.4
       MAX_COMPLETION_TOKENS: "4000"
-      MAX_DIFF_BYTES: "51200"
+      MAX_DIFF_BYTES: "204800"
 
     steps:
       - name: Check OPENAI_API_KEY availability
@@ -81,6 +81,7 @@ jobs:
             ':(exclude)*.ttf' \
             ':(exclude)*.otf' \
             ':(exclude)*.import' \
+            ':(exclude)*.generated.json' \
             > diff.patch
 
       - name: Run AI review

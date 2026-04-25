@@ -32,6 +32,6 @@ offset_top = 120.0
 offset_right = 800.0
 offset_bottom = 600.0
 theme = ExtResource("5_theme")
-theme_override_colors/font_color = Color(1, 0.5608, 0.8314, 1)
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
 theme_override_font_sizes/font_size = 18
 text = ""
