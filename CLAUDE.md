@@ -9,6 +9,7 @@ Read these when the task calls for it — don't guess from memory.
 - **[`docs/gdd.md`](docs/gdd.md)** — game design: pillars, combat timing, run structure, party, aesthetic, platforms, open design questions. **Read before making any design-affecting decision.**
 - **[`docs/architecture.md`](docs/architecture.md)** — code architecture: three-layer rules, autoload contract, signal names, Resource schemas. **Read before adding or moving any system.**
 - **[`docs/sound_design.md`](docs/sound_design.md)** — sound design continuity brief: music philosophy, diegesis rule, ElevenLabs prompt recipes, SFX rules. **Read before generating or tuning any audio.**
+- **[`docs/world.md`](docs/world.md)** — world brief: the Realm, archetypes, what the world is and is NOT. **Read before writing any copy or generating any art.**
 - **[`README.md`](README.md)** — dev setup, how to run, project layout.
 
 If a design question isn't answered in `docs/gdd.md`, surface it to the user rather than inventing an answer. The GDD's "Known open questions" section is the active design backlog.

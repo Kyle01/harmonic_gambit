@@ -4,14 +4,29 @@ This is the continuity brief for every piece of audio in the game — music,
 SFX, ambience. Read before generating any new audio with ElevenLabs (or any
 other source) and before tuning volumes, buses, or audio-adjacent UI.
 
+*Tonal direction for the world lives in `world.md`; this doc translates
+that direction into sonic rules.*
+
 ## North star
 
-Atmospheric, minimalist synthwave. Synthesizer and electronic-piano forward.
-Melancholy — favor minor keys, suspended chords, and unresolved motion. The
-single most important adjective is **restful**: the mix breathes, rests are
-part of the composition, and nothing fights the player for attention. Quiet
-is a choice we make deliberately, not a ceiling we happen to hit. When in
-doubt, simpler + quieter + more space.
+Late-1960s psychedelic communion. Warm, saturated, analog-sounding —
+tape warmth, tube glow, instruments you can hear people playing.
+Expansive: swirling reverbs, reversed sounds, generous space,
+instruments panning wide. Sincerely uplifting on the surface — a
+hippie anthem at the right depth — with subtle wrongness in the mix:
+something slightly off-pitch in the background, a note that sustains
+too long, a reverb tail that goes somewhere you didn't send it.
+
+The single most important adjective is **exaggerated**. Everything
+the Realm feels, the music feels more of. More color, more warmth,
+more ache.
+
+Genre coordinates: psychedelic rock (Jefferson Airplane, Grateful
+Dead, early Pink Floyd), orchestral psychedelic pop (*Yellow
+Submarine* soundtrack), acid folk (Vashti Bunyan, Tyrannosaurus Rex).
+Synesthetic crossover à la Psychonauts 2's PSI King's Sensorium —
+genres blur, instruments are expressive of color. Full tonal anchor
+in `world.md`.
 
 ## Diegesis rule (read this first)
 
@@ -30,14 +45,14 @@ stop and ask.
 
 ## Per-context directives
 
-| Context       | Source     | Mood directive                                                                 |
-|---------------|------------|---------------------------------------------------------------------------------|
-| Main menu     | Composed   | The north star, verbatim. Loopable, 60–90s. Establish the color of the game.   |
-| Map (FTL-node)| Composed   | Even quieter than main menu. Sparser. Traveling-between-fights energy.         |
-| Rest node     | Composed   | Warm, small, almost lullaby. Permit a slightly major lift but hold it brief.   |
-| Shop          | Composed   | Slightly more rhythmic + curious, still restrained. No upbeat pop energy.      |
-| Combat        | Diegetic   | Driven by party composition; do not author a backing track.                    |
-| Rhythm prompt | Diegetic   | Within-combat; see combat.                                                     |
+| Context       | Source     | Mood directive                                                                                              |
+|---------------|------------|-------------------------------------------------------------------------------------------------------------|
+| Main menu     | Composed   | Warm psychedelic communion. 60-80 BPM, loopable 75-90s. Tropeless hippie anthem; slight wrongness under it. |
+| Map (FTL-node)| Composed   | Traveling-between-fights. Sparser than main menu; same palette. Dreamy, drifting.                           |
+| Rest node     | Composed   | Softer, warmer, almost lullaby. A touch less exaggerated — the Realm lets you breathe here.                 |
+| Shop          | Composed   | More rhythmic and curious, jauntier. Still psychedelic, still warm.                                         |
+| Combat        | Diegetic   | Driven by party composition; do not author a backing track.                                                 |
+| Rhythm prompt | Diegetic   | Within-combat; see combat.                                                                                  |
 
 ## ElevenLabs prompt recipes
 
@@ -46,35 +61,40 @@ call time. The `compose_music` MCP tool is the default entry point.
 
 ### Theme / menu / map
 
-> Atmospheric minimalist synthwave. Solo analog synthesizer and soft
-> electronic piano. Minor key, slow tempo (60–75 BPM), sparse texture with
-> generous rests and breath between phrases. Melancholy but calm — the
-> feeling of walking through a quiet city at night. No drums, or a single
-> faint heartbeat kick at most. No vocals. Loopable. Restful, understated,
-> never dramatic.
+> Warm late-1960s psychedelic music. Analog instruments — electric
+> guitar with tape-warm amp, Hammond-style organ, flutes, tambourine,
+> soft brass. Slow-to-medium tempo (60-80 BPM). Loopable. Rich stereo
+> with swirling plate reverb and subtle phasing. Sincere, blissful,
+> expansive — a hippie anthem, not a parody. Underneath the bliss, a
+> subtle wrongness: an instrument slightly out of tune, a sustained
+> note that goes a beat too long, a reverb tail heading somewhere you
+> didn't send it. No vocals. Exaggerated warmth. Woodstock soundcheck
+> crossed with the *Yellow Submarine* soundtrack.
 
 Length: 75–90s for main menu, 45–60s for map loops.
 Output: prefer Ogg Vorbis; convert MP3 if that's all ElevenLabs returns.
 
 ### Rest node
 
-> Same palette as the main theme. A little warmer, softer high end. Brief
-> suspended-to-resolved lift once per loop, then back to space. 50–70s.
-> Same instruments, same key family, just a touch more hopeful.
+> Same palette as main theme, softer. Acoustic guitar fingerpicks,
+> flute, gentle tambourine, hand-drum pulse. Warmer mids, less
+> swirling reverb. Brief major-key lift once per loop, then back to
+> space. 50-70s. The Realm lets you breathe here.
 
 ### UI clicks & navigation SFX
 
 Use `text_to_sound_effects`.
 
-> Soft pixel-UI blip. Short, dry, one-shot. Synth-sine with a sharp attack
-> and a very short decay, no reverb. Around 80–120 ms. Friendly but not
-> cheerful — matches a melancholy synthwave menu.
+> Soft analog-synth blip, like a vintage tape-loop start or a warm
+> subtractive pluck. Short, dry, one-shot. ~80-120ms. Friendly but
+> understated; matches the warm psychedelic register without fighting
+> music for attention.
 
 ### Rhythm-prompt hit SFX
 
-> Tight percussive confirm. Subtractive-synth pluck with a snappy transient
-> and a short tail, ~150 ms. No ambient tail; must sit cleanly on top of
-> the band mix during combat.
+> Tight percussive confirm. Hand-drum transient or a warm analog
+> pluck with a snappy attack and short tail, ~150ms. Feels like part
+> of the band, not a UI click.
 
 ## SFX philosophy
 
