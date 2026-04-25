@@ -28,6 +28,13 @@ export/
 __pycache__/
 *.pyc
 
+# Project-local Python virtualenv for tools/ (rebuild via: python -m venv .venv)
+.venv/
+
+# Secrets — KEY=VALUE config for tools/ (commit .env.example as the template)
+.env
+.env.local
+
 # Aseprite local backups
 *.aseprite-bak
 

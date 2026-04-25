@@ -62,6 +62,57 @@ Viewport is **1280×720** (Switch handheld native) with `canvas_items` stretch +
 
 ---
 
+## Generating music
+
+Composed (non-combat) tracks are data-driven: each track has a sibling `*.spec.md` next to its audio file, and `tools/generate_music.py` renders the world music context (`docs/music.md`) plus the spec into a single ElevenLabs prompt, calls the API, and writes the audio + `.import` sidecar + `.generated.json` provenance.
+
+### One-time setup
+
+```sh
+python -m venv .venv
+source .venv/bin/activate                # zsh/bash; .venv\Scripts\activate on Windows
+pip install -r tools/requirements.txt
+cp .env.example .env                     # then edit .env and paste your ElevenLabs key
+```
+
+`.env` is gitignored — never committed. Get a key from <https://elevenlabs.io>.
+
+### Add a new track
+
+1. Copy an existing spec as a template:
+   ```sh
+   cp assets/audio/music/theme.spec.md assets/audio/music/<new>.spec.md
+   ```
+2. Edit the frontmatter and the body. Required frontmatter keys: `path` (where to write the audio), `loop` (true/false — also written into the `.import` sidecar), `length_sec`, `instrumental` (true = no vocals, false = vocals allowed; default lives in the spec, not the script). Optional: `context` (free-form metadata, e.g. `main_menu`, `rest`). Read `docs/music.md` first — palette and contrastive NOTs apply to every track.
+3. Dry-run to see the rendered prompt without spending credits:
+   ```sh
+   python tools/generate_music.py --spec assets/audio/music/<new>.spec.md --dry-run
+   ```
+4. Generate for real:
+   ```sh
+   python tools/generate_music.py --spec assets/audio/music/<new>.spec.md
+   ```
+5. Wire the track into `scripts/autoload/music_director.gd` if it needs runtime triggering. Commit the spec, `.mp3`, `.mp3.import`, and `.generated.json`.
+
+### Regenerate everything
+
+```sh
+python tools/generate_music.py --all
+```
+
+**Warning:** ElevenLabs music generation is non-deterministic. `--all` produces a *fresh OST* against the current source-of-truth specs — not byte-for-byte reproductions of the existing tracks. Use it when the world brief shifts or models improve. If you love a current track, save a copy before re-running so you can A/B.
+
+The `.generated.json` sidecar records the rendered prompt, model, timestamp, and audio SHA256 — useful for diffing two takes. The audio itself isn't reproducible from it.
+
+ElevenLabs caps the rendered prompt at 4100 characters. The script fails fast if the combined `music.md` + spec exceeds that.
+
+### Pointers
+
+- `docs/music.md` — what's *in* the world musically (palette, through-line, contrastive NOTs). The world context every spec is rendered against.
+- `docs/sound_design.md` — diegesis rule, SFX recipes, bus layout, volume defaults. Operational audio.
+
+---
+
 ## Validate before committing
 
 ```sh
