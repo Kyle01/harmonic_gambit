@@ -184,9 +184,56 @@ anchors the visual and prose voice for generative work.*
 
 ### Visual references
 
-*Yellow Submarine* (Heinz Edelmann, 1968), Peter Max poster art, Wes
-Wilson concert posters, *The Wizard of Oz* first-Technicolor reveal,
-Psychonauts 2's PSI King's Sensorium, classic Woodstock-era posters.
+Grouped by what each artist contributes to a generative image prompt.
+
+**Late-60s psychedelic poster canon (the visual DNA):**
+
+- **Heinz Edelmann** (*Yellow Submarine*, 1968) — saturated color
+  fields against organic flat shapes; the lineage entry point.
+- **Peter Max** — cosmic-pop poster art; warm-saturated rainbows,
+  star-and-figure compositions.
+- **Wes Wilson** — molten Fillmore typography; letters flowing into
+  organic shape.
+- **Victor Moscoso** — vibrating complementary colors that almost
+  hurt to look at. Direct fit for *impossibly saturated*.
+- **Alton Kelley** (Family Dog / Mouse Studios) — flowing nature
+  compositions; warm side of the SF poster scene.
+- **Hapshash and the Coloured Coat** (Nigel Waymouth + Michael
+  English) — UK psych poster collective; mystical, art-nouveau-curve
+  heavy.
+- **Bob Masse** — Vancouver psych posters; flowing female figures in
+  nature; art-nouveau-leaning warmth.
+
+**Art-nouveau ancestors (the formal vocabulary the psych poster
+artists were reviving):**
+
+- **Alphonse Mucha** — flowing decorative panels; direct ancestor of
+  Wilson and Moscoso's curvilinear linework.
+- **Gustav Klimt** — gold, ornamental, sincere-mystic register;
+  "reverent but not solemn" translated to image.
+- **Jan Toorop** — symbolist flowing line work; hand-drawn figure
+  silhouettes that feel non-human-scale.
+
+**Surreal landscape / dreamscape ("horizons that curve the wrong way"):**
+
+- **Moebius** (Jean Giraud) — dream-logic landscapes with clean
+  line; the strongest non-poster anchor.
+- **Roger Dean** — biomorphic alien environments; the
+  flowers-bigger-than-houses, floating-island energy. Take the
+  landscape language; leave the prog-fantasy connotation.
+
+**Visionary / synesthetic:**
+
+- **Keiichi Tanaami** — Japanese psychedelic pop; saturated AND
+  carrying the "looks utopian, feels unsettling" undertone the Realm
+  is built on.
+
+**Non-artist anchors:**
+
+*The Wizard of Oz* first-Technicolor reveal (the moment of color
+arriving), Psychonauts 2's PSI King's Sensorium (synesthetic music-
+as-landscape, closest contemporary game reference), classic
+Woodstock-era concert posters as a category.
 
 ## Values
 
