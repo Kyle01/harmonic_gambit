@@ -32,6 +32,12 @@ runs — fresh arrangement, same Realm.
 - **Place:** The Realm (colloquially, "the Trip" or "the Color"). Not
   Earth, not a planet. A shared dreamscape that archetypes slip into
   from an unseen waking life.
+- **Spatial structure:** The Realm contains roughly **30 Regions**,
+  drawn from **6–8 Region types** (archetypes that share visual /
+  sonic / encounter palette). A single run visits **7 Regions** along
+  an FTL-style node path. "The Realm" and "Region" are the only
+  spatial nouns — no tier above the Realm, no tier between Realm and
+  Region.
 - **Era / time:** Non-literal. Aesthetic touchstones: late-1960s
   hippie utopia exaggerated — Woodstock × Yellow Submarine × *The
   Wizard of Oz* first-color moment × Psychonauts 2's PSI King's
