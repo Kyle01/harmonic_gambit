@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/keyboard.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/keyboard.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/keyboard.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/keyboard.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Keyboard \u2014 character portrait\n\nThis card is **THE HIEROPHANT** from the Rider-Waite tarot,\nre-cast as a keyboard / piano player. The composition matches\nthe Hierophant card \u2014 formal seated priestly figure, hand\nraised in blessing \u2014 but the throne is a **piano keyboard\nconsole**: the keys spread across the lower portion of the\ncanvas like the pope's altar, and the figure plays it.\n\n## Figure\n\nThe **Keyboard archetype** \u2014 a PRIESTLY SCHOLAR elder,\nseated at a piano keyboard, hand raised in blessing.\nFormal, hieratic, dignified.\n\nFeatures:\n\n- **A full flowing white beard** reaching the chest.\n- **A triple-tiered crown or tall mitre-style headdress** in\n  gold-yellow with coral trim (priestly, not kingly).\n- **Wild white hair** visible at the sides.\n- **Heavy dark eyebrows** above small round spectacles.\n- **Formal layered priestly robes** \u2014 outer coral robe over\n  gold-yellow under-robe, with a dark-moss-green sash.\n- **Seated posture**, one hand raised palm-outward in\n  blessing/greeting gesture.\n\n## Instrument \u2014 CRITICAL (a piano keyboard)\n\nA **piano keyboard** is the defining symbol of this card \u2014\nit MUST appear prominently. The keyboard is the visual\ncenterpiece, occupying the lower portion of the canvas like\nthe Hierophant's altar:\n\n- **A long horizontal row of alternating black-and-white\n  piano keys** stretching across the lower third of the\n  canvas. The black-and-white striped pattern is the\n  unmistakable identifier and must be clearly readable.\n- **At least 14\u201320 keys visible**, each outlined with bold\n  black lines, the black accidental keys raised slightly\n  above the white naturals.\n- The keyboard sits in front of the seated figure like a\n  console / altar; the figure's free hand rests on the keys\n  while the other is raised in blessing.\n\n## Background\n\nFlat moss-green field with TWO TALL PILLARS flanking the\nfigure (one to each side) \u2014 simple bold-outlined columns in\ngold-yellow. Concentric rings behind the head like a halo.\nSmall scattered stars. Ornate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T16:06:45+00:00",
+  "output_sha256": "336c3cc741f9f3401103faa9faaa2ececd74f48785e20a542c23dfbdfe6af590",
+  "output_bytes": 75277
+}

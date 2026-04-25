@@ -113,6 +113,50 @@ ElevenLabs caps the rendered prompt at 4100 characters. The script fails fast if
 
 ---
 
+## Generating art
+
+Pixel art is data-driven on the same pattern as music. Every PNG asset has a sibling self-contained `*.spec.md` (YAML frontmatter — path, asset_type, dimensions — plus a markdown body describing the figure / instrument / pose / scene). `tools/generate_art.py` reads the spec, prepends a small asset-type lead-in (`SUBJECT_LEADS`) that carries the global tarot/flat-shading/palette rules, calls PixelLab pixflux, and writes the PNG + `.import` sidecar + `.generated.json` provenance. Models will improve; rerunning the script regenerates every asset from the same source-of-truth spec.
+
+### One-time setup
+
+```sh
+python -m venv .venv
+source .venv/bin/activate
+pip install -r tools/requirements.txt
+cp .env.example .env                     # then edit .env and paste keys
+```
+
+Required key: `PIXELLAB_SECRET` (from <https://pixellab.ai/account>).
+
+### Spec design
+
+Each `*.spec.md` is self-contained: pixflux loses the plot when prompts get composed across multiple files (empirically: 5500-char prompts produced vista-only scenes with no figure). The global aesthetic rules live in `SUBJECT_LEADS` inside `tools/generate_art.py` so they reach the API as a tight lead-in; the rest of the prompt is the spec's own body. `docs/art.md` and `docs/world.md` are pure design references for spec authors — they are not concatenated into prompts.
+
+### Add or regenerate an asset
+
+```sh
+# Dry-run prints the rendered prompt without spending API credits:
+python tools/generate_art.py --spec assets/sprites/characters/guitar.spec.md --dry-run
+
+# Generate for real (writes PNG + .import + .generated.json):
+python tools/generate_art.py --spec assets/sprites/characters/guitar.spec.md
+
+# Regenerate every spec under assets/sprites/ (skips _-prefixed non-targets):
+python tools/generate_art.py --all
+```
+
+### Regeneration semantics
+
+The PixelLab endpoint is non-deterministic. `--all` produces a *fresh art set* — not byte-for-byte reproductions. The `.generated.json` sidecar records the rendered prompt, model, dimensions, and PNG SHA256 — useful for diffing two takes. The image itself isn't reproducible from it.
+
+### Pointers
+
+- `docs/art.md` — universal aesthetic reference for spec authors (not concatenated into prompts).
+- `docs/typography.md` — font choices, license provenance, Theme wiring.
+- `docs/world.md` — fuller creative brief; `docs/art.md` is its visual distillation.
+
+---
+
 ## Validate before committing
 
 ```sh
@@ -134,7 +178,7 @@ For non-trivial scene or resource changes: open the scene in Godot (via MCP or m
 assets/
   sprites/{characters,enemies,items,tilesets,ui}/   # art (PixelLab → Aseprite → .tres)
   audio/
-  fonts/    # alagard.ttf (title display), silkscreen.ttf (UI body)
+  fonts/    # munro.ttf (title), munro_small.ttf (body) — see docs/typography.md
 
 scenes/
   actors/   # player.tscn, goblin.tscn, etc. — paired with per-scene .gd

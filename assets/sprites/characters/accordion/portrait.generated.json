@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/accordion.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/accordion.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/accordion.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/accordion.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Accordion \u2014 character portrait\n\n## Figure\n\nThe **Accordion archetype** \u2014 a wandering JESTER-FOOL, the\nvillage dance-caller stepping off a cliff into his own\nsong. Whimsical, smiling, light-footed.\n\nFeatures:\n\n- **A bushy grey handlebar mustache**, wide and curling\n  upward at the ends (signature feature).\n- **A round flat cap** (newsboy / peasant) in coral.\n- **A wide easy smile**.\n- **Short grey hair** visible under the cap.\n- **Rosy weather-worn cheeks**, crow's-feet at the eyes.\n- **A moss-green vest** over a loose gold-yellow shirt with\n  rolled sleeves.\n- **One leg raised mid-step** (walking / dancing posture).\n- **A small single coral rose or flower** tucked into the\n  cap or vest.\n\n## Instrument \u2014 CRITICAL (an accordion)\n\nAn **accordion** is the defining symbol. Draw flat, bold-\noutlined:\n\n- **Expanding pleated bellows** in the center (rows of\n  folded pleats \u2014 the unmistakable identifier).\n- **A keyboard or button panel** on one side (rows of small\n  round buttons).\n- **A bass-button panel** on the other side.\n- The accordion body is **box-shaped on each end**, bellows\n  stretched between.\n\nHeld across the chest, bellows wide, hands playing.\n\n## Background\n\nFlat gold-yellow field with a CLIFF-EDGE below the figure's\nfeet and distant small rolling mountains beyond. A bright\nsun disc in one corner. A small stylized white dog at the\nfigure's heel. Ornate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:59:12+00:00",
+  "output_sha256": "7319c9532407c86ec1c9450c21d08a3df6b12e93f1db395fdcfcf1b58ca39db1",
+  "output_bytes": 82999
+}

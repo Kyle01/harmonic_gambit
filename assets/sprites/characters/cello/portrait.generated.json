@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/cello.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/cello.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/cello.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/cello.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Cello \u2014 character portrait\n\n## Figure\n\nThe **Cello archetype** \u2014 a VEILED PRIESTESS, melancholy and\nmystical. Seated between two dark pillars, gazing outward\nwith quiet sorrow. NOT a bearded man \u2014 this is a female\nfigure, silver-haired, wise, still.\n\nFeatures:\n\n- **A female figure** with long silver-grey hair flowing\n  past the shoulders.\n- **A thin silver crescent-moon crown** on the forehead (two\n  upward horns of a crescent moon).\n- **A long flowing veil** in moss-green draped from the\n  crown, framing the face.\n- **A deep blue-moss-green robe** with coral accents at the\n  collar.\n- **A calm melancholy expression**, eyes looking toward the\n  viewer with quiet sadness.\n- **Seated posture**, upright and still.\n\n## Instrument \u2014 CRITICAL (a cello)\n\nA **cello** is the defining symbol. Draw flat, bold-outlined:\n\n- **A large curved wooden body** (violin-shaped, cello-\n  sized \u2014 roughly torso-size).\n- **Two S-shaped F-holes** on the body (violin-family\n  marker, distinguishes from guitar).\n- **A long neck** rising up beside the figure.\n- **An ornate scroll** at the top of the neck.\n- **Four strings** along the neck.\n- **A bow** in one hand, angled across the strings.\n\nThe cello sits vertically in front of the figure, body at\nchest level, neck extending up past the head.\n\n## Background\n\nFlat deep-moss-green field with TWO TALL BLACK PILLARS\nflanking the figure \u2014 one with a SUN motif at the top, the\nother with a MOON motif at the top. Small scattered stars.\nOrnate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:59:13+00:00",
+  "output_sha256": "d42b08e45d7182a6ec59933af514f6257844f813313e95d8a5b94156abcdfe46",
+  "output_bytes": 76208
+}

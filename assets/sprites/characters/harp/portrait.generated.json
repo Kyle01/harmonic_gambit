@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/harp.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/harp.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/harp.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/harp.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Harp \u2014 character portrait\n\nThis card is **TEMPERANCE** from the Rider-Waite tarot, re-\ncast as a harp player. Use the iconic Temperance composition:\na winged angelic androgynous figure with a halo, robes\nflowing, one foot on land and one in water, music passing\nbetween the hands like water between vessels. Match\nTEMPERANCE's symbolic register exactly \u2014 flat, hieratic,\nbold-outlined.\n\n## Figure\n\nAn **ANGELIC ANDROGYNOUS FIGURE** \u2014 beardless, serene,\nhaloed, winged. NOT a bearded elder. NOT a wizard. NOT a\nhermit. NOT a wanderer-prophet. NOT a man with a beard.\n\nFeatures:\n\n- **A young-to-middle-aged androgynous face**, beardless,\n  serene, eyes calmly closed or gently lowered.\n- **Long flowing white or silver hair**.\n- **A golden circle-halo** around the head.\n- **Two small white angel-wings** emerging from the\n  shoulders.\n- **Long flowing moss-green and gold-yellow robes** with\n  coral trim.\n- **Both hands raised**, one gently plucking the harp\n  strings, the other guiding the flow.\n- **One foot bare on land**, one foot touching water (if\n  visible).\n\n## Instrument \u2014 CRITICAL (a harp)\n\nA **harp** is the defining symbol. Draw flat, bold-outlined:\n\n- **A tall triangular frame** \u2014 a curved top beam meeting a\n  vertical pillar at a sharp point (the unmistakable harp\n  triangle silhouette).\n- **Many parallel vertical strings** filling the inside of\n  the triangle (15\u201320+ visible \u2014 the dense parallel lines\n  are the identifier).\n- **An ornate scrolled top** where beam meets pillar.\n- **A soundboard base** at the bottom.\n\nThe harp stands vertically in front of the figure, triangle\nprominent, the strings read like flowing water.\n\n## Background\n\nFlat moss-green field. A small path winds from the figure's\nfeet toward a distant rising sun at the horizon. Scattered\nsmall stars. Flowing bold-outlined water-ripples at the\nbase. Ornate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T16:00:22+00:00",
+  "output_sha256": "8ad12d9003d628825014637b2d0865adb2e8b64f54ddf6671664c6001d3dcc3d",
+  "output_bytes": 92102
+}

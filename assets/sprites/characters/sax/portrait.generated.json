@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/sax.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/sax.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/sax.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/sax.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Sax \u2014 character portrait\n\nThis card is **THE STAR** from the Rider-Waite tarot, re-cast\nas a saxophone player. Use the iconic Star composition: a\nyouthful figure in a flowing moss-green robe kneeling at the\nedge of a pool under one giant eight-pointed star and seven\nsmall stars, music pouring from the instrument like water.\nMatch THE STAR's symbolic register \u2014 flat, hieratic, bold-\noutlined.\n\n## Figure\n\nA **youthful nymph archetype** kneeling beside the pool \u2014\nslender, androgynous, beardless. Drawn as a hieratic\nsymbolic figure: flowing decorative curves rather than\nrealistic anatomy, ornate and stylized in the manner of an\nilluminated panel.\n\nFeatures:\n\n- **A young, gentle, beardless face**, eyes half-closed in\n  calm concentration.\n- **Long flowing wavy hair** down the back, drawn as\n  decorative ornamental curves, rose or coral tinted.\n- **A flowing moss-green robe / loose tunic** draped over\n  the body, gathered at the waist with a coral sash. The\n  figure is fully clothed.\n- **A small gold-star circlet** on the forehead.\n- **Kneeling pose**, one knee on the ground, one raised \u2014\n  the composition leans into curving organic line.\n\n## Instrument \u2014 CRITICAL (a saxophone, correctly oriented)\n\nA **saxophone** is the defining symbol. Draw flat, bold-\noutlined, in the correct anatomical orientation a real\nsaxophone holds:\n\n- **The mouthpiece is at the TOP**, touching the figure's\n  lips. A small black mouthpiece tip + a thin curved metal\n  neck (\"crook\") joins the mouthpiece to the main body.\n- **The main golden-brass body runs DOWNWARD** from the neck\n  along the front of the figure's torso.\n- **The flared BELL is at the BOTTOM**, curving up and\n  outward to one side \u2014 the classic J-curve / hook shape\n  with the bell-flare pointing FORWARD-and-UP, away from\n  the figure's body. The bell is the lowest visible part of\n  the instrument BEFORE its outward curl.\n- **Rows of small round keys / pads** run along the front of\n  the body between mouthpiece and bell. These flat circles\n  are the second-strongest sax identifier after the J-curve.\n- The saxophone reads as a \"?\" or hook silhouette: tall body,\n  bell flaring out near the bottom.\n\nThe figure plays into the mouthpiece at the top; music pours\nout of the bell at the bottom as a stream of sound-wave\nripples falling into a pool of water at the figure's feet.\n\n## Background\n\nFlat deep moss-green or indigo night sky with ONE LARGE\nEIGHT-POINTED STAR directly above the figure's head and\nseven smaller stars scattered around. A small pool of water\nat the figure's feet, music-ripples on its surface. Ornate\ntarot-style frame.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T16:06:26+00:00",
+  "output_sha256": "5bb941806ddef9dcdb5fb17009a5e25e1e7ef24b4db2cfa55d42cc1e41a3208a",
+  "output_bytes": 88763
+}
