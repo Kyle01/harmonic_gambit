@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/singer.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/singer.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/singer.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/singer.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Singer \u2014 character portrait\n\n## Figure\n\nThe **Singer archetype** \u2014 a JOYOUS RADIANT figure, the sun\ngiven voice. Arms raised in ecstatic song, mouth wide open.\nNOT an elder bearded figure \u2014 this is a youthful, genderless,\nbeaming figure, rapt in song.\n\nFeatures:\n\n- **A young, beardless, genderless face**, mouth wide open\n  in full-throated song.\n- **Long flowing rose or gold hair** radiating outward.\n- **Arms raised high above the head**, palms open, fingers\n  spread in rapture.\n- **A loose sleeveless moss-green tunic** or bare-shouldered\n  drape.\n- **A small crown of sunflowers / coral blossoms** on the\n  head.\n\n## Instrument \u2014 CRITICAL (voice as instrument)\n\nThe Singer's instrument is their VOICE. Render it\nsymbolically:\n\n- **Bold-outlined sound-wave ripples** radiating from the\n  open mouth outward across the canvas.\n- **Small stylized music-note shapes** floating in the air\n  around the figure.\n- NO microphone, NO megaphone, NO held object \u2014 the voice\n  itself, visualized as radiating waves and notes, is the\n  instrument.\n\n## Background\n\nFlat gold-yellow field with a LARGE GOLDEN SUN DISC behind\nthe figure's head, ray-spikes radiating outward to fill the\ncanvas. Small sunflower silhouettes along the bottom edge.\nOrnate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:59:11+00:00",
+  "output_sha256": "44e6f63232450d296198d34ea77b505b17ea7fc898d3e796b7491597f57617f4",
+  "output_bytes": 104724
+}

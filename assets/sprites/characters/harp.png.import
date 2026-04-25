@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpyp2t12gnejt"
-path="res://.godot/imported/harp.png-a10c39459650c1206117ab13d5bb30f4.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/harp.png"
-dest_files=["res://.godot/imported/harp.png-a10c39459650c1206117ab13d5bb30f4.ctex"]
 
 [params]
 

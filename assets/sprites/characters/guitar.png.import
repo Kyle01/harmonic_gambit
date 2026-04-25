@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cajskefbje0pw"
-path="res://.godot/imported/guitar.png-45ccf75225a44da165834589d96825cd.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/guitar.png"
-dest_files=["res://.godot/imported/guitar.png-45ccf75225a44da165834589d96825cd.ctex"]
 
 [params]
 

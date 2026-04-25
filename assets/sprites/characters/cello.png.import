@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqmacb3xipq7s"
-path="res://.godot/imported/cello.png-5e572c75757adb0428492984968f9395.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/cello.png"
-dest_files=["res://.godot/imported/cello.png-5e572c75757adb0428492984968f9395.ctex"]
 
 [params]
 

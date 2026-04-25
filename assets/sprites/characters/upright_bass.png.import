@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvr0aayahdty8"
-path="res://.godot/imported/upright_bass.png-0e04d451fdbf9b070e195fec27d2e979.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/upright_bass.png"
-dest_files=["res://.godot/imported/upright_bass.png-0e04d451fdbf9b070e195fec27d2e979.ctex"]
 
 [params]
 

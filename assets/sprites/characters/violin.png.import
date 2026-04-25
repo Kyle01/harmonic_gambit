@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://defye2rmoh3yi"
-path="res://.godot/imported/violin.png-6c2bd5c33c26112fb1c2f2a78491b9c1.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/violin.png"
-dest_files=["res://.godot/imported/violin.png-6c2bd5c33c26112fb1c2f2a78491b9c1.ctex"]
 
 [params]
 

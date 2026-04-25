@@ -1,2 +1,4 @@
 requests>=2.31
 PyYAML>=6.0
+pixellab>=1.0.5
+anthropic>=0.40

@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5mxh2ahvs23b"
-path="res://.godot/imported/accordion.png-3271094eecd8ff65c68c7b951f8168f7.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/accordion.png"
-dest_files=["res://.godot/imported/accordion.png-3271094eecd8ff65c68c7b951f8168f7.ctex"]
 
 [params]
 

@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://57jh3e0qr777"
-path="res://.godot/imported/singer.png-d8ceff78efc68c43e38268ec1d340d1f.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/singer.png"
-dest_files=["res://.godot/imported/singer.png-d8ceff78efc68c43e38268ec1d340d1f.ctex"]
 
 [params]
 

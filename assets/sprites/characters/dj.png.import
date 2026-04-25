@@ -3,15 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lonlith33cwk"
-path="res://.godot/imported/dj.png-bb2305add14594c6c2d8fa922faa0cc0.ctex"
-metadata={
-"vram_texture": false
-}
 
 [deps]
 
 source_file="res://assets/sprites/characters/dj.png"
-dest_files=["res://.godot/imported/dj.png-bb2305add14594c6c2d8fa922faa0cc0.ctex"]
 
 [params]
 

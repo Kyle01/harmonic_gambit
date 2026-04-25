@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b4hy8mxqr1pk0"]
+
+[ext_resource type="FontFile" uid="uid://5436wk4m7lvl" path="res://assets/fonts/munro.ttf" id="1_title"]
+[ext_resource type="FontFile" uid="uid://brvmixyfeoifm" path="res://assets/fonts/munro_small.ttf" id="2_body"]
+
+[resource]
+default_font = ExtResource("2_body")
+default_font_size = 16
+Title/base_type = &"Label"
+Title/fonts/font = ExtResource("1_title")
+Title/font_sizes/font_size = 60
+Header/base_type = &"Label"
+Header/fonts/font = ExtResource("1_title")
+Header/font_sizes/font_size = 40
+TitleButton/base_type = &"Button"
+TitleButton/fonts/font = ExtResource("1_title")
+TitleButton/font_sizes/font_size = 28

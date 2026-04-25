@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/guitar.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/guitar.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/guitar.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/guitar.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Guitar \u2014 character portrait\n\n## Figure\n\nThe **Guitar archetype** \u2014 a bearded mythic elder musician,\nrendered flat and symbolic. A wandering prophet of song.\n\nFeatures (all drawn flat, with bold black outlines, no\nrealistic rendering):\n\n- **Long flat grey beard** reaching to the chest \u2014 a single\n  solid shape with a bold outline, no strand detail.\n- **Weathered flat face** with a few bold outline lines\n  suggesting age (brow, cheek, mouth lines) \u2014 symbolic, not\n  rendered.\n- **A broad-brim hat** or simple hood as a single flat shape\n  (gold-yellow or moss-green).\n- **Long flat grey hair** as solid shape-locks past the\n  shoulders.\n\nClothes: a flat robe or long loose coat in moss-green or\ngold-yellow with coral trim, folds as simple outlined shape-\nbands.\n\n## Instrument \u2014 CRITICAL (a guitar MUST be clearly visible)\n\nAn **acoustic guitar** is the defining symbol of this card.\nIt MUST appear prominently and unmistakably. The guitar\nidentifies this character \u2014 if it is missing or unclear,\nthe image has failed.\n\nRendering:\n\n- **The guitar body** (the big rounded hourglass wooden\n  shape) is the most important element \u2014 draw it large,\n  clearly, rendered flat with a bold outline.\n- **A large round sound-hole** in the center of the guitar\n  body. The sound-hole is the single shape that makes this\n  unambiguously a guitar (not a lute, banjo, or dulcimer).\n- **Six strings** running the length of the neck.\n- **A fretted neck** with a headstock at the top.\n\nPlacement: either held diagonally across the figure's\nchest (body lower-right, neck going up across the left\nshoulder), OR floating behind the figure as a large\ntarot-symbolic emblem (body visible, neck visible). Either\nway, the body of the guitar and the round sound-hole must\nbe clearly readable in the final image.\n\n## Background\n\nFlat warm solid color field (moss-green or gold-yellow) with\nsimple Rider-Waite-style symbolic motifs \u2014 a sun disc or\ncrescent moon in one corner, small scattered stars, a\ngeometric horizon line. All flat, bold-outlined, symbolic.\nNo rendered landscape. A decorative border frame around the\nedges is welcome (tarot-card register).\n\n## No text, no numbers\n\n- **No tarot card number** at the top of the card.\n- **No title or roman numeral** at the bottom.\n- **No letters, no words, no name plaque, no banner, no\n  label.** Nothing written or numbered anywhere in the\n  image \u2014 the card is unlabeled.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:57:40+00:00",
+  "output_sha256": "6987d4f9378bb3191c5bd140fa76dcebc4f4c32c9a342e22b4a3284ca8b842b8",
+  "output_bytes": 82356
+}

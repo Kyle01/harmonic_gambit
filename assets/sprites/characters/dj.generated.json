@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/dj.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/dj.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/dj.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/dj.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# DJ \u2014 character portrait\n\n## Figure\n\nThe **DJ archetype** \u2014 a cosmic GRIOT at the turning wheel\nof fate. The block-party shaman spinning time forward and\nback. Hands resting on a great wheel of records.\n\nFeatures:\n\n- **A grey-white afro** (large, round, full).\n- **A thick grey goatee beard**.\n- **Round yellow-tinted sunglasses**.\n- **A coral dashiki or patterned tunic** with geometric\n  gold-yellow motifs across the chest.\n- **A weathered dark-complected face** with deep lines.\n- **Headphones around the neck**.\n- **Both hands resting on a large central wheel**, palms\n  touching its rim.\n\n## Instrument \u2014 CRITICAL (turntables / vinyl records)\n\n**A large cosmic turning-wheel of vinyl records** is the\ndefining symbol. Draw flat, bold-outlined:\n\n- **A LARGE CENTRAL WHEEL** filling the middle of the\n  canvas \u2014 concentric grooved black circles (vinyl records\n  stacked / spinning on a platter).\n- **A small round center hole** in each record.\n- The figure's hands rest on the rim of the wheel.\n- Optionally: a second small record floating to one side.\n\nBlack circles with visible groove lines = unambiguous vinyl.\n\n## Background\n\nFlat gold-yellow field with constellation motifs in the four\ncorners \u2014 simple bold-outlined symbolic creatures (small\nstylized bull, lion, eagle, and star figures, one per\ncorner). Concentric ring ripples emanating from the central\nwheel. Ornate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T16:00:21+00:00",
+  "output_sha256": "79082546159398f2a4b61ed7b98c785bb8fe225151578865fca50bac74016a6c",
+  "output_bytes": 100305
+}

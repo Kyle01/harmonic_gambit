@@ -1,0 +1,48 @@
+{
+  "spec_path": "assets/sprites/_palette.spec.md",
+  "spec_frontmatter": {
+    "output": "resources/theme/palette.tres",
+    "asset_type": "palette",
+    "slots": [
+      "bg",
+      "surface",
+      "text_primary",
+      "text_secondary",
+      "accent_warm",
+      "accent_cool",
+      "danger",
+      "success",
+      "outline"
+    ],
+    "inherits": [
+      "docs/art.md"
+    ]
+  },
+  "output_path": "resources/theme/palette.tres",
+  "extra_paths": {},
+  "rendered_prompt": "# Art\n\nPrompt context for pixel-art generation. Concise on purpose \u2014 image-\ngen APIs have description budgets. The verbose creative brief lives\nin `docs/world.md`; this doc is the **prompt header** that gets\nprepended to every art spec via the `inherits:` chain. Keep tight.\n\n## Universal style\n\n- **16-bit pixel art.** SNES / Genesis density. Hand-painted\n  pixels. Anti-aliased curves. Soft dithering. Limited shading\n  bands per surface (2\u20134), not the many-band gradient density of\n  PS1-2D. Not 8-bit / NES flat. Not photorealistic. Not vector\n  smooth.\n- **Painted, not rendered.** No PBR sheen, raytrace glints, AO.\n- **Warm-weighted, impossibly saturated.** Sunset / dream-hour /\n  gold-hour. Pastel rainbows, rose-pink, electric green, gold-\n  orange, cornflower, coral. If a color could be muted, it\n  shouldn't be.\n- **Sincere, not parody.** Psychedelic communion. Never wink-at-\n  the-camera \"60s pastiche.\"\n- **Subtle wrongness underneath.** Intensity per asset; menus &\n  most portraits dial near zero.\n- **Breathing.** Static frames imply motion.\n\n## Lineage (the visual DNA)\n\n- Late-60s psych poster: Heinz Edelmann (*Yellow Submarine*),\n  Peter Max, Wes Wilson, Victor Moscoso.\n- Art-nouveau ancestors: Mucha (decorative panels), Klimt (gold\n  ornament), Toorop (symbolist line).\n- Dreamscape: Moebius (clean line, dream logic), Roger Dean\n  (biomorphic \u2014 leave the prog-fantasy connotation).\n- Synesthetic pop: Keiichi Tanaami (saturated AND unsettling).\n\n## Shape & light\n\n- Organic, flowing, melting. Curves over hard angles.\n- Exaggerated scale: flowers bigger than houses; horizons curved\n  the wrong way.\n- Light always warm. Sunset / glow / gold-hour, never midday.\n\n## DO NOT generate\n\nPhotorealism, PBR sheen, gritty grunge, muted/grey-brown, harsh\ngeometry, hard shadows, cyberpunk neon, medieval-fantasy\nsilhouettes (knights/castles/dragons/runes), modern UI chrome\n(drop shadows, glassmorphism), 8-bit/NES/chiptune/arcade pixel,\n32-bit / PS1-2D gradient density, anime moe/chibi/waifu,\npin-up / sexualized / \"realistic hot\" character design,\nbaked-in text or game title.\n\n## Format\n\nPNG, RGBA-8. Project filter is Nearest \u2014 internal anti-aliasing\nfine. Portraits: opaque (interior + border are part of the art).\nScene backgrounds: full-bleed.\n\n---\n\n# UI palette\n\nDerive a coherent UI palette from the world / aesthetic context\nabove. The palette drives every UI surface (menu backgrounds, panel\nfills, button labels, accent flourishes), so the choices must hold\ntogether across the whole app \u2014 not just look pretty in isolation.\n\n## Slot semantics\n\n| Slot | Role |\n|---|---|\n| `bg` | The deepest background layer behind every UI surface. Establishes the room. May be deep, but **must remain warm-toned** (no grey-brown, no cold-neutral). |\n| `surface` | Mid-depth panel fills above `bg`. Slightly lighter / warmer than `bg` so panels read as raised. |\n| `text_primary` | Headings, primary copy. Maximally readable on `surface`. |\n| `text_secondary` | Body copy, secondary labels. Readable on `surface`, with hue distinct from `text_primary` \u2014 this contrast is part of the Realm's Technicolor signature. |\n| `accent_warm` | Primary interactive accent \u2014 hover states, key emphasis. Warm side of the palette (gold-orange / coral / rose). |\n| `accent_cool` | Secondary accent \u2014 informational highlights, link-equivalents. Cool side of the warm palette (cornflower / electric green / sea-glass) \u2014 never neon, never cyber. |\n| `danger` | HP loss, error states, irreversible-action confirmations. The \"wrongness\" channel; saturated, slightly off-pitch. |\n| `success` | HP gain, confirmations, positive feedback. Warm-saturated green. |\n| `outline` | Hairline outlines and dividers. Slightly darker than `bg` so it reads as edge, not as a separate color. |\n\n## Discipline\n\n- **Yellow-green center of gravity.** The palette's dominant\n  register is gold-yellow + chartreuse + moss-green + sun-gold.\n  Rose / coral / cornflower appear as accents and warm anchors,\n  but yellow and green are the two hues that define the Realm.\n  Think: late-60s poster art printed on sun-bleached paper, a\n  meadow at golden hour, chartreuse silk.\n- **No grey-brown. No desaturation.** If a candidate hex looks\n  muted, push the saturation up.\n- **Warm-weighted.** The whole palette should sit on the warm side\n  of the wheel even where individual slots reach toward cool. The\n  Realm's \"always warm light\" rule applies to UI too.\n- **Sunset, not midday.** Lean toward gold-hour temperatures over\n  high-noon brightness.\n- **Distinct hues per slot.** Two slots must not be near-duplicates\n  \u2014 Technicolor saturation requires hue separation, not just\n  lightness shift.\n- **Readable.** `text_primary` on `surface` and `text_secondary` on\n  `surface` must both pass casual contrast \u2014 Realm-bright but not\n  illegible.\n- **Slot hue steering.** Recommended hue families:\n  - `bg`: deep warm green-teal (moss / forest-after-dusk).\n  - `surface`: warmer / lighter green or olive, lifted from `bg`.\n  - `text_primary`: gold-yellow (hero color).\n  - `text_secondary`: chartreuse or citron (lime-adjacent).\n  - `accent_warm`: gold-orange / sun-amber.\n  - `accent_cool`: sea-glass or jade (green-leaning, never\n    cornflower-dominant).\n  - `danger`: saturated coral / rose-red.\n  - `success`: electric grass-green.\n  - `outline`: darkest member of the green family.\n\n## Output format\n\nReply with a single fenced ```json code block, mapping each slot\nname above to a `#RRGGBB` hex string. No alpha, no prose, no\ncomments inside the JSON.\n",
+  "backend": {
+    "name": "anthropic.messages",
+    "model": "claude-sonnet-4-6",
+    "stop_reason": "end_turn",
+    "usage": {
+      "input_tokens": 1818,
+      "output_tokens": 123
+    },
+    "raw_response": "```json\n{\n  \"bg\": \"#1A3D2B\",\n  \"surface\": \"#2E6640\",\n  \"text_primary\": \"#F5C518\",\n  \"text_secondary\": \"#BFED2A\",\n  \"accent_warm\": \"#F58C1A\",\n  \"accent_cool\": \"#3ECFA0\",\n  \"danger\": \"#E8384A\",\n  \"success\": \"#52E825\",\n  \"outline\": \"#0D2418\"\n}\n```",
+    "palette": {
+      "bg": "#1A3D2B",
+      "surface": "#2E6640",
+      "text_primary": "#F5C518",
+      "text_secondary": "#BFED2A",
+      "accent_warm": "#F58C1A",
+      "accent_cool": "#3ECFA0",
+      "danger": "#E8384A",
+      "success": "#52E825",
+      "outline": "#0D2418"
+    }
+  },
+  "generated_at_utc": "2026-04-25T03:21:31+00:00",
+  "output_sha256": "c169fc0c6da1ae1464e3393ad2a6632d3273b3b91e76dd4ed7a89b1e26a21fe7",
+  "output_bytes": 625
+}

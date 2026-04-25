@@ -176,13 +176,17 @@ desktop with letterboxing on non-16:9. Design all UI against the
 
 ### Fonts
 
-- `assets/fonts/alagard.ttf` — display / titles (medieval-fantasy
-  pixel).
-- `assets/fonts/silkscreen.ttf` — UI body, buttons, labels (clean
-  pixel sans).
+- `assets/fonts/munro.ttf` — display / titles (Ten by Twenty,
+  OFL 1.1).
+- `assets/fonts/munro_small.ttf` — UI body, buttons, labels.
 
-Applied inline via `theme_override_fonts/font` until enough UI exists
-to justify a shared `theme.tres`.
+Applied via `resources/theme/main_theme.tres` (Theme resource) — set
+`theme = ExtResource("…/main_theme.tres")` on a Control parent and
+labels inherit the body font automatically. Title-size labels set
+`theme_type_variation = "Title"`. See `docs/typography.md` for the
+full wiring + license details. Older `alagard.ttf` / `silkscreen.ttf`
+remain in the repo until every scene migrates; do not introduce new
+references to them.
 
 ### Navigation
 

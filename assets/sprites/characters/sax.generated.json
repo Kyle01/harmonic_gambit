@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/sax.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/sax.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/sax.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/sax.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Sax \u2014 character portrait\n\nThis card is **THE STAR** from the Rider-Waite tarot, re-cast\nas a saxophone player. Use the iconic Star composition: a\nyouthful figure in a flowing moss-green robe kneeling at the\nedge of a pool under one giant eight-pointed star and seven\nsmall stars, music pouring from the instrument like water.\nMatch THE STAR's symbolic register \u2014 flat, hieratic, bold-\noutlined.\n\n## Figure\n\nA **youthful nymph archetype** kneeling beside the pool \u2014\nslender, androgynous, beardless. Drawn as a hieratic\nsymbolic figure: flowing decorative curves rather than\nrealistic anatomy, ornate and stylized in the manner of an\nilluminated panel.\n\nFeatures:\n\n- **A young, gentle, beardless face**, eyes half-closed in\n  calm concentration.\n- **Long flowing wavy hair** down the back, drawn as\n  decorative ornamental curves, rose or coral tinted.\n- **A flowing moss-green robe / loose tunic** draped over\n  the body, gathered at the waist with a coral sash. The\n  figure is fully clothed.\n- **A small gold-star circlet** on the forehead.\n- **Kneeling pose**, one knee on the ground, one raised \u2014\n  the composition leans into curving organic line.\n\n## Instrument \u2014 CRITICAL (a saxophone)\n\nA **saxophone** is the defining symbol. Draw flat, bold-\noutlined:\n\n- **A curved golden-brass body** \u2014 distinctive J-curve\n  silhouette, NOT straight.\n- **A wide flared bell** at the bottom.\n- **Rows of round keys / pads** along the body (the flat\n  circles are the key identifier).\n- **A curved mouthpiece and neck** at the top.\n\nThe figure tilts the sax so its bell points down toward a\npool of water \u2014 music flowing from the bell as a stream of\nsound-wave ripples pouring into the pool.\n\n## Background\n\nFlat deep moss-green or indigo night sky with ONE LARGE\nEIGHT-POINTED STAR directly above the figure's head and\nseven smaller stars scattered around. A small pool of water\nat the figure's feet, music-ripples on its surface. Ornate\ntarot-style frame.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:56:20+00:00",
+  "output_sha256": "5c80e1fa39a2907cedc2266762784c57cc81988b6787671710f2b3a0cb0cb1b7",
+  "output_bytes": 67057
+}

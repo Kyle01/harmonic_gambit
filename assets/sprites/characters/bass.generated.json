@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/bass.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/bass.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/bass.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/bass.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Bass \u2014 character portrait\n\n## Figure\n\nThe **Bass archetype** \u2014 a grounded, heavy, low-end menace.\nA horned elder figure, muscular and chained to the earth.\n\nFeatures:\n\n- **Bald head** with two SHORT BLUNT HORNS curving forward\n  from the temples (small, stylized, ram-like \u2014 not demonic\n  spikes).\n- **Heavy bushy grey mutton-chops sideburns** connecting to\n  a thick grey mustache, NO chin beard.\n- **Deep-set heavy brow**, weathered leathery face, dark\n  shadowed eyes.\n- **Broad bare shoulders** or a sleeveless black leather\n  vest with silver studs.\n- **A heavy iron chain** draped across the chest.\n- **A silver hoop earring** in one ear.\n\n## Instrument \u2014 CRITICAL (an electric bass guitar)\n\nAn **electric bass guitar** is the defining symbol. Draw\nlarge, flat, bold-outlined:\n\n- **A solid slab body** (elongated teardrop / stratocaster\n  shape) in coral \u2014 NO sound-hole (key mark, distinguishes\n  from acoustic guitar).\n- **Four thick strings** along the neck.\n- **A long fretted neck** with a headstock and tuning pegs.\n\nHeld diagonally across the figure's chest, body lower-right,\nneck angled up across the left shoulder.\n\n## Background\n\nFlat deep coral or dark-moss-green field. Two small upright\nflame-torches at the figure's shoulders. A heavy chain\ndraped across the bottom edge. Ornate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:57:58+00:00",
+  "output_sha256": "ae70664fb4519052657e8ff3de847a1227cb806408fa5610374c3314ee92b3f7",
+  "output_bytes": 85179
+}

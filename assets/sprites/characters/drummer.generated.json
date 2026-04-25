@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/drummer.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/drummer.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/drummer.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/drummer.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Drummer \u2014 character portrait\n\n## Figure\n\nThe **Drummer archetype** \u2014 a shamanic active magician,\nchanneling rhythm. ARMS RAISED, one pointing up, one pointing\ndown (classic magician pose).\n\nFeatures:\n\n- **Long thick grey dreadlocks** radiating outward like\n  sun-rays.\n- **A thick grey goatee beard**, no mustache.\n- **A weathered sun-bronzed face** with coral tribal-paint\n  markings (simple dots or stripes) across the cheeks.\n- **Bare muscular arms** raised wide \u2014 one hand up holding a\n  drumstick toward the sky, the other hand down holding a\n  drumstick toward the ground.\n- **A loose moss-green sleeveless tunic**, beaded leather\n  wristbands.\n\n## Instrument \u2014 CRITICAL (drums)\n\n**Drums** are the defining symbol. Draw flat, bold-outlined:\n\n- **A large round snare drum** at the figure's waist, flat\n  circle with tension lugs visible.\n- **A large round bass drum** silhouetted behind the figure.\n- **A round cymbal disc** floating above one shoulder.\n- **Two drumsticks** held up / down in the raised hands.\n\nCircles with stretched drum-head surfaces \u2014 unambiguously\ndrums, not strings.\n\n## Background\n\nFlat gold-yellow field with a large LEMNISCATE / INFINITY\nSYMBOL \u221e floating horizontally above the figure's head. Sun-\nburst rays radiating from behind. Small scattered stars.\nOrnate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:57:36+00:00",
+  "output_sha256": "faae3621e5dd714d3cf9388ec7c4781c915c996dd807ba2e9b06418e4fa7f93b",
+  "output_bytes": 83895
+}

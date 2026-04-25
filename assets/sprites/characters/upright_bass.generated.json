@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/upright_bass.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/upright_bass.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/upright_bass.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/upright_bass.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Upright Bass \u2014 character portrait\n\n## Figure\n\nThe **Upright Bass archetype** \u2014 a thoughtful BEATNIK\ncontemplative, the thinking-man's low-end prophet. Head-\ntilted, suspended mid-thought.\n\nFeatures:\n\n- **A thin pointed grey goatee** (small, chin-only).\n- **A black beret** tilted on the head.\n- **Round wire-frame reading glasses**.\n- **Short grey hair** visible under the beret.\n- **A black turtleneck sweater** (minimal, not ornamented).\n- **A weathered thoughtful face**, head tilted noticeably to\n  one side as if held upside-down in thought.\n- **A faint golden halo** around the head.\n\n## Instrument \u2014 CRITICAL (an upright bass)\n\nAn **upright bass** is the defining symbol. Draw flat, bold-\noutlined:\n\n- **A large curved wooden body** (violin-shaped but massive,\n  much bigger than the figure).\n- **Two S-shaped F-holes** on the body (violin-family\n  marker, distinguishes from guitar).\n- **A long wooden neck** extending above the figure's head.\n- **An ornate scroll** at the very top of the neck.\n- **Four thick strings** visible along the neck.\n\nThe bass stands vertically beside/behind the figure, neck\nextending up past the head.\n\n## Background\n\nFlat gold-yellow field with a simple T-shaped tree or\ngallows-post silhouette behind the figure (thin, stylized,\nnot menacing \u2014 a meditative cross-shape). A small halo\nbehind the head. Scattered stars. Ornate tarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T15:59:30+00:00",
+  "output_sha256": "607baac1e79a94d9275cffcfdfc194e937d1cab3eb0d1ed2fd3aa0d080b903bf",
+  "output_bytes": 26403
+}

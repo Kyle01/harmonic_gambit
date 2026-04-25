@@ -2,9 +2,9 @@ class_name AdminCharacterDetail
 extends Control
 
 const ADMIN_PC_PATH: String = "res://scenes/ui/admin_playable_characters.tscn"
-const UI_FONT: Font = preload("res://assets/fonts/silkscreen.ttf")
-const COLOR_TITLE: Color = Color(0.98, 0.42, 0.82, 1)
-const COLOR_META: Color = Color(0.78, 0.94, 1, 1)
+const UI_FONT: Font = preload("res://assets/fonts/munro_small.ttf")
+const COLOR_TITLE: Color = Color(1, 0.898, 0.4, 1)
+const COLOR_META: Color = Color(1, 0.5608, 0.8314, 1)
 const COLOR_LOCKED: Color = Color(0.5, 0.5, 0.5, 1)
 
 static var target_def: CharacterDef = null

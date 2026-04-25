@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PaletteDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/palette_def.gd" id="1_palette_script"]
+
+[resource]
+script = ExtResource("1_palette_script")
+bg = Color(0.1020, 0.2392, 0.1686, 1)
+surface = Color(0.1804, 0.4000, 0.2510, 1)
+text_primary = Color(0.9608, 0.7725, 0.0941, 1)
+text_secondary = Color(0.7490, 0.9294, 0.1647, 1)
+accent_warm = Color(0.9608, 0.5490, 0.1020, 1)
+accent_cool = Color(0.2431, 0.8118, 0.6275, 1)
+danger = Color(0.9098, 0.2196, 0.2902, 1)
+success = Color(0.3216, 0.9098, 0.1451, 1)
+outline = Color(0.0510, 0.1412, 0.0941, 1)

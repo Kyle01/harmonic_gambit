@@ -1,0 +1,33 @@
+{
+  "spec_path": "assets/sprites/characters/violin.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/characters/violin.png",
+    "asset_type": "character",
+    "width": 288,
+    "height": 384,
+    "no_background": false
+  },
+  "output_path": "assets/sprites/characters/violin.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/characters/violin.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE TAROT DECK. Flat 2-color fills per surface. Thick bold black outlines around every shape. No gradient shading, no realistic anatomy, no painted rendering. Symbolic, iconic, hieratic, flat. Warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). The figure, instrument, pose, and background described below are an EXAGGERATED archetype \u2014 render exactly as written. \n\n# Violin \u2014 character portrait\n\nThis card is **THE MOON** from the Rider-Waite tarot, re-cast\nas a violin player. Use the iconic Moon composition: night\nscene under a giant crescent moon, two stylized wolves /\ndogs howling at the moon at the lower corners, a winding\npath leading toward a distant tower. Match THE MOON's\nsymbolic register exactly \u2014 flat, hieratic, bold-outlined.\n\n## Figure\n\nA **MYSTERIOUS GYPSY FIDDLER** at night \u2014 road-wise, fierce,\nstrange. Playing the violin beneath the moon.\n\nFeatures:\n\n- **A long grey beard** with a slightly pointed end.\n- **A red or coral headscarf** tied around the head, knotted\n  at the side.\n- **Long grey hair** partly covered by the scarf.\n- **A single silver hoop earring**.\n- **A moss-green vest with embroidered coral trim** over a\n  loose gold-yellow shirt.\n- **A weathered bronze-complected face** with sharp angular\n  features, mysterious expression.\n\n## Instrument \u2014 CRITICAL (a violin)\n\nA **violin** is the defining symbol. Draw flat, bold-\noutlined:\n\n- **A small curved wooden body** (violin-shaped, fits tucked\n  under the chin).\n- **Two S-shaped F-holes** on the body (violin-family\n  marker, distinguishes from guitar).\n- **A short neck** with fingerboard.\n- **An ornate scroll** at the top of the neck.\n- **Four strings** along the neck.\n- **A bow** held in the other hand, drawn across the\n  strings.\n\nHeld tucked under the chin, body on the shoulder, bow drawn\nacross.\n\n## Background\n\nFlat deep-indigo or dark-moss-green night sky with a LARGE\nCRESCENT MOON dominating the upper portion of the canvas.\nTWO STYLIZED WOLVES OR DOGS silhouetted at the lower corners,\nhowling upward at the moon. A single tall stylized tower\nsilhouette in the far distance. Scattered stars. Ornate\ntarot-style frame.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-25T16:00:07+00:00",
+  "output_sha256": "49686e86a913a9b66a6279625976e51535fda4ec521cc16de5571e768abee7fc",
+  "output_bytes": 66087
+}
