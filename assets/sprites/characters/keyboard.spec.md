@@ -8,10 +8,17 @@ no_background: false
 
 # Keyboard — character portrait
 
+This card is **THE HIEROPHANT** from the Rider-Waite tarot,
+re-cast as a keyboard / piano player. The composition matches
+the Hierophant card — formal seated priestly figure, hand
+raised in blessing — but the throne is a **piano keyboard
+console**: the keys spread across the lower portion of the
+canvas like the pope's altar, and the figure plays it.
+
 ## Figure
 
 The **Keyboard archetype** — a PRIESTLY SCHOLAR elder,
-seated on a throne of music, hand raised in blessing.
+seated at a piano keyboard, hand raised in blessing.
 Formal, hieratic, dignified.
 
 Features:
@@ -28,15 +35,21 @@ Features:
 
 ## Instrument — CRITICAL (a piano keyboard)
 
-A **piano keyboard** is the defining symbol. Draw flat,
-bold-outlined:
+A **piano keyboard** is the defining symbol of this card —
+it MUST appear prominently. The keyboard is the visual
+centerpiece, occupying the lower portion of the canvas like
+the Hierophant's altar:
 
-- **A horizontal strip of alternating black-and-white keys**
-  stretching across the lower third of the canvas (the
-  striped black/white pattern is the unmistakable mark).
-- At least 8–12 keys visible, each clearly outlined.
-- The keyboard rests on an altar or lectern in front of the
-  seated figure.
+- **A long horizontal row of alternating black-and-white
+  piano keys** stretching across the lower third of the
+  canvas. The black-and-white striped pattern is the
+  unmistakable identifier and must be clearly readable.
+- **At least 14–20 keys visible**, each outlined with bold
+  black lines, the black accidental keys raised slightly
+  above the white naturals.
+- The keyboard sits in front of the seated figure like a
+  console / altar; the figure's free hand rests on the keys
+  while the other is raised in blessing.
 
 ## Background
 

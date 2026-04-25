@@ -8,6 +8,12 @@ no_background: false
 
 # Bass — character portrait
 
+This card is **THE DEVIL** from the Rider-Waite tarot, re-
+cast as an **electric bass guitar player** (NOT an upright
+bass, NOT a stand-up double bass — a modern electric bass
+guitar, the rock-band instrument with a slab body and four
+strings, held diagonally across the chest like a guitar).
+
 ## Figure
 
 The **Bass archetype** — a grounded, heavy, low-end menace.
@@ -29,17 +35,26 @@ Features:
 
 ## Instrument — CRITICAL (an electric bass guitar)
 
-An **electric bass guitar** is the defining symbol. Draw
-large, flat, bold-outlined:
+An **electric bass guitar** is the defining symbol — the
+modern rock-band instrument, **NOT a double bass / upright
+bass / contrabass**. The bass guitar is small enough to be
+worn on a strap and held diagonally across the body like an
+electric guitar. Draw large, flat, bold-outlined:
 
-- **A solid slab body** (elongated teardrop / stratocaster
-  shape) in coral — NO sound-hole (key mark, distinguishes
-  from acoustic guitar).
-- **Four thick strings** along the neck.
-- **A long fretted neck** with a headstock and tuning pegs.
+- **A solid slab body** (elongated teardrop / Fender-Precision
+  shape) in coral. **NO sound-hole** — solid wood body. **NO
+  scroll** at the top of the neck. **NO bow.** The body sits
+  against the player's torso, never on the floor.
+- **Four thick strings** running along the neck (a real
+  electric bass has 4 strings, never more for this card).
+- **A long flat fretted neck** with a small headstock and
+  four tuning pegs.
+- **A guitar strap** over the figure's shoulder holding the
+  instrument up.
 
 Held diagonally across the figure's chest, body lower-right,
-neck angled up across the left shoulder.
+neck angled up across the left shoulder — the same way a
+rock bass player wears the instrument.
 
 ## Background
 

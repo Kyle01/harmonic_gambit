@@ -37,21 +37,31 @@ Features:
 - **Kneeling pose**, one knee on the ground, one raised —
   the composition leans into curving organic line.
 
-## Instrument — CRITICAL (a saxophone)
+## Instrument — CRITICAL (a saxophone, correctly oriented)
 
 A **saxophone** is the defining symbol. Draw flat, bold-
-outlined:
+outlined, in the correct anatomical orientation a real
+saxophone holds:
 
-- **A curved golden-brass body** — distinctive J-curve
-  silhouette, NOT straight.
-- **A wide flared bell** at the bottom.
-- **Rows of round keys / pads** along the body (the flat
-  circles are the key identifier).
-- **A curved mouthpiece and neck** at the top.
+- **The mouthpiece is at the TOP**, touching the figure's
+  lips. A small black mouthpiece tip + a thin curved metal
+  neck ("crook") joins the mouthpiece to the main body.
+- **The main golden-brass body runs DOWNWARD** from the neck
+  along the front of the figure's torso.
+- **The flared BELL is at the BOTTOM**, curving up and
+  outward to one side — the classic J-curve / hook shape
+  with the bell-flare pointing FORWARD-and-UP, away from
+  the figure's body. The bell is the lowest visible part of
+  the instrument BEFORE its outward curl.
+- **Rows of small round keys / pads** run along the front of
+  the body between mouthpiece and bell. These flat circles
+  are the second-strongest sax identifier after the J-curve.
+- The saxophone reads as a "?" or hook silhouette: tall body,
+  bell flaring out near the bottom.
 
-The figure tilts the sax so its bell points down toward a
-pool of water — music flowing from the bell as a stream of
-sound-wave ripples pouring into the pool.
+The figure plays into the mouthpiece at the top; music pours
+out of the bell at the bottom as a stream of sound-wave
+ripples falling into a pool of water at the figure's feet.
 
 ## Background
 
