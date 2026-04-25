@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/drummer.png
+path: assets/sprites/characters/drummer/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Drummer — character portrait

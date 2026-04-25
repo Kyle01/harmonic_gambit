@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/keyboard.png
+path: assets/sprites/characters/keyboard/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Keyboard — character portrait

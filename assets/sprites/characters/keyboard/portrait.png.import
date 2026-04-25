@@ -2,11 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://defye2rmoh3yi"
+uid="uid://bl3242vchscp7"
+path="res://.godot/imported/portrait.png-a11399bed2008febb4fe0f2e2ca92cd7.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/sprites/characters/violin.png"
+source_file="res://assets/sprites/characters/keyboard/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-a11399bed2008febb4fe0f2e2ca92cd7.ctex"]
 
 [params]
 

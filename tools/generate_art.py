@@ -69,8 +69,14 @@ QUALITY_OUTLINE = "single color black outline"
 # figure; same body with a 200-char subject-led prompt produced
 # exactly the framed portrait we asked for). The lead-in carries the
 # global aesthetic register; the per-spec body carries the figure /
-# instrument / pose / background. `docs/art.md` is design
-# documentation only — it is not concatenated into prompts.
+# instrument / pose / background.
+#
+# Source-of-truth: this dict IS the prompt header that ships to the
+# model. `docs/art.md` is the human-facing design reference — it
+# describes the same aesthetic in fuller form for spec authors but
+# is NOT concatenated into prompts. Keep the rules here in sync with
+# `docs/art.md → Universal style` so designers and the model stay
+# pointed at the same target.
 SUBJECT_LEADS: dict[str, str] = {
     "character": (
         "Pixel art tarot card in the flat symbolic register of the RIDER-WAITE "
@@ -99,7 +105,26 @@ def render_for_image_gen(asset_type: str, body: str) -> str:
         raise SystemExit(f"unknown asset_type {asset_type!r}; expected one of {list(SUBJECT_LEADS)}")
     return f"{lead}\n\n{body.strip()}\n"
 
-REQUIRED_LOCAL_KEYS = ("path", "asset_type", "width", "height")
+REQUIRED_LOCAL_KEYS = ("path", "asset_type")
+
+# Per-asset-type canvas defaults. Spec frontmatter overrides any of
+# these on a per-asset basis, but the common case is "all characters
+# share dims, all backgrounds share dims" — so the default belongs
+# next to the asset_type's prompt lead-in, not duplicated in 12+
+# spec files. Change `character.width` here to rescale every
+# portrait in one place.
+ASSET_TYPE_DEFAULTS: dict[str, dict] = {
+    "character": {
+        "width": 288,  # 3:4 Mona-Lisa proportion at full pixflux budget (max 400 per side).
+        "height": 384,
+        "no_background": False,
+    },
+    "background": {
+        "width": 400,  # 16:9 at full pixflux budget; runtime upscales to 1280×720.
+        "height": 225,
+        "no_background": False,
+    },
+}
 
 
 def _validate_dims(spec_path: Path, width: int, height: int) -> None:
@@ -121,10 +146,21 @@ def generate_one(
 
     output_path = (REPO_ROOT / frontmatter["path"]).resolve()
     asset_type = frontmatter["asset_type"]
-    width = int(frontmatter["width"])
-    height = int(frontmatter["height"])
+    defaults = ASSET_TYPE_DEFAULTS.get(asset_type, {})
+    if "width" not in frontmatter and "width" not in defaults:
+        raise SystemExit(
+            f"{spec_path}: 'width' missing — provide it in spec frontmatter "
+            f"or add a default for asset_type={asset_type!r} in ASSET_TYPE_DEFAULTS."
+        )
+    if "height" not in frontmatter and "height" not in defaults:
+        raise SystemExit(
+            f"{spec_path}: 'height' missing — provide it in spec frontmatter "
+            f"or add a default for asset_type={asset_type!r} in ASSET_TYPE_DEFAULTS."
+        )
+    width = int(frontmatter.get("width", defaults.get("width")))
+    height = int(frontmatter.get("height", defaults.get("height")))
     seed = int(frontmatter.get("seed", 0))
-    no_background = bool(frontmatter.get("no_background", False))
+    no_background = bool(frontmatter.get("no_background", defaults.get("no_background", False)))
 
     _validate_dims(spec_path, width, height)
 

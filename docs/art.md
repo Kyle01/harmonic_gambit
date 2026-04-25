@@ -8,6 +8,12 @@ concatenated into prompts at runtime; instead, anything that needs
 to reach the model is inlined into the spec body or the
 `SUBJECT_LEADS` block in `tools/generate_art.py`.
 
+The "Universal style" section below and `tools/generate_art.py →
+SUBJECT_LEADS` describe the same aesthetic to two different
+audiences (designers vs. the model). Keep them in sync — drift
+means the model ships against a different brief than humans
+authored to.
+
 ## Universal style
 
 - **16-bit pixel art.** SNES / Genesis density. Hand-painted

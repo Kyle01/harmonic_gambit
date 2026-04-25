@@ -1,9 +1,6 @@
 ---
 path: assets/sprites/ui/main_menu_bg.png
 asset_type: background
-width: 400
-height: 225
-no_background: false
 ---
 
 # Main menu background

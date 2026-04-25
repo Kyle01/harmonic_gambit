@@ -2,11 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5mxh2ahvs23b"
+uid="uid://cqmacb3xipq7s"
+path="res://.godot/imported/portrait.png-0709f917b0337975fd920789f41cea0c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/sprites/characters/accordion.png"
+source_file="res://assets/sprites/characters/cello/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-0709f917b0337975fd920789f41cea0c.ctex"]
 
 [params]
 

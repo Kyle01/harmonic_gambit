@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/bass.png
+path: assets/sprites/characters/bass/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Bass — character portrait

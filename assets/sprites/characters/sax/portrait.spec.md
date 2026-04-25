@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/sax.png
+path: assets/sprites/characters/sax/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Sax — character portrait

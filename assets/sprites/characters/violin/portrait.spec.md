@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/violin.png
+path: assets/sprites/characters/violin/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Violin — character portrait

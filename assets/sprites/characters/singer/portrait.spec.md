@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/singer.png
+path: assets/sprites/characters/singer/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Singer — character portrait

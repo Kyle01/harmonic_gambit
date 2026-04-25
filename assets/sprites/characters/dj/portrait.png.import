@@ -2,11 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ba3snlf3xvq"
+uid="uid://lonlith33cwk"
+path="res://.godot/imported/portrait.png-e11d26160f306a7533a3f203af85c467.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/sprites/characters/drummer.png"
+source_file="res://assets/sprites/characters/dj/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-e11d26160f306a7533a3f203af85c467.ctex"]
 
 [params]
 

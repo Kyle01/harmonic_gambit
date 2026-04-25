@@ -2,11 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvr0aayahdty8"
+uid="uid://c5mxh2ahvs23b"
+path="res://.godot/imported/portrait.png-131cb1cf344ac99d2834ad53badd13f7.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/sprites/characters/upright_bass.png"
+source_file="res://assets/sprites/characters/accordion/portrait.png"
+dest_files=["res://.godot/imported/portrait.png-131cb1cf344ac99d2834ad53badd13f7.ctex"]
 
 [params]
 

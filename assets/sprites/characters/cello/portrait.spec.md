@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/cello.png
+path: assets/sprites/characters/cello/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Cello — character portrait

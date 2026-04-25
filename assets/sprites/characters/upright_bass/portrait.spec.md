@@ -1,9 +1,6 @@
 ---
-path: assets/sprites/characters/upright_bass.png
+path: assets/sprites/characters/upright_bass/portrait.png
 asset_type: character
-width: 288
-height: 384
-no_background: false
 ---
 
 # Upright Bass — character portrait
