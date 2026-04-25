@@ -10,6 +10,7 @@
 
 | File | What it's for |
 |---|---|
+| [`docs/getting_started.md`](docs/getting_started.md) | Setup walkthrough — prerequisites, first run, MCPs, dev flow. **Start here if you're new to the repo.** |
 | [`docs/gdd.md`](docs/gdd.md) | Game design — vision, pillars, combat timing, run structure. **Start here if you want to understand the game.** |
 | [`docs/architecture.md`](docs/architecture.md) | Code architecture — three-layer rules, autoloads, signal contract, Resource schemas. |
 | [`CLAUDE.md`](CLAUDE.md) | AI-agent rules — hard constraints, forbidden actions, validation steps. Governs any Claude / AI session working in this repo. |
@@ -38,6 +39,8 @@ No other dependencies. No C#, no GDExtension, no native addons — this is a har
 - **Claude Code Remote Control** — drive sessions from phone (iOS app).
 
 These are configured in `~/.claude.json` (local scope, auto-approved). The repo works without them; they just make content pipelines hands-free.
+
+→ For a step-by-step walkthrough including MCP setup, see [`docs/getting_started.md`](docs/getting_started.md).
 
 ---
 
