@@ -117,8 +117,6 @@ ElevenLabs caps the rendered prompt at 4100 characters. The script fails fast if
 
 Pixel art is data-driven on the same pattern as music. Every PNG asset has a sibling self-contained `*.spec.md` (YAML frontmatter — path, asset_type, dimensions — plus a markdown body describing the figure / instrument / pose / scene). `tools/generate_art.py` reads the spec, prepends a small asset-type lead-in (`SUBJECT_LEADS`) that carries the global tarot/flat-shading/palette rules, calls PixelLab pixflux, and writes the PNG + `.import` sidecar + `.generated.json` provenance. Models will improve; rerunning the script regenerates every asset from the same source-of-truth spec.
 
-A second generator, `tools/generate_palette.py`, derives the UI palette via the Claude API (LLM, not PixelLab — a palette is hex codes, not pixel art) and writes `resources/theme/palette.tres` as a typed `PaletteDef` resource.
-
 ### One-time setup
 
 ```sh
@@ -128,7 +126,7 @@ pip install -r tools/requirements.txt
 cp .env.example .env                     # then edit .env and paste keys
 ```
 
-Required keys: `PIXELLAB_SECRET` (from <https://pixellab.ai/account>), `ANTHROPIC_API_KEY` (from <https://console.anthropic.com>).
+Required key: `PIXELLAB_SECRET` (from <https://pixellab.ai/account>).
 
 ### Spec design
 
@@ -147,17 +145,9 @@ python tools/generate_art.py --spec assets/sprites/characters/guitar.spec.md
 python tools/generate_art.py --all
 ```
 
-### Regenerate the palette
-
-```sh
-python tools/generate_palette.py --spec assets/sprites/_palette.spec.md
-```
-
-Slot list lives in the spec's frontmatter; adding a slot here also requires adding the matching `@export var` in `scripts/data/palette_def.gd`. Default model is `claude-sonnet-4-6`; override with `--model`.
-
 ### Regeneration semantics
 
-The PixelLab and Anthropic endpoints are non-deterministic. `--all` produces a *fresh art set* — not byte-for-byte reproductions. The `.generated.json` sidecar records the rendered prompt, model, dimensions, and PNG SHA256 — useful for diffing two takes. The image itself isn't reproducible from it.
+The PixelLab endpoint is non-deterministic. `--all` produces a *fresh art set* — not byte-for-byte reproductions. The `.generated.json` sidecar records the rendered prompt, model, dimensions, and PNG SHA256 — useful for diffing two takes. The image itself isn't reproducible from it.
 
 ### Pointers
 

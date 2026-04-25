@@ -1,7 +1,7 @@
 """Shared spec-loading utilities for `tools/generate_*.py`.
 
-Both `generate_music.py` and `generate_art.py` (and `generate_palette.py`)
-parse the same YAML-frontmatter-plus-markdown-body spec format. They also
+Both `generate_music.py` and `generate_art.py` parse the same
+YAML-frontmatter-plus-markdown-body spec format. They also
 share the `.import` sidecar pattern (preserve UID, omit cached fields so
 Godot regenerates them on next `--import`) and the `<name>.generated.json`
 provenance pattern.
