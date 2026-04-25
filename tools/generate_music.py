@@ -65,7 +65,7 @@ def load_spec(spec_path: Path) -> tuple[dict, str]:
         raise ValueError(f"{spec_path}: malformed frontmatter (no closing '---')")
     frontmatter = yaml.safe_load(parts[1]) or {}
     body = parts[2].lstrip()
-    for required in ("path", "loop", "length_sec"):
+    for required in ("path", "loop", "length_sec", "instrumental"):
         if required not in frontmatter:
             raise ValueError(f"{spec_path}: frontmatter missing required key '{required}'")
     return frontmatter, body
@@ -119,15 +119,25 @@ def write_import_sidecar(audio_path: Path, *, loop: bool, preserved_uid: str | N
 def write_provenance(
     *,
     spec_path: Path,
+    spec_frontmatter: dict,
     audio_path: Path,
+    import_sidecar_path: Path,
     rendered_prompt: str,
     length_ms: int,
 ) -> Path:
-    """Write `<name>.generated.json` next to the audio file."""
+    """Write `<name>.generated.json` next to the audio file.
+
+    Captures both sides of the in-project audio setup:
+    the audio (sha256, bytes) and the import behavior (loop value,
+    sidecar path), plus the full spec frontmatter so a future reader
+    can reconstruct the authored intent without consulting the spec.
+    """
     audio_bytes = audio_path.read_bytes()
     payload = {
         "spec_path": spec_path.relative_to(REPO_ROOT).as_posix(),
+        "spec_frontmatter": spec_frontmatter,
         "audio_path": audio_path.relative_to(REPO_ROOT).as_posix(),
+        "import_sidecar_path": import_sidecar_path.relative_to(REPO_ROOT).as_posix(),
         "rendered_prompt": rendered_prompt,
         "elevenlabs": {
             "endpoint": ELEVENLABS_ENDPOINT,
@@ -168,7 +178,7 @@ def generate_one(spec_path: Path, world_context: str, *, dry_run: bool, env: dic
     length_sec = int(frontmatter["length_sec"])
     length_ms = length_sec * 1000
     loop = bool(frontmatter["loop"])
-    force_instrumental = bool(frontmatter.get("instrumental", True))
+    force_instrumental = bool(frontmatter["instrumental"])
 
     rendered = render_prompt(world_context, body)
 
@@ -211,7 +221,12 @@ def generate_one(spec_path: Path, world_context: str, *, dry_run: bool, env: dic
     print(f"  wrote {import_path.relative_to(REPO_ROOT).as_posix()}  (loop={loop}, uid={'preserved' if preserved else 'will be minted on next import'})")
 
     provenance_path = write_provenance(
-        spec_path=spec_path, audio_path=audio_path, rendered_prompt=rendered, length_ms=length_ms
+        spec_path=spec_path,
+        spec_frontmatter=frontmatter,
+        audio_path=audio_path,
+        import_sidecar_path=import_path,
+        rendered_prompt=rendered,
+        length_ms=length_ms,
     )
     print(f"  wrote {provenance_path.relative_to(REPO_ROOT).as_posix()}")
 

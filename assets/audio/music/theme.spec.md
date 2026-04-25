@@ -2,6 +2,7 @@
 path: assets/audio/music/theme.mp3
 loop: true
 length_sec: 80
+instrumental: true
 context: main_menu
 ---
 

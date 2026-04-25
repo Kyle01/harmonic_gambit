@@ -83,7 +83,7 @@ cp .env.example .env                     # then edit .env and paste your ElevenL
    ```sh
    cp assets/audio/music/theme.spec.md assets/audio/music/<new>.spec.md
    ```
-2. Edit the frontmatter (`path`, `loop`, `length_sec`, `context`) and the body (role, mood, prompt body, anti-patterns). Read `docs/music.md` first — palette and contrastive NOTs apply to every track.
+2. Edit the frontmatter and the body. Required frontmatter keys: `path` (where to write the audio), `loop` (true/false — also written into the `.import` sidecar), `length_sec`, `instrumental` (true = no vocals, false = vocals allowed; default lives in the spec, not the script). Optional: `context` (free-form metadata, e.g. `main_menu`, `rest`). Read `docs/music.md` first — palette and contrastive NOTs apply to every track.
 3. Dry-run to see the rendered prompt without spending credits:
    ```sh
    python tools/generate_music.py --spec assets/audio/music/<new>.spec.md --dry-run
