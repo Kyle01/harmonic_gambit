@@ -7,45 +7,61 @@ asset_type: band_card
 
 ## Figure
 
-A single **orchestra conductor standing center, baton raised,
-mid-downbeat**, in profile facing stage-left, filling the
-lower-middle of the canvas. Single figure only.
+A single **seated cellist on a concert-hall stage**, in profile
+facing stage-right, filling the lower-middle of the canvas.
+Single figure only.
 
 Features (all flat dark-blue silhouette, no facial features, no
 clothing detail beyond outline):
 
-- **A long flowing concert-tails coat** silhouette reaching to the
-  knees, simple vertical folds.
-- **Short flat hair**, no hat, no cap.
-- **The right arm raised high**, hand holding a thin straight
-  baton pointing upward.
-- **The left arm extended forward at chest height**, hand open in
-  a cueing gesture.
-- **Upright still posture in profile**, weight on the back foot.
+- **Long flowing hair** falling past the shoulders.
+- **A long flowing concert-dress silhouette** draping to the floor
+  in simple vertical folds.
+- **Seated on a small upright chair**, posture upright, leaning
+  slightly forward over the cello.
+- **The cello held vertically between the knees**, body at the
+  figure's chest.
+- **One hand on the neck of the cello at shoulder height**; the
+  other hand drawing a bow horizontally across the strings.
+- **Head tilted slightly down** toward the strings.
 
-## Instrument — CRITICAL (a conductor's baton + music stand)
+## Instrument — CRITICAL (a cello)
 
-The conductor commands the ensemble. Draw flat, bold-outlined:
+A **cello** is the defining symbol. Draw flat, bold-outlined, in
+the same dark-blue silhouette register:
 
-- **A THIN STRAIGHT BATON** in the raised right hand — a single
-  short line ending in a small round bulb-tip, pointing upward
-  and slightly back.
-- **A MUSIC STAND** in front of the conductor — a thin vertical
-  pole rising from the floor, topped by a flat angled rectangular
-  shelf, with a single open-book silhouette resting on the shelf.
-  The stand is shorter than the conductor; the shelf sits at the
-  conductor's chest height.
+- **A LARGE CURVED WOODEN BODY** — violin-shaped but cello-sized,
+  roughly torso-size, held vertically.
+- **Two S-shaped F-holes** on the body (violin-family marker —
+  this is what distinguishes it from a guitar).
+- **A LONG NECK** rising up beside the figure to about
+  ear-height.
+- **An ornate scroll** at the top of the neck.
+- **Four strings** along the neck.
+- **A bow** in one hand, drawn horizontally across the strings at
+  mid-stroke.
+- **A short endpin** spike at the bottom touching the floor.
 
-The baton in the raised hand and the music stand in front are
-what make this a conductor.
+The cello sits vertically in front of the figure, body at chest
+level, neck extending up past the shoulder.
 
 ## Background
 
-A radial spotlight halo behind the figure: pale ice-blue at the
-center fading to deep navy at the edges. A deep navy field with a
-small mid-blue crescent moon and scattered pale-blue stars across
-the upper field. No foreground props, no scenery, no foliage
-beyond the music stand.
+A formal concert-hall stage register:
+
+- **Large flowing STAGE CURTAINS** along the top of the canvas —
+  draped fabric panels with vertical folds, parted in the middle,
+  framing the figure from above.
+- **A radial spotlight halo** centered behind the figure: pale
+  ice-blue at the center fading to deep navy at the edges.
+- **A deep navy field** behind, with scattered pale-blue stars
+  visible in the upper portion (a hint of starlit sky beyond the
+  stage).
+- **A simple horizontal stage-floor line** along the bottom of
+  the canvas.
+
+No foreground props, no audience, no other figures, no music
+stand.
 
 A simple deep-navy tarot-style border with a thin pale-blue inner
 line frames the card. The border is empty.
