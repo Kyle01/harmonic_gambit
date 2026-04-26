@@ -1,10 +1,7 @@
 class_name BandCardTile
 extends PanelContainer
 
-signal selected(card: BandCard)
-
 var _pending_card: BandCard = null
-var _card: BandCard = null
 
 @onready var portrait_rect: TextureRect = $Margin/Rows/Portrait
 @onready var name_label: Label = $Margin/Rows/NameLabel
@@ -14,7 +11,6 @@ var _card: BandCard = null
 
 
 func setup(card: BandCard) -> void:
-	_card = card
 	if is_node_ready():
 		_apply(card)
 	else:
@@ -42,18 +38,3 @@ func _apply(card: BandCard) -> void:
 		portrait_rect.visible = true
 	else:
 		portrait_rect.texture = null
-
-
-func _gui_input(event: InputEvent) -> void:
-	if _card == null:
-		return
-	var fired: bool = false
-	if event is InputEventMouseButton:
-		var mb: InputEventMouseButton = event
-		if mb.button_index == MOUSE_BUTTON_LEFT and mb.pressed:
-			fired = true
-	elif event.is_action_pressed("ui_accept"):
-		fired = true
-	if fired:
-		selected.emit(_card)
-		accept_event()
