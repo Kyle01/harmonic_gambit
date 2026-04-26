@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BandCard" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/band_card.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/band_cards/dueling_djs/portrait.png" id="2_art"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"dueling_djs"
+display_name = "Dueling DJs"
+art = ExtResource("2_art")
+flavor = "Two decks, one argument. Whoever lands the next drop is right."
+applied_effects = Array[String](["+50% rhythm-window forgiveness", "+50% status-effect duration applied", "+25% SPD", "-50% loot drops"])
+activation_requirements = Array[String](["Have exactly 2 DJs and no other characters"])

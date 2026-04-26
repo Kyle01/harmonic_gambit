@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/band_cards/angelic_choir/portrait.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/band_cards/angelic_choir/portrait.png",
+    "asset_type": "band_card"
+  },
+  "output_path": "assets/sprites/band_cards/angelic_choir/portrait.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/band_cards/angelic_choir/portrait.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE \u2014 a flat dark-blue mass with NO facial features, NO clothing detail, NO inner lines on the body; only the readable outline shape. Monochromatic palette: every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) and nothing else \u2014 no warm hues. Bold black outline around every shape. Tarot-card register: hieratic, symbolic, flat. The instrument and background described below also render in the same monochromatic-blue silhouette style. \n\n# Angelic Choir \u2014 band card portrait\n\n## Figure\n\nA single **seated harpist playing a tall floor harp**, frontal,\nfilling the lower-middle of the canvas. Single figure only.\n\nFeatures (all flat dark-blue silhouette, no facial features, no\nclothing detail beyond outline):\n\n- **Long flowing hair** falling past the shoulders.\n- **A long flowing robe** silhouette draping to the floor, simple\n  vertical folds.\n- **Seated on a high stool**, posture upright and serene.\n- **Both arms raised forward at chest height**, fingers suggested\n  on the strings of the harp.\n- **Head tilted slightly down** toward the strings.\n\n## Instrument \u2014 CRITICAL (a tall floor harp)\n\nA **floor harp** is the defining symbol. Draw flat, bold-outlined,\nin the same dark-blue silhouette register:\n\n- **A TALL TRIANGULAR FRAME** rising from the floor up past the\n  figure's head. The frame has three sides:\n  - **A vertical front pillar** (column) on the right side of the\n    instrument, from floor to top.\n  - **A long curved upper neck** rising and curving forward, with\n    a small ornate scroll at its tip.\n  - **A wide curved sound-box** along the bottom-left, where the\n    strings meet the body.\n- **Many vertical strings** (10+) running from the curved upper\n  neck down to the sound-box, parallel to the front pillar.\n- **A small base** at the bottom holding the instrument upright on\n  the floor.\n\nThe triangular frame and the long curved upper neck are what make\nthis unmistakably a harp.\n\n## Background\n\nA radial spotlight halo behind the figure: **noticeably brighter\nand larger than a typical band card** \u2014 pale ice-blue at the\ncenter, expanding wide to fill most of the upper canvas, almost a\nfull halo around the figure's head and shoulders. This bright halo\nis the only visual signal of the angelic register; do not draw\nwings, drawn halos as separate rings, or any religious iconography.\n\nAround the bright halo, a deep navy field with a small mid-blue\ncrescent moon and scattered pale-blue stars across the upper field.\nNo foreground props, no scenery, no foliage.\n\nA simple deep-navy tarot-style border with a thin pale-blue inner\nline frames the card. The border is empty.\n\n## Palette \u2014 STRICT MONOCHROMATIC BLUE\n\nEvery shape is one of: deep navy, cobalt / mid-blue, or pale\nice-blue. No warm hues anywhere.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-26T13:26:16+00:00",
+  "output_sha256": "2b32202a8d7192572fbb596d74ae77c388a0cb654c4b1dbcab85c702fc312a59",
+  "output_bytes": 19642
+}

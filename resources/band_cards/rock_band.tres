@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BandCard" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/band_card.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/band_cards/rock_band/portrait.png" id="2_art"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"rock_band"
+display_name = "Rock Band"
+art = ExtResource("2_art")
+flavor = "Four bodies, one downbeat. The room leans in or it leaves."
+applied_effects = Array[String](["+50% ATK", "+25% rhythm-window forgiveness", "+25% combo build rate", "-33% DEF"])
+activation_requirements = Array[String](["Have exactly 1 Singer, 1 Bass, 1 Guitar, and 1 Drummer"])

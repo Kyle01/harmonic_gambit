@@ -26,10 +26,10 @@ Gambits drop as collectible cards during runs. Your party's combat effectiveness
 
 ### 2. Band composition — party is a band
 
-Party members have **instrument roles** (lead guitar, bass, drums, keys, vocals, strings, etc.). **Band-type cards** (Jazz Trio, Power Trio, String Quartet, Rhythm Section, …) grant bonuses when the party's instrument lineup matches the card's requirements.
+Party members have **instrument roles** drawn from a canonical roster of 12 archetypes (Singer, Drummer, DJ, Harp, Violin, Cello, Bass, Standing Bass, Keyboard, Sax, Accordion, Guitar — see [`architecture.md` → Instrument-role vocabulary](architecture.md#instrument-role-vocabulary)). **Band-type cards** (Soloist, Jazz Trio, Rock Band, Bluegrass, Chamber Ensemble, …) grant bonuses when the party's instrument lineup matches the card's requirements.
 
-- *Jazz Trio:* piano + bass + drums → combo meter builds faster.
-- *Power Trio:* lead guitar + bass + drums → critical hits chain.
+- *Jazz Trio:* keyboard + standing bass + drummer → combo meter builds faster.
+- *Rock Band:* singer + bass + guitar + drummer → bigger damage at the cost of defense.
 
 Band cards drop alongside gambit cards. Part of the strategic layer is **recruiting and retaining members whose roles unlock your band cards** — not just their raw stats.
 

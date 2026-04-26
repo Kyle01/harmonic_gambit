@@ -95,6 +95,15 @@ SUBJECT_LEADS: dict[str, str] = {
         "coral). 16-bit pixel register: limited shading bands, hand-painted pixels, "
         "soft dithering, anti-aliased curves. No text or letters in the image. "
     ),
+    "band_card": (
+        "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE — "
+        "a flat dark-blue mass with NO facial features, NO clothing detail, NO inner "
+        "lines on the body; only the readable outline shape. Monochromatic palette: "
+        "every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) "
+        "and nothing else — no warm hues. Bold black outline around every shape. "
+        "Tarot-card register: hieratic, symbolic, flat. The instrument and background "
+        "described below also render in the same monochromatic-blue silhouette style. "
+    ),
 }
 
 
@@ -122,6 +131,11 @@ ASSET_TYPE_DEFAULTS: dict[str, dict] = {
     "background": {
         "width": 400,  # 16:9 at full pixflux budget; runtime upscales to 1280×720.
         "height": 225,
+        "no_background": False,
+    },
+    "band_card": {
+        "width": 288,  # match character portrait dims — same card size on screen.
+        "height": 384,
         "no_background": False,
     },
 }

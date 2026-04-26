@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/band_cards/mariachi/portrait.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/band_cards/mariachi/portrait.png",
+    "asset_type": "band_card"
+  },
+  "output_path": "assets/sprites/band_cards/mariachi/portrait.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/band_cards/mariachi/portrait.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE \u2014 a flat dark-blue mass with NO facial features, NO clothing detail, NO inner lines on the body; only the readable outline shape. Monochromatic palette: every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) and nothing else \u2014 no warm hues. Bold black outline around every shape. Tarot-card register: hieratic, symbolic, flat. The instrument and background described below also render in the same monochromatic-blue silhouette style. \n\n# Mariachi \u2014 band card portrait\n\n## Figure\n\nA single **tall charro mariachi frontman, sombrero on his head,\nholding an acoustic guitar mid-strum**, frontal and centered,\nfilling the canvas. Single figure only.\n\nFeatures (all flat dark-blue silhouette, no facial features, no\nclothing detail beyond outline):\n\n- **A BROAD-BRIM SOMBRERO** as a single bold flat shape on the\n  head \u2014 wide curved brim, tall round crown. Render large and\n  unmistakable.\n- **A wide muscular silhouette** standing tall and frontal.\n- **A long fitted CHARRO JACKET** silhouette with vertical bands\n  of decorative outline-trim down the sides.\n- **A small bowtie shape** at the throat.\n- **High-waisted trousers** with narrow legs ending in simple\n  boots.\n- **The acoustic guitar held diagonally across the chest**, both\n  hands on it.\n\n## Instrument \u2014 CRITICAL (acoustic guitar)\n\nAn **acoustic guitar** is the defining symbol. Draw flat, bold-\noutlined:\n\n- **A LARGE ROUNDED HOURGLASS WOODEN BODY** \u2014 the big rounded\n  hourglass shape that distinguishes acoustic from electric. This\n  is not a slim solid body.\n- **A LARGE ROUND SOUND-HOLE** in the center of the body. The\n  sound-hole is the single shape that makes this unambiguously an\n  acoustic guitar.\n- **Six strings** running the length of the neck.\n- **A fretted neck** with a headstock at the top.\n\nHeld diagonally across the figure's chest \u2014 body lower-right,\nneck going up across the left shoulder.\n\n## Background\n\nA radial spotlight halo behind the figure: pale ice-blue at the\ncenter fading to deep navy at the edges. A deep navy field with a\nsmall mid-blue crescent moon and scattered pale-blue stars across\nthe upper field. No foreground props, no scenery, no foliage.\n\nA simple deep-navy tarot-style border with a thin pale-blue inner\nline frames the card. The border is empty.\n\n## Palette \u2014 STRICT MONOCHROMATIC BLUE\n\nEvery shape is one of: deep navy, cobalt / mid-blue, or pale\nice-blue. No warm hues anywhere.\n\n## No text, no numbers\n\nNo card number, title, label, writing, or numerals anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-26T13:22:38+00:00",
+  "output_sha256": "4a73cbd886d6782865fe6af9f4da446259a8e6cc4da36e769362af8bdf77121f",
+  "output_bytes": 40343
+}
