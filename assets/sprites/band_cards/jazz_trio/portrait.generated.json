@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/band_cards/jazz_trio/portrait.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/band_cards/jazz_trio/portrait.png",
+    "asset_type": "band_card"
+  },
+  "output_path": "assets/sprites/band_cards/jazz_trio/portrait.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/band_cards/jazz_trio/portrait.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE \u2014 a flat dark-blue mass with NO facial features, NO clothing detail, NO inner lines on the body; only the readable outline shape. Monochromatic palette: every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) and nothing else \u2014 no warm hues. Bold black outline around every shape. Tarot-card register: hieratic, symbolic, flat. The instrument and background described below also render in the same monochromatic-blue silhouette style. \n\n# Jazz Trio \u2014 band card portrait\n\n## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE\n\nNothing written or printed anywhere in the image. No tarot title, no\nroman numeral, no name banner, no card-foot label. Empty borders.\n\n## RULE 2: A THREE-PIECE JAZZ COMBO\n\nThree flat dark-blue silhouette figures arranged in an intimate triangle:\n\n1. **Stage-left: a pianist seated at a small upright keyboard.** The\n   keyboard is a low rectangular block at hip height with a thin band\n   of pale-blue keys visible along the top edge. The pianist sits on\n   a small stool, leaning forward, hands suggested over the keys.\n2. **Center-back: an upright-bass player standing tall.** A tall\n   double-bass \u2014 an oversized teardrop body taller than the figure\n   themselves, scroll head curled at the top. The bassist stands\n   behind it, one hand on the neck at shoulder height, the other low\n   on the body.\n3. **Stage-right: a drummer behind a small kit.** Only the silhouette\n   of the drummer's torso and arms is visible above a simplified kit \u2014\n   one snare on a stand and one suspended cymbal. No full drum kit,\n   small footprint.\n\nThe three figures cluster close, like a smoky-club combo.\n\n## NOT THESE\n\nThe piano is **NOT a grand piano** \u2014 it is a small upright/electric\nkeyboard. The bass is **NOT an electric bass** \u2014 it is a tall standing\nacoustic upright. The drummer is **NOT in front** \u2014 they are upstage\nright. None of the figures hold microphones. No vocalist.\n\n## Figure pose\n\nAll three figures in flat dark-blue silhouette, no facial features.\nPianist seated leaning into keys, bassist standing tall and steady,\ndrummer arms raised mid-rhythm.\n\n## Background\n\nA radial spotlight halo behind the trio: pale ice-blue at the center\nfading to deep navy at the edges. Around it, a deep navy field with a\nsmall mid-blue crescent moon and a few pale-blue stars scattered. No\nforeground grass, no plants, no foliage \u2014 just the trio, their\ninstruments, and the spotlight.\n\nA simple deep-navy tarot border with a thin pale-blue inner line frames\nthe card. The border is empty \u2014 no text, no numerals, no banner.\n\n## Palette \u2014 STRICT MONOCHROMATIC BLUE\n\nEvery shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.\nNo warm hues \u2014 no gold, green, rose, coral, or brown anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-26T13:06:27+00:00",
+  "output_sha256": "9ade6f6d2d8216f047ef1731f028e1b1065f9b1237dce9daee3096a04a79eb96",
+  "output_bytes": 51340
+}

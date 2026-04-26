@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BandCard" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/band_card.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/band_cards/bluegrass/portrait.png" id="2_art"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"bluegrass"
+display_name = "Bluegrass"
+art = ExtResource("2_art")
+flavor = "Tunes carried out of the hollers — fast feet, tight harmonies, full pockets."
+applied_effects = Array[String](["+50% SPD", "+25% HP", "+50% gold drops", "-25% POW"])
+activation_requirements = Array[String](["Have exactly 1 Violin, 1 Guitar, 1 Singer, and 1 Standing Bass"])

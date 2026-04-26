@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/band_cards/dueling_djs/portrait.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/band_cards/dueling_djs/portrait.png",
+    "asset_type": "band_card"
+  },
+  "output_path": "assets/sprites/band_cards/dueling_djs/portrait.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/band_cards/dueling_djs/portrait.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE \u2014 a flat dark-blue mass with NO facial features, NO clothing detail, NO inner lines on the body; only the readable outline shape. Monochromatic palette: every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) and nothing else \u2014 no warm hues. Bold black outline around every shape. Tarot-card register: hieratic, symbolic, flat. The instrument and background described below also render in the same monochromatic-blue silhouette style. \n\n# Dueling DJs \u2014 band card portrait\n\n## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE\n\nNothing written or printed anywhere in the image. No tarot title, no\nroman numeral, no name banner, no card-foot label. Empty borders.\n\n## RULE 2: TWO DJs FACING EACH OTHER ACROSS TURNTABLE DECKS\n\nTwo flat dark-blue silhouette figures, mirrored, standing behind their\nown turntable rigs:\n\n1. **Stage-left DJ.** Standing behind a low rectangular turntable\n   table. On the table: two round flat circles (the platters) side by\n   side, each with a small spindle dot at center. The figure leans in,\n   one hand low over the left platter.\n2. **Stage-right DJ.** Mirror image of the left DJ. Standing behind\n   their own identical turntable rig with two round platters, leaning\n   in, one hand on the right platter.\n\nThe two rigs face each other across the spotlight, suggesting a duel\nor back-and-forth set. Headphones on each DJ \u2014 a thin band over the\nsilhouette's head with pads on each ear \u2014 are subtly suggested.\n\n## NOT THESE\n\nThese are **NOT laptop DJs** \u2014 they stand behind real vinyl turntable\nrigs with visible round platters. They are **NOT facing the viewer**\nstraight on \u2014 they angle slightly toward each other. There is no\ncrowd, no dance floor, no equalizer-bar visualization.\n\n## Figure pose\n\nBoth figures in flat dark-blue silhouette, no facial features, no\nclothing detail. Postures are mirrored \u2014 each leaning slightly toward\nthe other across the decks.\n\n## Background\n\nA radial spotlight halo behind the two DJs: pale ice-blue at the\ncenter fading to deep navy at the edges. The halo is centered between\nthem, lighting both. Around it, a deep navy field with a small mid-blue\ncrescent moon and a few pale-blue stars scattered. No foreground\ngrass, no plants, no foliage \u2014 just the two figures, their decks, and\nthe spotlight.\n\nA simple deep-navy tarot border with a thin pale-blue inner line frames\nthe card. The border is empty \u2014 no text, no numerals, no banner.\n\n## Palette \u2014 STRICT MONOCHROMATIC BLUE\n\nEvery shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.\nNo warm hues \u2014 no gold, green, rose, coral, or brown anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-26T13:06:45+00:00",
+  "output_sha256": "3280244bc20778b59c6f3c7768f828da62eccb4844ab21fe808edcd04143dd3a",
+  "output_bytes": 43249
+}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BandCard" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/band_card.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/band_cards/chamber_ensemble/portrait.png" id="2_art"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"chamber_ensemble"
+display_name = "Chamber Ensemble"
+art = ExtResource("2_art")
+flavor = "Ten players, one breath. They wait for the conductor that never comes."
+applied_effects = Array[String](["+25% to HP / ATK / DEF / POW / SPD", "+50% XP gain", "-50% MP regen"])
+activation_requirements = Array[String](["Have exactly 4 Violin, 2 Cello, 1 Standing Bass, 1 Harp, 1 Keyboard, and 1 Saxophone"])

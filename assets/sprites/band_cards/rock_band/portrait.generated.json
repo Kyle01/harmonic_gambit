@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/band_cards/rock_band/portrait.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/band_cards/rock_band/portrait.png",
+    "asset_type": "band_card"
+  },
+  "output_path": "assets/sprites/band_cards/rock_band/portrait.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/band_cards/rock_band/portrait.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE \u2014 a flat dark-blue mass with NO facial features, NO clothing detail, NO inner lines on the body; only the readable outline shape. Monochromatic palette: every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) and nothing else \u2014 no warm hues. Bold black outline around every shape. Tarot-card register: hieratic, symbolic, flat. The instrument and background described below also render in the same monochromatic-blue silhouette style. \n\n# Rock Band \u2014 band card portrait\n\n## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE\n\nNothing written or printed anywhere in the image. No tarot title, no\nroman numeral, no name banner, no card-foot label. Empty borders.\n\n## RULE 2: A FOUR-PIECE ROCK BAND ON STAGE\n\nFour flat dark-blue silhouette figures arranged across the frame,\ntogether. Reading left to right:\n\n1. **Stage-left: an electric-guitar player.** Holding an electric guitar\n   slung at hip height \u2014 a slim solid body with a long neck angled\n   downward. Stance leaning forward.\n2. **Center-left: a vocalist at a vintage standing microphone.** Same\n   register as a 1950s lounge singer. Round mic ball at mouth height,\n   short pale-blue mic stand rising to chest height of the figure.\n3. **Center-right: a bass player.** Holding an electric bass guitar,\n   thicker body and shorter neck than the lead guitar, slung lower at\n   waist. Stance steady, planted.\n4. **Stage-right (back): a drummer behind a small drum kit.** Only the\n   silhouette of the drummer's torso and arms is visible above a\n   simplified kit \u2014 one bass drum, one snare, one suspended cymbal on\n   a stand.\n\nThe figures stand close together, suggesting a band on a small stage.\n\n## NOT THESE\n\nNot a marching column. Not a parade. Not a single hero. The vocalist\nis **NOT holding a guitar**. The guitar player is **NOT singing into a\nmicrophone**. The drummer is **NOT standing in front** \u2014 they are\nupstage behind the kit. There is no audience, no stage lights besides\nthe single spotlight halo.\n\n## Figure pose\n\nAll four figures in flat dark-blue silhouette, no facial features, no\nclothing detail. Postures are subtly varied \u2014 guitar leaning, vocalist\nupright, bass planted, drummer's arms raised mid-strike.\n\n## Background\n\nA radial spotlight halo behind the band: pale ice-blue at the center\nfading to deep navy at the edges. Around it, a deep navy field with a\nsmall mid-blue crescent moon and a few pale-blue stars scattered. No\nforeground grass, no plants, no foliage \u2014 just the four figures, their\ninstruments, and the spotlight.\n\nA simple deep-navy tarot border with a thin pale-blue inner line frames\nthe card. The border is empty \u2014 no text, no numerals, no banner.\n\n## Palette \u2014 STRICT MONOCHROMATIC BLUE\n\nEvery shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.\nNo warm hues \u2014 no gold, green, rose, coral, or brown anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-26T13:06:35+00:00",
+  "output_sha256": "c28893c2cc4e1a694e913b7242b26c10c50337946d2e1f62dbfd69ea9095b90a",
+  "output_bytes": 37871
+}

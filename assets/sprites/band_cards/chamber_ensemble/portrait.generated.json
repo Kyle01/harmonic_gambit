@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/band_cards/chamber_ensemble/portrait.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/band_cards/chamber_ensemble/portrait.png",
+    "asset_type": "band_card"
+  },
+  "output_path": "assets/sprites/band_cards/chamber_ensemble/portrait.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/band_cards/chamber_ensemble/portrait.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE \u2014 a flat dark-blue mass with NO facial features, NO clothing detail, NO inner lines on the body; only the readable outline shape. Monochromatic palette: every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) and nothing else \u2014 no warm hues. Bold black outline around every shape. Tarot-card register: hieratic, symbolic, flat. The instrument and background described below also render in the same monochromatic-blue silhouette style. \n\n# Chamber Ensemble \u2014 band card portrait\n\n## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE\n\nNothing written or printed anywhere in the image. No tarot title, no\nroman numeral, no name banner, no card-foot label. Empty borders.\n\n## RULE 2: A TEN-PIECE CHAMBER ORCHESTRA, TIGHTLY ARRANGED\n\nTen flat dark-blue silhouette figures, arranged in two rows:\n\n**FRONT ROW (7 string players, sitting in a shallow arc):**\n1. Violinist 1 \u2014 far stage-left \u2014 instrument tucked under chin, bow up.\n2. Violinist 2 \u2014 left-center \u2014 instrument tucked under chin, bow up.\n3. Violinist 3 \u2014 center-left \u2014 instrument tucked under chin, bow up.\n4. Violinist 4 \u2014 center-right \u2014 instrument tucked under chin, bow up.\n5. Cellist 1 \u2014 right-center \u2014 large cello vertical between knees, bow\n   on strings horizontally.\n6. Cellist 2 \u2014 far stage-right of front row \u2014 cello vertical between\n   knees, bow on strings.\n7. Standing Bass \u2014 slightly behind the cellos, an even taller\n   upright-bass body towering above the seated cellists, with a\n   standing player behind it.\n\n**BACK ROW (3 figures standing):**\n8. Harpist \u2014 stage-left back, behind a tall harp shape (a triangular\n   frame with a long curved neck), seated on a high stool.\n9. Keyboardist \u2014 center back, standing behind a low rectangular\n   keyboard with a thin band of pale-blue keys.\n10. Saxophonist \u2014 stage-right back, holding a curved saxophone shape\n    (J-shape with a flared bell at the bottom) angled up to the mouth.\n\nThe figures cluster tightly \u2014 10 silhouettes filling the spotlight area\nwithout crowding the borders. Each figure is small but readable.\n\n## NOT THESE\n\nThis is **NOT a marching band, NOT a rock band, NOT a parade**. No\nmicrophones, no drum kit, no electric instruments. The string players\nare **seated**, the back row is **standing**. No audience, no\nconductor's podium.\n\n## Figure pose\n\nAll ten figures in flat dark-blue silhouette, no facial features, no\nclothing detail. Front-row strings seated leaning slightly forward,\nbows raised. Back-row figures standing tall.\n\n## Background\n\nA radial spotlight halo behind the ensemble: pale ice-blue at the\ncenter fading to deep navy at the edges. The halo is wide enough to\nbacklight all ten figures. Around it, a deep navy field with a small\nmid-blue crescent moon and a few pale-blue stars scattered. No\nforeground grass, no plants, no foliage \u2014 just the ensemble, their\ninstruments, and the spotlight.\n\nA simple deep-navy tarot border with a thin pale-blue inner line frames\nthe card. The border is empty \u2014 no text, no numerals, no banner.\n\n## Palette \u2014 STRICT MONOCHROMATIC BLUE\n\nEvery shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.\nNo warm hues \u2014 no gold, green, rose, coral, or brown anywhere.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-26T13:07:44+00:00",
+  "output_sha256": "fb76da060ecbda8387f31c4345edc58f5a323a9281ab6fd95d2723fd87f2308a",
+  "output_bytes": 65281
+}
