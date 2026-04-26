@@ -5,56 +5,60 @@ asset_type: band_card
 
 # Jazz Trio — band card portrait
 
-## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE
+## Figure
 
-Nothing written or printed anywhere in the image. No tarot title, no
-roman numeral, no name banner, no card-foot label. Empty borders.
+A single **pianist seated at an upright piano**, side-on facing
+stage-right, filling the lower-middle of the canvas. Single figure
+only.
 
-## RULE 2: A THREE-PIECE JAZZ COMBO
+Features (all flat dark-blue silhouette, no facial features, no
+clothing detail beyond outline):
 
-Three flat dark-blue silhouette figures arranged in an intimate triangle:
+- **Short flat hair**, no hat.
+- **A loose dark suit jacket** silhouette over a simple shirt.
+- **Seated on a low piano bench**, posture leaning slightly forward
+  toward the keys.
+- **Both arms extended forward**, hands suggested over the keyboard
+  at chest height.
+- **Head tilted slightly down** toward the keys.
 
-1. **Stage-left: a pianist seated at a small upright keyboard.** The
-   keyboard is a low rectangular block at hip height with a thin band
-   of pale-blue keys visible along the top edge. The pianist sits on
-   a small stool, leaning forward, hands suggested over the keys.
-2. **Center-back: an upright-bass player standing tall.** A tall
-   double-bass — an oversized teardrop body taller than the figure
-   themselves, scroll head curled at the top. The bassist stands
-   behind it, one hand on the neck at shoulder height, the other low
-   on the body.
-3. **Stage-right: a drummer behind a small kit.** Only the silhouette
-   of the drummer's torso and arms is visible above a simplified kit —
-   one snare on a stand and one suspended cymbal. No full drum kit,
-   small footprint.
+## Instrument — CRITICAL (an upright piano)
 
-The three figures cluster close, like a smoky-club combo.
+An **upright piano** is the defining symbol. Draw flat,
+bold-outlined, in the same dark-blue silhouette register:
 
-## NOT THESE
+- **A TALL RECTANGULAR CABINET** rising from the floor to roughly
+  the seated figure's head height. The cabinet is solid and boxy,
+  much taller than it is wide.
+- **A horizontal KEYBOARD** running across the front of the
+  cabinet at the figure's chest height — a long thin rectangle
+  with a band of pale-blue keys (alternating wide light keys and
+  narrow dark keys) visible along its length.
+- **A flat sloped MUSIC STAND PANEL** rising at an angle from the
+  top of the keyboard up to the cabinet's mid-height, with a
+  single open-book silhouette resting on it.
+- **Two short legs** at the cabinet's base supporting it on the
+  floor, plus a small foot-pedal block at the bottom-front.
 
-The piano is **NOT a grand piano** — it is a small upright/electric
-keyboard. The bass is **NOT an electric bass** — it is a tall standing
-acoustic upright. The drummer is **NOT in front** — they are upstage
-right. None of the figures hold microphones. No vocalist.
-
-## Figure pose
-
-All three figures in flat dark-blue silhouette, no facial features.
-Pianist seated leaning into keys, bassist standing tall and steady,
-drummer arms raised mid-rhythm.
+The TALL boxy cabinet (not a small flat keyboard, not a grand
+piano with curved lid) and the visible band of keys are what make
+this unambiguously an upright piano.
 
 ## Background
 
-A radial spotlight halo behind the trio: pale ice-blue at the center
-fading to deep navy at the edges. Around it, a deep navy field with a
-small mid-blue crescent moon and a few pale-blue stars scattered. No
-foreground grass, no plants, no foliage — just the trio, their
-instruments, and the spotlight.
+A radial spotlight halo behind the figure: pale ice-blue at the
+center fading to deep navy at the edges. A deep navy field with a
+small mid-blue crescent moon and scattered pale-blue stars across
+the upper field. No foreground props, no scenery, no foliage.
 
-A simple deep-navy tarot border with a thin pale-blue inner line frames
-the card. The border is empty — no text, no numerals, no banner.
+A simple deep-navy tarot-style border with a thin pale-blue inner
+line frames the card. The border is empty.
 
 ## Palette — STRICT MONOCHROMATIC BLUE
 
-Every shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.
-No warm hues — no gold, green, rose, coral, or brown anywhere.
+Every shape is one of: deep navy, cobalt / mid-blue, or pale
+ice-blue. No warm hues anywhere.
+
+## No text, no numbers
+
+No card number, title, label, writing, or numerals anywhere.

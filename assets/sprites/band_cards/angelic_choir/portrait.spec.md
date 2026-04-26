@@ -5,64 +5,64 @@ asset_type: band_card
 
 # Angelic Choir — band card portrait
 
-## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE
+## Figure
 
-Nothing written or printed anywhere in the image. No tarot title, no
-roman numeral, no name banner, no card-foot label. Empty borders.
+A single **seated harpist playing a tall floor harp**, frontal,
+filling the lower-middle of the canvas. Single figure only.
 
-## RULE 2: A THREE-FIGURE ANGELIC CHORAL TRIO
+Features (all flat dark-blue silhouette, no facial features, no
+clothing detail beyond outline):
 
-Three flat dark-blue silhouette figures arranged in a hushed,
-ceremonial triangle. The register is sacred / haloed — soft and
-elevated, not party-like:
+- **Long flowing hair** falling past the shoulders.
+- **A long flowing robe** silhouette draping to the floor, simple
+  vertical folds.
+- **Seated on a high stool**, posture upright and serene.
+- **Both arms raised forward at chest height**, fingers suggested
+  on the strings of the harp.
+- **Head tilted slightly down** toward the strings.
 
-1. **Stage-left: a harpist.** Seated on a high stool behind a tall
-   harp — a triangular frame with a long curved upper neck rising
-   above the figure's head. Both hands suggested at the strings.
-2. **Center: a vocalist at a standing microphone**, slightly elevated
-   above the other two. Round mic ball at mouth height, short
-   pale-blue mic stand rising to chest height. Hands at sides or
-   gently lifted, mouth at the mic. Body upright and serene.
-3. **Stage-right: a keyboardist.** Standing behind a low rectangular
-   keyboard with a thin band of pale-blue keys visible along the top
-   edge. Hands suggested over the keys.
+## Instrument — CRITICAL (a tall floor harp)
 
-## RULE 3: AN UNUSUALLY BRIGHT SPOTLIGHT HALO
+A **floor harp** is the defining symbol. Draw flat, bold-outlined,
+in the same dark-blue silhouette register:
 
-The radial spotlight behind the three figures is **noticeably brighter
-and larger** than on a normal band card — pale ice-blue at the center,
-expanding outward, almost a full halo around the central vocalist's
-head. This bright halo is the only signal of the angelic register.
+- **A TALL TRIANGULAR FRAME** rising from the floor up past the
+  figure's head. The frame has three sides:
+  - **A vertical front pillar** (column) on the right side of the
+    instrument, from floor to top.
+  - **A long curved upper neck** rising and curving forward, with
+    a small ornate scroll at its tip.
+  - **A wide curved sound-box** along the bottom-left, where the
+    strings meet the body.
+- **Many vertical strings** (10+) running from the curved upper
+  neck down to the sound-box, parallel to the front pillar.
+- **A small base** at the bottom holding the instrument upright on
+  the floor.
 
-There are NO drawn wings, NO drawn halos around the heads as separate
-rings, NO religious iconography. The "angelic" feeling comes from the
-oversized backlight halo alone.
-
-## NOT THESE
-
-The vocalist is **NOT holding a microphone in hand** — they stand at
-a fixed standing mic. The harp is **NOT a small lyre** — it is a tall
-floor harp. The keyboard is **NOT a grand piano** — it is a low
-rectangular keyboard. There are no wings, no halos as drawn rings,
-no religious crosses or symbols, no choir robes — only silhouettes.
-
-## Figure pose
-
-All three figures in flat dark-blue silhouette, no facial features, no
-clothing detail. Vocalist upright and serene, harpist seated leaning
-gently into the harp, keyboardist standing with hands over the keys.
+The triangular frame and the long curved upper neck are what make
+this unmistakably a harp.
 
 ## Background
 
-The bright radial spotlight halo described above. Around it, a deep
-navy field with a small mid-blue crescent moon and a few pale-blue
-stars scattered. No foreground grass, no plants, no foliage — just
-the three figures, their instruments, and the bright halo.
+A radial spotlight halo behind the figure: **noticeably brighter
+and larger than a typical band card** — pale ice-blue at the
+center, expanding wide to fill most of the upper canvas, almost a
+full halo around the figure's head and shoulders. This bright halo
+is the only visual signal of the angelic register; do not draw
+wings, drawn halos as separate rings, or any religious iconography.
 
-A simple deep-navy tarot border with a thin pale-blue inner line frames
-the card. The border is empty — no text, no numerals, no banner.
+Around the bright halo, a deep navy field with a small mid-blue
+crescent moon and scattered pale-blue stars across the upper field.
+No foreground props, no scenery, no foliage.
+
+A simple deep-navy tarot-style border with a thin pale-blue inner
+line frames the card. The border is empty.
 
 ## Palette — STRICT MONOCHROMATIC BLUE
 
-Every shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.
-No warm hues — no gold, green, rose, coral, or brown anywhere.
+Every shape is one of: deep navy, cobalt / mid-blue, or pale
+ice-blue. No warm hues anywhere.
+
+## No text, no numbers
+
+No card number, title, label, writing, or numerals anywhere.
