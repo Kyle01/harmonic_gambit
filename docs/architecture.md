@@ -25,9 +25,15 @@ here.
 
 Current signals:
 - `actor_window_opened(actor: Node)` — TurnManager → GambitEngine trigger.
-- `band_bonus_changed(bonus: Resource)` — BandComposer → UI / combat stats.
+- `music_volume_changed(linear: float)` — AudioSettings → UI sync.
+- `sfx_volume_changed(linear: float)` — AudioSettings → UI sync.
 
 Past-tense naming is mandatory (`health_changed`, not `change_health`).
+
+Deferred: `band_bonus_changed(bonus: Resource)` will return alongside
+`BandComposer` once runtime band-card composition lands. The current
+`BandCard` schema is display-only `Array[String]` (see below), so no
+runtime evaluator subscribes yet.
 
 ### 2. `RNG` (`rng.gd`)
 Seeded per-stream random. **The only sanctioned source of randomness.**
@@ -70,12 +76,7 @@ returned action is executed by the combat system.
 `ResolvedAction` is not yet a Resource; return type is `Resource` for now
 and will tighten once the schema lands.
 
-### 7. `BandComposer` (`band_composer.gd`)
-Evaluates the current party's instrument roles against the equipped
-`BandCard.required_roles`. On match transitions, emits
-`EventBus.band_bonus_changed(bonus)`.
-
-### 8. `AudioSettings` (`audio_settings.gd`)
+### 7. `AudioSettings` (`audio_settings.gd`)
 Authoritative volume state for the `Music` and `SFX` buses. Loads a
 `UserSettings` resource from `user://settings.tres` on ready, applies it to
 `AudioServer`, and re-saves on every change. The only code in the project
@@ -85,6 +86,13 @@ autoload via `set_music_volume` / `set_sfx_volume`, then subscribes to
 
 Bus layout lives at `res://default_bus_layout.tres`, registered via
 `project.godot [audio] buses/default_bus_layout`.
+
+### 8. `MusicDirector` (`music_director.gd`)
+Owns the single active music `AudioStreamPlayer` across scene transitions
+so tracks spanning multiple scenes (main menu → options → main menu)
+don't restart on scene change. Scenes call `MusicDirector.play(stream)` /
+`stop()` rather than hosting their own players. Routes through the
+`Music` bus; volume is controlled by `AudioSettings`.
 
 Sound design philosophy — the continuity brief for music + SFX — is in
 [`docs/sound_design.md`](sound_design.md). Read before generating any new
@@ -100,11 +108,11 @@ All `class_name`'d. Typed fields only. No logic.
   condition/selector registry lands.
 - **`Card`** (base) — `id`, `display_name`, `art`, `flavor`.
 - **`GambitCard extends Card`** — wraps `GambitDef`.
-- **`BandCard extends Card`** — `required_roles: Array[StringName]`,
-  `bonus_payload: Resource` (tightens to `BandBonus` later).
-  `required_roles` entries must come from the canonical instrument-role
-  vocabulary (see below); authoring against free-form strings will
-  silently fail to match at `BandComposer` evaluation time.
+- **`BandCard extends Card`** — `applied_effects: Array[String]`,
+  `activation_requirements: Array[String]` (display-only for v1).
+  Will tighten to typed `BandEffect` / `BandRequirement` Resources
+  parsed against the canonical instrument-role vocabulary (see below)
+  once a runtime `BandComposer` lands.
 - **`EnemyDef`** — stats, `sprite_frames`, `default_gambits`.
 - **`CharacterDef`** — playable character template: `instrument_role`,
   base + linear-growth stats (`HP/ATK/DEF/POW/SPD`), `learn_list:
@@ -157,8 +165,8 @@ inheritance. Expected families:
 - `HealthComponent` — hp, damage, death signal.
 - `GambitListComponent` — holds an `Array[GambitDef]`, serves
   `GambitEngine`.
-- `InstrumentComponent` — the actor's `instrument_role`; read by
-  `BandComposer`.
+- `InstrumentComponent` — the actor's `instrument_role`; will be read
+  by the future `BandComposer` to evaluate equipped band cards.
 
 Components should expose signals for their own state changes; `EventBus`
 is for *cross-system* traffic, not *within-actor* traffic.
