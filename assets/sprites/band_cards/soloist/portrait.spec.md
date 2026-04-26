@@ -5,64 +5,55 @@ asset_type: band_card
 
 # Soloist — band card portrait
 
-## Figure
+## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE
 
-A **single performer in silhouette** — one figure alone, centered,
-carrying the stage by themselves. The whole figure is rendered as a
-flat dark-blue silhouette mass with a bold black outline. **No facial
-features, no clothing detail, no inner lines on the body** — only the
-readable outline shape. The pose reads as performing: head slightly
-raised, one hand on or near the instrument, weight on one leg.
+Nothing written or printed anywhere in the image. No tarot title, no
+roman numeral, no name banner, no card-foot label. Empty borders.
 
-## Instrument — CRITICAL (the instrument MUST be visible in silhouette)
+## RULE 2: A 1950S LOUNGE SINGER AT A STANDING MICROPHONE
 
-The performer holds **a microphone on a tall standing stand**. The
-microphone-on-stand is the symbol of this card.
+The figure is a **vocalist at a vintage standing microphone** — Frank
+Sinatra register, big-band-era crooner. The figure stands directly
+behind the mic, head leaning slightly forward toward it.
 
-Rendering:
+## The microphone — REQUIRED
 
-- **The mic stand** is a tall vertical line from the floor up past the
-  figure's chest, rendered as a pale-blue line.
-- **The microphone head** is a small rounded shape at the top of the
-  stand, in mid-blue.
-- **One hand of the figure rests on or near the mic stand** — the
-  silhouette of the hand and the line of the stand merge into a single
-  readable shape.
+- A short pale-blue **mic stand** rising from the floor to about
+  CHEST height of the figure (NOT shoulder height, NOT taller than
+  the figure — the stand is shorter than the person).
+- At the top sits a **round vintage ball microphone** — a single small
+  mid-blue ball, the size of a fist, like a 1950s Shure 55 or RCA 44
+  microphone head.
+- The microphone head is **directly in front of the figure's mouth**,
+  almost touching the figure's chin/silhouette outline.
 
-Either the singer's silhouette OR the stand may overlap. The viewer must
-read this immediately as "one performer + microphone, alone."
+## NOT THESE
+
+The stand is **NOT a walking staff**. It is **NOT taller than the
+figure**. The figure is **NOT a wanderer, NOT a wizard, NOT a hiker**.
+The figure is **NOT holding a guitar, NOT behind a drum kit, NOT
+holding a horn**. There is no instrument visible besides the standing
+microphone.
+
+## Figure pose
+
+A vocalist in flat dark-blue silhouette, no facial features, no
+clothing detail. The body leans subtly toward the microphone. One hand
+rests low on the mic stand at hip or chest height. The figure's mouth
+is at the microphone head.
 
 ## Background
 
-A flat radial **spotlight** behind the figure — a circle of pale ice-
-blue at the center fading outward to deep navy at the edges, suggesting
-a single hard stage light from above. **No backing band, no audience
-figures, no other performers.** Around the spotlight, the rest of the
-field is deep navy with simple Rider-Waite-style symbolic motifs in
-mid-blue or pale-blue: a small crescent moon in one corner, a few
-scattered stars, a geometric horizon line. All flat, bold-outlined,
-symbolic.
+A radial spotlight halo behind the figure: pale ice-blue at the center
+fading to deep navy at the edges. Around it, a deep navy field with a
+small mid-blue crescent moon and a few pale-blue stars scattered. No
+foreground grass, no plants, no foliage — just the figure, the
+microphone, and the spotlight.
 
-A decorative tarot-card border frame around the edges (deep navy with
-a thin pale-blue inner line) is welcome.
+A simple deep-navy tarot border with a thin pale-blue inner line frames
+the card. The border is empty — no text, no numerals, no banner.
 
-## Palette — STRICT
+## Palette — STRICT MONOCHROMATIC BLUE
 
-Every shape in the image must be one of these blues:
-
-- **Deep navy** (background field, frame border, figure silhouette)
-- **Cobalt / mid-blue** (mic head, motif accents)
-- **Pale ice-blue** (spotlight halo, frame inner line, mic stand)
-
-**No warm hues anywhere** — no gold, no green, no rose, no coral. If
-you would normally render skin or hair or wood as a warm color, render
-it as a blue silhouette instead. Monochromatic blue is the entire
-identity of this card.
-
-## No text, no numbers
-
-- **No tarot card number** at the top of the card.
-- **No title or roman numeral** at the bottom.
-- **No letters, no words, no name plaque, no banner, no
-  label.** Nothing written or numbered anywhere in the
-  image — the card is unlabeled.
+Every shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.
+No warm hues — no gold, green, rose, coral, or brown anywhere.

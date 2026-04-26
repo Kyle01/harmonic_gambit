@@ -30,7 +30,7 @@ func _ready() -> void:
 func _apply(card: BandCard) -> void:
 	name_label.text = card.display_name if card.display_name != "" else str(card.id)
 	flavor_label.text = card.flavor
-	effects_label.text = "\n".join(card.applied_effects)
+	effects_label.text = " · ".join(card.applied_effects)
 	if card.activation_requirements.is_empty():
 		requires_label.text = ""
 		requires_label.visible = false
