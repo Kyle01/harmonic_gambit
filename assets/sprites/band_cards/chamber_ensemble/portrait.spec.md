@@ -5,65 +5,56 @@ asset_type: band_card
 
 # Chamber Ensemble — band card portrait
 
-## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE
+## Figure
 
-Nothing written or printed anywhere in the image. No tarot title, no
-roman numeral, no name banner, no card-foot label. Empty borders.
+A single **orchestra conductor standing center, baton raised,
+mid-downbeat**, in profile facing stage-left, filling the
+lower-middle of the canvas. Single figure only.
 
-## RULE 2: A TEN-PIECE CHAMBER ORCHESTRA, TIGHTLY ARRANGED
+Features (all flat dark-blue silhouette, no facial features, no
+clothing detail beyond outline):
 
-Ten flat dark-blue silhouette figures, arranged in two rows:
+- **A long flowing concert-tails coat** silhouette reaching to the
+  knees, simple vertical folds.
+- **Short flat hair**, no hat, no cap.
+- **The right arm raised high**, hand holding a thin straight
+  baton pointing upward.
+- **The left arm extended forward at chest height**, hand open in
+  a cueing gesture.
+- **Upright still posture in profile**, weight on the back foot.
 
-**FRONT ROW (7 string players, sitting in a shallow arc):**
-1. Violinist 1 — far stage-left — instrument tucked under chin, bow up.
-2. Violinist 2 — left-center — instrument tucked under chin, bow up.
-3. Violinist 3 — center-left — instrument tucked under chin, bow up.
-4. Violinist 4 — center-right — instrument tucked under chin, bow up.
-5. Cellist 1 — right-center — large cello vertical between knees, bow
-   on strings horizontally.
-6. Cellist 2 — far stage-right of front row — cello vertical between
-   knees, bow on strings.
-7. Standing Bass — slightly behind the cellos, an even taller
-   upright-bass body towering above the seated cellists, with a
-   standing player behind it.
+## Instrument — CRITICAL (a conductor's baton + music stand)
 
-**BACK ROW (3 figures standing):**
-8. Harpist — stage-left back, behind a tall harp shape (a triangular
-   frame with a long curved neck), seated on a high stool.
-9. Keyboardist — center back, standing behind a low rectangular
-   keyboard with a thin band of pale-blue keys.
-10. Saxophonist — stage-right back, holding a curved saxophone shape
-    (J-shape with a flared bell at the bottom) angled up to the mouth.
+The conductor commands the ensemble. Draw flat, bold-outlined:
 
-The figures cluster tightly — 10 silhouettes filling the spotlight area
-without crowding the borders. Each figure is small but readable.
+- **A THIN STRAIGHT BATON** in the raised right hand — a single
+  short line ending in a small round bulb-tip, pointing upward
+  and slightly back.
+- **A MUSIC STAND** in front of the conductor — a thin vertical
+  pole rising from the floor, topped by a flat angled rectangular
+  shelf, with a single open-book silhouette resting on the shelf.
+  The stand is shorter than the conductor; the shelf sits at the
+  conductor's chest height.
 
-## NOT THESE
-
-This is **NOT a marching band, NOT a rock band, NOT a parade**. No
-microphones, no drum kit, no electric instruments. The string players
-are **seated**, the back row is **standing**. No audience, no
-conductor's podium.
-
-## Figure pose
-
-All ten figures in flat dark-blue silhouette, no facial features, no
-clothing detail. Front-row strings seated leaning slightly forward,
-bows raised. Back-row figures standing tall.
+The baton in the raised hand and the music stand in front are
+what make this a conductor.
 
 ## Background
 
-A radial spotlight halo behind the ensemble: pale ice-blue at the
-center fading to deep navy at the edges. The halo is wide enough to
-backlight all ten figures. Around it, a deep navy field with a small
-mid-blue crescent moon and a few pale-blue stars scattered. No
-foreground grass, no plants, no foliage — just the ensemble, their
-instruments, and the spotlight.
+A radial spotlight halo behind the figure: pale ice-blue at the
+center fading to deep navy at the edges. A deep navy field with a
+small mid-blue crescent moon and scattered pale-blue stars across
+the upper field. No foreground props, no scenery, no foliage
+beyond the music stand.
 
-A simple deep-navy tarot border with a thin pale-blue inner line frames
-the card. The border is empty — no text, no numerals, no banner.
+A simple deep-navy tarot-style border with a thin pale-blue inner
+line frames the card. The border is empty.
 
 ## Palette — STRICT MONOCHROMATIC BLUE
 
-Every shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.
-No warm hues — no gold, green, rose, coral, or brown anywhere.
+Every shape is one of: deep navy, cobalt / mid-blue, or pale
+ice-blue. No warm hues anywhere.
+
+## No text, no numbers
+
+No card number, title, label, writing, or numerals anywhere.

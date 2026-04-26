@@ -5,56 +5,57 @@ asset_type: band_card
 
 # Bluegrass — band card portrait
 
-## RULE 1: NO TEXT, NO LETTERS, NO LABELS, NO BANNER, NO PLAQUE
+## Figure
 
-Nothing written or printed anywhere in the image. No tarot title, no
-roman numeral, no name banner, no card-foot label. Empty borders.
+A single **young porch fiddler seated on an upturned wooden
+barrel, foot tapping**, frontal, filling the lower-middle of the
+canvas. Single figure only.
 
-## RULE 2: A FOUR-PIECE PORCH-BAND HUDDLE
+Features (all flat dark-blue silhouette, no facial features, no
+clothing detail beyond outline):
 
-Four flat dark-blue silhouette figures gathered close, like a group
-playing on a porch. Reading left to right:
+- **Bare-headed**, short hair, no hat.
+- **A loose simple shirt silhouette** with rolled-up sleeves.
+- **Plain trousers and simple boots**.
+- **Seated on an UPTURNED WOODEN BARREL** — a flat horizontal oval
+  at the top, vertical staves visible as small lines down the
+  sides, two hooped bands across.
+- **One foot extended forward and lifted slightly** in a tapping
+  posture; the other foot planted on the floor.
+- **The fiddle tucked under the chin**, the bow drawn across.
 
-1. **Stage-left: a fiddler.** Standing, holding a small violin tucked
-   under the chin, bow raised mid-stroke. Stance is light, suggesting
-   foot-tapping.
-2. **Center-left: an acoustic-guitar player.** Standing, holding an
-   acoustic guitar with a hollow round body — bigger and more
-   teardrop-shaped than the rock electric guitar. Slung at chest
-   height, both hands on it.
-3. **Center-right: a vocalist at a standing microphone.** Round mic
-   ball at mouth height, short pale-blue mic stand rising to chest
-   height. Mouth at the mic, leaning slightly forward.
-4. **Stage-right: an upright-bass player.** A tall double-bass — an
-   oversized teardrop body taller than the figure, scroll head curled
-   at the top. The bassist stands behind it, one hand on the neck.
+## Instrument — CRITICAL (a violin / fiddle)
 
-The figures stand close together, almost touching shoulders.
+A **violin** is the defining symbol. Draw flat, bold-outlined:
 
-## NOT THESE
+- **A small curved wooden body** (violin-shaped, fits tucked under
+  the chin).
+- **Two S-shaped F-holes** on the body (violin-family marker —
+  this is what makes it a violin and not a guitar).
+- **A short neck** with fingerboard.
+- **An ornate scroll** at the top of the neck.
+- **Four strings** along the neck.
+- **A bow** held in the other hand, drawn across the strings at
+  mid-stroke.
 
-The guitar is **NOT an electric guitar** — it has a rounded acoustic
-body. The fiddler is **NOT seated** — they stand. The bass is **NOT
-an electric bass** — it is a tall standing upright. There is no drum
-kit, no DJ, no horns. No banjo (codebase has no banjo).
-
-## Figure pose
-
-All four figures in flat dark-blue silhouette, no facial features, no
-clothing detail. The arrangement reads as a tight, casual band gather.
+Held tucked under the chin, body on the shoulder, bow drawn
+across.
 
 ## Background
 
-A radial spotlight halo behind the four figures: pale ice-blue at the
-center fading to deep navy at the edges. Around it, a deep navy field
-with a small mid-blue crescent moon and a few pale-blue stars
-scattered. No foreground grass, no plants, no foliage — just the
-figures, their instruments, and the spotlight.
+A radial spotlight halo behind the figure: pale ice-blue at the
+center fading to deep navy at the edges. A deep navy field with a
+small mid-blue crescent moon and scattered pale-blue stars across
+the upper field. No foreground props, no scenery, no foliage.
 
-A simple deep-navy tarot border with a thin pale-blue inner line frames
-the card. The border is empty — no text, no numerals, no banner.
+A simple deep-navy tarot-style border with a thin pale-blue inner
+line frames the card. The border is empty.
 
 ## Palette — STRICT MONOCHROMATIC BLUE
 
-Every shape is one of: deep navy, cobalt / mid-blue, or pale ice-blue.
-No warm hues — no gold, green, rose, coral, or brown anywhere.
+Every shape is one of: deep navy, cobalt / mid-blue, or pale
+ice-blue. No warm hues anywhere.
+
+## No text, no numbers
+
+No card number, title, label, writing, or numerals anywhere.
