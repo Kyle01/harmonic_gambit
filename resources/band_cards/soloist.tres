@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BandCard" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/band_card.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/band_cards/soloist/portrait.png" id="2_art"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"soloist"
+display_name = "Soloist"
+art = ExtResource("2_art")
+flavor = "Alone on the stage, they remember something they never knew."
+applied_effects = Array[String](["-25% experience gained", "+50% DEF", "+50% SPD"])
+activation_requirements = Array[String](["Have one and only one character active"])

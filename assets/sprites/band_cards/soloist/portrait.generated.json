@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/band_cards/soloist/portrait.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/band_cards/soloist/portrait.png",
+    "asset_type": "band_card"
+  },
+  "output_path": "assets/sprites/band_cards/soloist/portrait.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/band_cards/soloist/portrait.png.import"
+  },
+  "rendered_prompt": "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE \u2014 a flat dark-blue mass with NO facial features, NO clothing detail, NO inner lines on the body; only the readable outline shape. Monochromatic palette: every shape uses a shade of blue (deep navy, cobalt, mid-blue, pale ice-blue) and nothing else \u2014 no warm hues. Bold black outline around every shape. Tarot-card register: hieratic, symbolic, flat. The instrument and background described below also render in the same monochromatic-blue silhouette style. \n\n# Soloist \u2014 band card portrait\n\n## Figure\n\nA **single performer in silhouette** \u2014 one figure alone, centered,\ncarrying the stage by themselves. The whole figure is rendered as a\nflat dark-blue silhouette mass with a bold black outline. **No facial\nfeatures, no clothing detail, no inner lines on the body** \u2014 only the\nreadable outline shape. The pose reads as performing: head slightly\nraised, one hand on or near the instrument, weight on one leg.\n\n## Instrument \u2014 CRITICAL (the instrument MUST be visible in silhouette)\n\nThe performer holds **a microphone on a tall standing stand**. The\nmicrophone-on-stand is the symbol of this card.\n\nRendering:\n\n- **The mic stand** is a tall vertical line from the floor up past the\n  figure's chest, rendered as a pale-blue line.\n- **The microphone head** is a small rounded shape at the top of the\n  stand, in mid-blue.\n- **One hand of the figure rests on or near the mic stand** \u2014 the\n  silhouette of the hand and the line of the stand merge into a single\n  readable shape.\n\nEither the singer's silhouette OR the stand may overlap. The viewer must\nread this immediately as \"one performer + microphone, alone.\"\n\n## Background\n\nA flat radial **spotlight** behind the figure \u2014 a circle of pale ice-\nblue at the center fading outward to deep navy at the edges, suggesting\na single hard stage light from above. **No backing band, no audience\nfigures, no other performers.** Around the spotlight, the rest of the\nfield is deep navy with simple Rider-Waite-style symbolic motifs in\nmid-blue or pale-blue: a small crescent moon in one corner, a few\nscattered stars, a geometric horizon line. All flat, bold-outlined,\nsymbolic.\n\nA decorative tarot-card border frame around the edges (deep navy with\na thin pale-blue inner line) is welcome.\n\n## Palette \u2014 STRICT\n\nEvery shape in the image must be one of these blues:\n\n- **Deep navy** (background field, frame border, figure silhouette)\n- **Cobalt / mid-blue** (mic head, motif accents)\n- **Pale ice-blue** (spotlight halo, frame inner line, mic stand)\n\n**No warm hues anywhere** \u2014 no gold, no green, no rose, no coral. If\nyou would normally render skin or hair or wood as a warm color, render\nit as a blue silhouette instead. Monochromatic blue is the entire\nidentity of this card.\n\n## No text, no numbers\n\n- **No tarot card number** at the top of the card.\n- **No title or roman numeral** at the bottom.\n- **No letters, no words, no name plaque, no banner, no\n  label.** Nothing written or numbered anywhere in the\n  image \u2014 the card is unlabeled.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 288,
+      "height": 384
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-26T12:29:38+00:00",
+  "output_sha256": "0dd5d138ddc005072af886d4f4b4eaae712f81109a160f91630ae507cd41b524",
+  "output_bytes": 22740
+}

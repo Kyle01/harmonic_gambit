@@ -1,9 +1,10 @@
 class_name CharacterDef
 extends Resource
 
-## Playable character template. instrument_role is what BandComposer matches
-## against a BandCard's required_roles. learn_list declares which AbilityDefs
-## unlock at which level during a run; level-1 entries are the starters.
+## Playable character template. instrument_role is the archetype tag
+## (guitar, drummer, sax, ...) used elsewhere for party-composition logic.
+## learn_list declares which AbilityDefs unlock at which level during a
+## run; level-1 entries are the starters.
 ##
 ## Stats use linear growth: stat_at_level(L) = base + growth * (L - 1).
 ## Growth-shape variants (late-bloomer, front-loaded) are deferred — see
