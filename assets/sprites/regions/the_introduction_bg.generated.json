@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/regions/the_introduction_bg.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/regions/the_introduction_bg.png",
+    "asset_type": "background"
+  },
+  "output_path": "assets/sprites/regions/the_introduction_bg.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/regions/the_introduction_bg.png.import"
+  },
+  "rendered_prompt": "16-bit pixel art landscape background in the style of Heinz Edelmann Yellow Submarine journey vistas and Moebius (Jean Giraud) cosmic-threshold landscapes. Full-bleed scene, no border. A psychedelic vista at sunset / dream-hour / gold-hour, warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). 16-bit pixel register: limited shading bands, hand-painted pixels, soft dithering, anti-aliased curves. No text or letters in the image. \n\n# The Introduction \u2014 region background\n\nA winding dirt path begins in the foreground (lower-center,\nnear the viewer) and curves back through the picture, weaving\ndeeper and deeper into a yellow-saturated dreamscape toward a\nglowing horizon. The path is the spine of the composition \u2014\nthe eye follows it *into* the scene, and every other element\narranges itself around the path.\n\nThis is the **start of a journey** through the Realm. Where\nthe Realm first sings to you. Soft hands, gentle questions,\nthe occasional song. Sincerely blissful, gentle, generous \u2014\nhappy and exciting in the way the first scene of an animated\njourney film feels.\n\n## The path\n\nThe dirt path is wide enough for a traveler, worn smooth, and\nits edges are dappled gold-yellow. It enters the frame at the\nbottom-center and curves once or twice as it recedes, climbing\ngently over swelling hills until it disappears into the\nhorizon glow. Tall yellow flowers \u2014 sunflowers, mustard,\ngoldenrod \u2014 lean over the trail from both sides, taller than\nrealism allows, head-height as if the traveler is the small\none. Where the main menu uses pine trees and rocky boulders\nflanking its road, this scene uses oversized flowers,\nswaying grasses, and biomorphic blooms.\n\n## Around the path\n\nPast the flowers: rolling soft hills, gentle curves,\nflat-color fields in chartreuse and gold and warm green-yellow.\nHills swell and breathe like a Yellow-Submarine vista. The\nhorizon glows where a low warm sun sits a beat too large; a\nfaint second sun or moon hangs nearby as a soft disc. The\nland bends gently upward at the edges of frame \u2014 a subtle\nhorizon curve.\n\nSky takes the upper half: a pastel-warm gradient running\n**yellow into gold into chartreuse**, warming to a small\nrose-coral band right at the horizon glow. Cornflower\nsparingly in the upper sky for contrast. Soft pastel cloud\nforms with gentle organic spirals and melting silhouettes.\n\n## Psychedelic register\n\nThe psychedelia lives in **light and scale and curve**, not\nsurface decoration:\n\n- Flowers larger than houses, head-height over the path.\n- The horizon bends gently upward; the land breathes.\n- Glow blooms around the sun and the brightest flower-tops\n  like an overexposed photograph.\n- Soft melting cloud silhouettes; gentle organic spirals in\n  the sky.\n- Two sun-discs overlapping, one a beat larger than the other.\n- The whole scene tilts a few degrees toward dream-logic \u2014\n  scale is wrong in a way that feels generous, not threatening.\n\nHeinz Edelmann's *Yellow Submarine* journey vistas are the\ndirect lineage \u2014 saturated flat-color fields, winding road\nthrough rolling hills, oversized flora, surreal proportions.\nPeter Max's warm-saturated cosmic-pop sky. Moebius's clean\nline and dream-logic horizon. Roger Dean's biomorphic\nlandscape language (curving hills, oversized blooms \u2014 take\nthe language, leave the prog-fantasy connotation).\n\n## Composition\n\n- 16:9 aspect (matches the 1280\u00d7720 logical viewport at\n  category defaults: 400\u00d7225 source, scaled up at runtime via\n  Nearest filter).\n- **Path as leading line.** Foreground bottom-center \u2192\n  midground curve \u2192 distant horizon glow. The path starts\n  large in the foreground and tapers as it recedes.\n- **Open upper-right corner.** A single floating button will\n  sit in the top-right of the runtime UI \u2014 leave that area\n  visually quiet (sky, soft glow).\n- 16-bit pixel art register: limited shading bands per\n  surface, soft dithering in the gradients, anti-aliased\n  silhouettes, single-color outlines on hero shapes\n  (foreground flowers, path edges).\n- The image is full-bleed, no border, no baked-in lettering.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 400,
+      "height": 225
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-04-28T13:12:35+00:00",
+  "output_sha256": "bfe0b068e3727085b9f12a4c730363720012cba1a8d371e3d6e38b7a070036bf",
+  "output_bytes": 118380
+}

@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/components/region_card_tile.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://b4hy8mxqr1pk0" path="res://resources/theme/main_theme.tres" id="2_theme"]
+
+[node name="RegionCardTile" type="PanelContainer"]
+custom_minimum_size = Vector2(280, 420)
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Rows" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Background" type="TextureRect" parent="Margin/Rows"]
+custom_minimum_size = Vector2(248, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+visible = false
+expand_mode = 1
+stretch_mode = 5
+texture_filter = 1
+
+[node name="NameLabel" type="Label" parent="Margin/Rows"]
+layout_mode = 2
+theme_type_variation = &"Header"
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Name"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="Margin/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_font_sizes/font_size = 14
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DistributionLabel" type="Label" parent="Margin/Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7176, 0.8392, 0.9569, 1)
+theme_override_font_sizes/font_size = 12
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PlayButton" type="Button" parent="Margin/Rows"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
