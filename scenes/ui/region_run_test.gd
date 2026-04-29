@@ -60,7 +60,7 @@ func _refresh_node_states() -> void:
 	if _region == null:
 		return
 	var available_ids: Dictionary = {}
-	for option: MapNode in _region.available_next():
+	for option: MapNode in _region.available_neighbors():
 		available_ids[option.id] = true
 	for id: int in _node_buttons:
 		var btn: MapNodeButton = _node_buttons[id]
@@ -80,28 +80,28 @@ func _redraw_edges() -> void:
 	if _region == null:
 		return
 	var available_ids: Dictionary = {}
-	for option: MapNode in _region.available_next():
+	for option: MapNode in _region.available_neighbors():
 		available_ids[option.id] = true
+	var current_id: int = _region.current_node_id
 	for node: MapNode in _region.map.nodes.values():
 		for next_id: int in node.next_ids:
 			var line: Line2D = Line2D.new()
 			line.add_point(node.position)
 			line.add_point(_region.map.nodes[next_id].position)
-			var current_to_available: bool = (
-				node.id == _region.current_node_id and available_ids.has(next_id)
+			# Available = edge incident to current; the *other* endpoint is in
+			# the neighbor set. Symmetric since navigation is undirected.
+			var is_available: bool = (
+				(node.id == current_id and available_ids.has(next_id))
+				or (next_id == current_id and available_ids.has(node.id))
 			)
 			var both_visited: bool = (
 				_region.visited_ids.has(node.id) and _region.visited_ids.has(next_id)
 			)
-			if current_to_available:
+			if is_available:
 				line.default_color = _EDGE_AVAILABLE_COLOR
 				line.width = _EDGE_AVAILABLE_WIDTH
 			elif both_visited:
 				line.default_color = _EDGE_VISITED_COLOR
-				line.width = _EDGE_DEFAULT_WIDTH
-			elif _region.visited_ids.has(node.id) or _region.visited_ids.has(next_id):
-				# Touches the visited path but isn't part of it — fade.
-				line.default_color = _EDGE_LOCKED_COLOR
 				line.width = _EDGE_DEFAULT_WIDTH
 			else:
 				line.default_color = _EDGE_DEFAULT_COLOR
