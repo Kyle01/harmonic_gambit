@@ -32,7 +32,8 @@ static func plan(def: RegionDef, stream: RandomNumberGenerator) -> Region:
 	region.def = def
 	region.map = map
 	region.current_node_id = map.entry_id
-	region.visited_ids = [map.entry_id]
+	# Use append rather than untyped Array literal to preserve Array[int] type.
+	region.visited_ids.append(map.entry_id)
 	return region
 
 
@@ -65,7 +66,9 @@ static func _order_by_x(positions: Array[Vector2]) -> Array[int]:
 	for i: int in range(positions.size()):
 		indices.append(i)
 	# Drop entry (index 0) from the sort body, keep it at front.
-	var rest: Array[int] = indices.slice(1)
+	# Array.slice() returns an untyped Array — assign() preserves Array[int].
+	var rest: Array[int] = []
+	rest.assign(indices.slice(1))
 	rest.sort_custom(func(a: int, b: int) -> bool: return positions[a].x < positions[b].x)
 	var ordered: Array[int] = [0]
 	ordered.append_array(rest)
@@ -183,7 +186,9 @@ static func _link(map: RegionMap, parent_id: int, child_id: int) -> void:
 # Step 7: light force-directed smoothing. Entry is pinned; everyone else
 # repels everyone else and is attracted along edges.
 static func _smooth_layout(map: RegionMap) -> void:
-	var ids: Array[int] = map.nodes.keys()
+	# Dictionary.keys() returns an untyped Array — assign() preserves Array[int].
+	var ids: Array[int] = []
+	ids.assign(map.nodes.keys())
 	for _iter: int in range(_SMOOTH_ITERATIONS):
 		var forces: Dictionary = {}
 		for id: int in ids:
