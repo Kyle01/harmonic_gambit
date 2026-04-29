@@ -1,30 +1,46 @@
 class_name Region
 extends RefCounted
 
-## Runtime counterpart of RegionDef. Holds the rolled encounter sequence
-## and walk progress for the region the player is currently traveling
-## through. Created by RegionPlanner.plan(); lives only as long as
-## something holds a reference. RegionDef stays the template; Region is
-## the live thing.
+## Runtime counterpart of RegionDef. Holds the generated RegionMap and
+## the player's walk state (current node + history). Created by
+## RegionPlanner.plan(). RegionDef is the template; Region is the live
+## thing.
+##
+## There is no defined exit; the run scene shows "Go to next region" as
+## an always-available escape. Termination is the player's call.
 
 var def: RegionDef = null
-var encounters: Array[int] = []
-var current_index: int = 0
+var map: RegionMap = null
+var current_node_id: int = -1
+var visited_ids: Array[int] = []
 
 
-func is_complete() -> bool:
-	return current_index >= encounters.size()
+func current_node() -> MapNode:
+	if map == null or not map.nodes.has(current_node_id):
+		return null
+	return map.nodes[current_node_id]
 
 
-func peek() -> int:
-	if is_complete():
-		return -1
-	return encounters[current_index]
+func available_next() -> Array[MapNode]:
+	var result: Array[MapNode] = []
+	var node: MapNode = current_node()
+	if node == null:
+		return result
+	for next_id: int in node.next_ids:
+		if visited_ids.has(next_id):
+			continue
+		if map.nodes.has(next_id):
+			result.append(map.nodes[next_id])
+	return result
 
 
-func advance() -> int:
-	if is_complete():
-		return -1
-	var kind: int = encounters[current_index]
-	current_index += 1
-	return kind
+func advance_to(node_id: int) -> void:
+	for option: MapNode in available_next():
+		if option.id == node_id:
+			current_node_id = node_id
+			visited_ids.append(node_id)
+			return
+
+
+func has_started() -> bool:
+	return visited_ids.size() > 1

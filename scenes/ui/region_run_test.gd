@@ -2,10 +2,23 @@ class_name RegionRunTest
 extends Control
 
 const ADMIN_REGIONS_PATH: String = "res://scenes/ui/admin_regions.tscn"
+const MAP_NODE_SCENE: PackedScene = preload("res://scenes/ui/components/map_node_button.tscn")
+
+const _EDGE_DEFAULT_COLOR: Color = Color(0.95, 0.93, 0.84, 0.7)
+const _EDGE_VISITED_COLOR: Color = Color(0.60, 0.56, 0.48, 0.55)
+const _EDGE_LOCKED_COLOR: Color = Color(0.10, 0.10, 0.12, 0.45)
+const _EDGE_AVAILABLE_COLOR: Color = Color(1.0, 0.95, 0.55, 0.95)
+const _EDGE_DEFAULT_WIDTH: float = 2.0
+const _EDGE_AVAILABLE_WIDTH: float = 3.0
 
 static var target_region: RegionDef = null
 
+var _region: Region = null
+var _node_buttons: Dictionary = {}  # MapNode.id (int) -> MapNodeButton
+
 @onready var background_rect: TextureRect = $Background
+@onready var edge_layer: Node2D = $EdgeLayer
+@onready var node_layer: Control = $NodeLayer
 @onready var next_region_button: Button = $NextRegionButton
 
 
@@ -13,12 +26,87 @@ func _ready() -> void:
 	if target_region != null and target_region.background != null:
 		background_rect.texture = target_region.background
 	next_region_button.pressed.connect(_on_next_region)
+	if target_region != null:
+		_build_map()
 	next_region_button.grab_focus()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_on_next_region()
+
+
+func _build_map() -> void:
+	var stream: RandomNumberGenerator = RNG.get_stream("region_%s" % str(target_region.id))
+	_region = RegionPlanner.plan(target_region, stream)
+	for node: MapNode in _region.map.nodes.values():
+		var button: MapNodeButton = MAP_NODE_SCENE.instantiate()
+		node_layer.add_child(button)
+		button.setup(node)
+		button.position = node.position - (button.size * 0.5)
+		button.pressed_with_id.connect(_on_node_pressed)
+		_node_buttons[node.id] = button
+	_redraw_edges()
+	_refresh_node_states()
+
+
+func _on_node_pressed(node_id: int) -> void:
+	_region.advance_to(node_id)
+	_redraw_edges()
+	_refresh_node_states()
+
+
+func _refresh_node_states() -> void:
+	if _region == null:
+		return
+	var available_ids: Dictionary = {}
+	for option: MapNode in _region.available_next():
+		available_ids[option.id] = true
+	for id: int in _node_buttons:
+		var btn: MapNodeButton = _node_buttons[id]
+		(
+			btn
+			. set_state(
+				id == _region.current_node_id,
+				available_ids.has(id),
+				_region.visited_ids.has(id) and id != _region.current_node_id,
+			)
+		)
+
+
+func _redraw_edges() -> void:
+	for child: Node in edge_layer.get_children():
+		child.queue_free()
+	if _region == null:
+		return
+	var available_ids: Dictionary = {}
+	for option: MapNode in _region.available_next():
+		available_ids[option.id] = true
+	for node: MapNode in _region.map.nodes.values():
+		for next_id: int in node.next_ids:
+			var line: Line2D = Line2D.new()
+			line.add_point(node.position)
+			line.add_point(_region.map.nodes[next_id].position)
+			var current_to_available: bool = (
+				node.id == _region.current_node_id and available_ids.has(next_id)
+			)
+			var both_visited: bool = (
+				_region.visited_ids.has(node.id) and _region.visited_ids.has(next_id)
+			)
+			if current_to_available:
+				line.default_color = _EDGE_AVAILABLE_COLOR
+				line.width = _EDGE_AVAILABLE_WIDTH
+			elif both_visited:
+				line.default_color = _EDGE_VISITED_COLOR
+				line.width = _EDGE_DEFAULT_WIDTH
+			elif _region.visited_ids.has(node.id) or _region.visited_ids.has(next_id):
+				# Touches the visited path but isn't part of it — fade.
+				line.default_color = _EDGE_LOCKED_COLOR
+				line.width = _EDGE_DEFAULT_WIDTH
+			else:
+				line.default_color = _EDGE_DEFAULT_COLOR
+				line.width = _EDGE_DEFAULT_WIDTH
+			edge_layer.add_child(line)
 
 
 func _on_next_region() -> void:

@@ -26,3 +26,11 @@ extends Resource
 	EventNode.Kind.EVENT: 0,
 	EventNode.Kind.SHOP: 0,
 }
+
+@export_group("Map graph")
+## Target total node count; the planner picks within ±2 of this for variety.
+@export var node_count: int = 14
+## 0..1, how often a node sprouts an extra outgoing edge. Higher = more forks.
+@export_range(0.0, 1.0) var branching_bias: float = 0.6
+## 0..1, how often a non-entry node gets a second incoming edge. Drives webbiness.
+@export_range(0.0, 1.0) var reconvergence_bias: float = 0.5

@@ -15,3 +15,6 @@ encounter_distribution = {
 1: 55,
 2: 10,
 }
+node_count = 14
+branching_bias = 0.6
+reconvergence_bias = 0.5

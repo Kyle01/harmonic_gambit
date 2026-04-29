@@ -32,6 +32,16 @@ stretch_mode = 6
 texture_filter = 1
 mouse_filter = 2
 
+[node name="EdgeLayer" type="Node2D" parent="."]
+
+[node name="NodeLayer" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
 [node name="NextRegionButton" type="Button" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
