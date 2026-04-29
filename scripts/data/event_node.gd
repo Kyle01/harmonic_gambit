@@ -1,15 +1,13 @@
 class_name EventNode
 extends Resource
 
-## A node in the FTL-style run map: combat / lore / shop / etc. The map
+## A node in the FTL-style run map: combat / event / shop. The map
 ## is a graph of these; run state tracks which one is current.
 
 enum Kind {
 	COMBAT,
-	ELITE,
-	LORE,
+	EVENT,
 	SHOP,
-	REST,
 }
 
 @export var id: StringName = &""
