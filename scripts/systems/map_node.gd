@@ -10,8 +10,8 @@ extends Resource
 ## "Resource subclasses for records — no duck-typed dicts." Runtime-only
 ## but we still get inspector/debug visibility for free.
 
-var id: int = -1
-var position: Vector2 = Vector2.ZERO
-var kind: int = 0
-var next_ids: Array[int] = []
-var prev_ids: Array[int] = []
+@export var id: int = -1
+@export var position: Vector2 = Vector2.ZERO
+@export var kind: int = 0
+@export var next_ids: Array[int] = []
+@export var prev_ids: Array[int] = []

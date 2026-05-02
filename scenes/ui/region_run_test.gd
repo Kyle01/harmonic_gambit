@@ -49,7 +49,7 @@ func _build_map() -> void:
 		node_layer.add_child(button)
 		button.setup(node)
 		button.position = node.position - (button.size * 0.5)
-		button.pressed_with_id.connect(_on_node_pressed)
+		button.node_pressed.connect(_on_node_pressed)
 		_node_buttons[node.id] = button
 	_redraw_edges()
 	_refresh_node_states()

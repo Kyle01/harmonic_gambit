@@ -7,5 +7,5 @@ extends Resource
 ##
 ## Resource (not RefCounted) per CLAUDE.md migrability rule.
 
-var nodes: Dictionary = {}  # id (int) -> MapNode
-var entry_id: int = -1
+@export var nodes: Dictionary = {}  # id (int) -> MapNode
+@export var entry_id: int = -1

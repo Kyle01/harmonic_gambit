@@ -20,10 +20,10 @@ extends Resource
 ## are pure interpretation of the held state — same precedent as
 ## CharacterDef.stat_at_level.
 
-var def: RegionDef = null
-var map: RegionMap = null
-var current_node_id: int = -1
-var visited_ids: Array[int] = []
+@export var def: RegionDef = null
+@export var map: RegionMap = null
+@export var current_node_id: int = -1
+@export var visited_ids: Array[int] = []
 
 
 func current_node() -> MapNode:

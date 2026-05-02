@@ -5,7 +5,7 @@ extends Control
 ## map is the only place node coloring lives — collapse it to all-white
 ## when we want the player blind to encounter type.
 
-signal pressed_with_id(id: int)
+signal node_pressed(id: int)
 
 const RADIUS: float = 18.0
 const HIT_RADIUS: float = 24.0
@@ -52,7 +52,7 @@ func _gui_input(event: InputEvent) -> void:
 		if mb.button_index == MOUSE_BUTTON_LEFT and mb.pressed:
 			var local: Vector2 = mb.position - (size * 0.5)
 			if local.length() <= HIT_RADIUS:
-				pressed_with_id.emit(node_id)
+				node_pressed.emit(node_id)
 				accept_event()
 
 

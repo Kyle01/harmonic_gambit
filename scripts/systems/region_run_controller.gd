@@ -10,8 +10,9 @@ extends Node
 ## The architecture rule is "UI never mutates state directly"; this
 ## controller is what holds that line. The run scene instantiates one,
 ## hands it the planned Region, and only ever emits intent on the bus.
-## When the scene unloads the controller is freed with the tree, which
-## drops the EventBus connection automatically.
+## EventBus is an autoload (effectively forever-lived), so we explicitly
+## disconnect on _exit_tree to avoid stale handlers surviving scene
+## churn and double-firing region-advance.
 
 var region: Region = null
 
@@ -22,6 +23,11 @@ func set_region(r: Region) -> void:
 
 func _ready() -> void:
 	EventBus.region_node_chosen.connect(_on_node_chosen)
+
+
+func _exit_tree() -> void:
+	if EventBus.region_node_chosen.is_connected(_on_node_chosen):
+		EventBus.region_node_chosen.disconnect(_on_node_chosen)
 
 
 func _on_node_chosen(node_id: int) -> void:
