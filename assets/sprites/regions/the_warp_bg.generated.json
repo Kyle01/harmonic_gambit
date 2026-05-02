@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/regions/the_warp_bg.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/regions/the_warp_bg.png",
+    "asset_type": "background"
+  },
+  "output_path": "assets/sprites/regions/the_warp_bg.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/regions/the_warp_bg.png.import"
+  },
+  "rendered_prompt": "16-bit pixel art landscape background in the style of Heinz Edelmann Yellow Submarine journey vistas and Moebius (Jean Giraud) cosmic-threshold landscapes. Full-bleed scene, no border. A psychedelic vista at sunset / dream-hour / gold-hour, warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). 16-bit pixel register: limited shading bands, hand-painted pixels, soft dithering, anti-aliased curves. No text or letters in the image. \n\n# The Warp \u2014 region background\n\nA yellow-saturated dreamscape where reality has slipped a frame.\nA path enters the foreground at bottom-center, curves once, and\nthen **loops back into itself** \u2014 a M\u00f6bius-like curl that confounds\nwhere the eye thought it was going. The horizon stutters: a single\nline splits into three faint ghost-horizons stacked slightly\noffset. Hills melt like Dali clocks. Multiple small suns scatter\nacross the sky at wrong scales.\n\nThis is the **glitch region** \u2014 where the Realm forgets which song\nit was singing. Color punches sideways, the horizon stutters, and\nthat's fine. Beautiful and quietly wrong simultaneously. The\nwarmth is loud; the wrongness is in *geometry and color logic*,\nnever in dimming.\n\n## The path (looping back)\n\nA wide dirt path enters the frame at bottom-center, looking like\nthe introduction's path at first glance. Then it curves into\nitself \u2014 a M\u00f6bius-curl, an impossible loop, a road that ends\nwhere it began. The path glows gold-yellow at the edges. Where\nthe introduction uses head-tall sunflowers, this scene uses\n**melting flower-stems** that bend at impossible angles, **floating\nflower-heads** detached from their stems and hovering above the\npath, and **double-imaged grasses** (each grass clump rendered\ntwice, slightly offset, as if the world has stuttered).\n\n## Around the path (melted geometry)\n\nPast the path-loop: rolling hills that **melt like Dali clocks** \u2014\nhill-tops sag and droop, edges drip downward in slow pastel\nstreaks. Fields are flat-color in saturated chartreuse and gold,\nbut **with punch-out hue stripes** running across them: a band of\ncornflower-blue where there should be yellow, a band of magenta\nwhere there should be green, a band of coral where there should\nbe chartreuse. The stripes are wide and obvious \u2014 the world's\ncolor logic has slipped.\n\nSky takes the upper half: a saturated gradient running **gold\ninto yellow into chartreuse**, but **interrupted twice** by\nhorizontal hue-shift bands (cornflower, magenta) that don't\nbelong. **Three small suns** scatter across the sky at wrong\nscales \u2014 one large and molten on the horizon, one small and\nghost-pale in the upper-right (faint, do not crowd the corner),\none tiny and crimson floating wrong in the upper-left. Soft\nmelting cloud silhouettes, but **double-imaged** like the\ngrasses \u2014 each cloud rendered twice, slightly offset.\n\n## Psychedelic register\n\nThe psychedelia lives in **broken geometry, color punch-outs, and\nmultiplicity**, not surface decoration:\n\n- The path loops back into itself \u2014 impossible road geometry.\n- Hills melt and drip in pastel streaks, Dali-style.\n- Color punch-out stripes interrupt fields and sky \u2014 wide bands\n  of the wrong color, cornflower where yellow should be.\n- Multiple suns at wrong scales, scattered across the sky.\n- Double-imaged grasses and clouds \u2014 each rendered twice,\n  slightly offset, as if reality has stuttered a frame.\n- Floating flower-heads detached from their stems, hovering\n  above the path.\n- Three faint ghost-horizons stacked slightly offset.\n- The whole scene tilts heavily toward dream-logic \u2014 wrongness\n  is *visible and beautiful*, never dim, never threatening.\n- Warm light still wins: gold-yellow dominant. The wrongness is\n  in geometry and color logic, not in darkness.\n\nHeinz Edelmann's *Yellow Submarine* most surreal sequences (Sea\nof Holes, Sea of Time) are the direct lineage. Peter Max's\nwarm-saturated cosmic-pop sky in glitch register. Salvador\nDali's melting Persistence-of-Memory geometry \u2014 take the\nmelted-form language, leave the literal pocket-watches. Moebius's\nclean dream-logic horizon stuttered into ghost-horizons. Roger\nDean's biomorphic landscape language with the rules broken.\n\n## Composition\n\n- 16:9 aspect (matches the 1280\u00d7720 logical viewport at category\n  defaults: 400\u00d7225 source, scaled up at runtime via Nearest\n  filter).\n- **Path as leading line \u2014 but the line loops back.** Foreground\n  bottom-center \u2192 midground curl \u2192 loops back on itself before\n  reaching the horizon. The eye is invited in and then turned\n  around.\n- **Open upper-right corner.** A single floating button will sit\n  in the top-right of the runtime UI \u2014 leave that area visually\n  quiet (sky, soft glow, the faint ghost-pale sun is small and\n  unobtrusive there).\n- 16-bit pixel art register: limited shading bands per surface,\n  soft dithering in the gradients, anti-aliased silhouettes,\n  single-color outlines on hero shapes (foreground melting\n  flowers, path edges, the loop curl).\n- The image is full-bleed, no border, no baked-in lettering.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 400,
+      "height": 225
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-05-02T21:47:33+00:00",
+  "output_sha256": "95eefc63508525d40a7bd72b3cb577012cc4946fd0c369cffbaf3207755adb4a",
+  "output_bytes": 126243
+}

@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/regions/the_expanse_bg.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/regions/the_expanse_bg.png",
+    "asset_type": "background"
+  },
+  "output_path": "assets/sprites/regions/the_expanse_bg.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/regions/the_expanse_bg.png.import"
+  },
+  "rendered_prompt": "16-bit pixel art landscape background in the style of Heinz Edelmann Yellow Submarine journey vistas and Moebius (Jean Giraud) cosmic-threshold landscapes. Full-bleed scene, no border. A psychedelic vista at sunset / dream-hour / gold-hour, warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). 16-bit pixel register: limited shading bands, hand-painted pixels, soft dithering, anti-aliased curves. No text or letters in the image. \n\n# The Expanse \u2014 region background\n\nA vast unbroken pasture of wind-rippled tall grasses stretches\nto a flat low horizon under an enormous cornflower-blue sky. **No\nroad, no path, no trail, no destination in frame.** The composition\nis dominated by negative space \u2014 the sky owns two-thirds of the\nimage, the empty grassland the lower third. A single isolated\nsilhouette far in the middle distance anchors the eye but does\nnot invite approach.\n\nThis is the **open region** \u2014 an open sky, the Realm at its\nquietest, where a chord can carry a long way. Reverent, generous,\nslightly lonely. The wide-open feeling of unbroken pasture\nendlessness \u2014 the kind of emptiness that makes a person feel\nsmall in a peaceful way.\n\n## The foreground (grass, no path)\n\nThe lower third of the frame is **wind-rippled tall grasses** in\nsoft sage-green and warm gold-yellow, leaning gently in the same\ndirection as if a long slow wind is moving across the whole field.\nA few oversized wildflowers \u2014 wild lavender, chamomile, single\npoppy heads \u2014 scatter sparingly through the grass at head-height,\nleaning with the wind. The grass extends unbroken to the flat\nhorizon. **There is absolutely no road, no path, no trail, no\nfence, no track of any kind.** The eye crosses the grass freely\nto the horizon.\n\n## The middle distance (a single anchor)\n\nFar away, near the horizon line, a single isolated silhouette\nanchors the eye. Choose **one** of the following \u2014 not all of\nthem \u2014 to keep the composition spare:\n\n- A leaning wooden weather-shrine or shepherd's marker, tilted\n  slightly, standing alone.\n- A small stand of three or four cypress-like trees clustered\n  together in the deep distance.\n- A small Roger-Dean-style floating monolith hanging low in the\n  sky above the horizon, casting a soft warm shadow on the\n  grass below.\n\nWhichever is chosen, it is **small in frame** and **far away**.\nIt does not dominate. The emptiness around it does.\n\n## The sky (the dominant element)\n\nThe upper two-thirds of the frame is sky. A pastel gradient\nrunning **cornflower-blue at the top into pale azure into warm\ngold at the horizon line**. A low oversized warm sun sits on\nthe horizon \u2014 not setting, just *low*, a beat too large for\nrealism. Soft pastel cloud forms drift in slow horizontal\nstreaks, melting silhouettes, never busy. The sky is the\nemotional weight of the image; it should feel enormous.\n\n## Psychedelic register\n\nThe psychedelia here lives in **scale, emptiness, and the soft\noversized sun**, not surface decoration:\n\n- The sun is a beat too large; it sits low, warm, generous.\n- The sky bends gently at the upper edges of frame \u2014 a subtle\n  horizon curve.\n- Glow blooms around the sun and the brightest grass-tops like\n  an overexposed photograph.\n- Soft melting cloud silhouettes drift in slow horizontal\n  streaks.\n- The single distant anchor is at slightly the wrong scale \u2014\n  too small, somehow, against the enormousness of the sky.\n- The whole scene tilts a few degrees toward dream-logic \u2014\n  *unbroken pasture endlessness* in a way that feels reverent\n  and slightly lonely, never threatening.\n\nHeinz Edelmann's *Yellow Submarine* empty-sea vistas are the\ndirect lineage. Peter Max's warm-saturated cosmic-pop sky.\nMoebius's clean dream-logic horizon and big empty desert\npanels. Roger Dean's biomorphic floating-island language \u2014\nsparingly, only if chosen as the single anchor.\n\n## Composition\n\n- 16:9 aspect (matches the 1280\u00d7720 logical viewport at category\n  defaults: 400\u00d7225 source, scaled up at runtime via Nearest\n  filter).\n- **Sky-dominant**, not path-led. The upper two-thirds is sky;\n  the lower third is grass. A flat low horizon line cuts across\n  the image around the lower-third mark.\n- **Open upper-right corner.** A single floating button will sit\n  in the top-right of the runtime UI \u2014 leave that area visually\n  quiet (sky, soft cloud forms only).\n- 16-bit pixel art register: limited shading bands per surface,\n  soft dithering in the gradients, anti-aliased silhouettes,\n  single-color outlines on hero shapes (foreground grass clumps,\n  the single distant anchor, the sun disc).\n- The image is full-bleed, no border, no baked-in lettering.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 400,
+      "height": 225
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-05-02T21:47:24+00:00",
+  "output_sha256": "66e2fccfe987073c22775c39527e04f16ee31a52b9a8835ec6f46d8fa738b561",
+  "output_bytes": 90162
+}

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="RegionDef" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/region_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/regions/the_city_bg.png" id="2_bg"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"the_city"
+display_name = "The City"
+description = "A spiral of dreamers stacked sky-high. Markets, parlors, and the ten-thousand small kindnesses of strangers in a hat."
+encounter_count = 8
+background = ExtResource("2_bg")
+icon_color = Color(0.95, 0.93, 0.87, 1)
+encounter_distribution = {
+0: 20,
+1: 55,
+2: 25,
+}
+node_count = 14
+branching_bias = 0.6
+reconvergence_bias = 0.5
