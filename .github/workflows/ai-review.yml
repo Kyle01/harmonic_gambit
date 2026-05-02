@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 10
 
     env:
-      MODEL: gpt-5.4
+      MODEL: gpt-5.5
       MAX_COMPLETION_TOKENS: "4000"
       MAX_DIFF_BYTES: "204800"
 
