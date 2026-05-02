@@ -1,10 +1,11 @@
 class_name Region
-extends RefCounted
+extends Resource
 
 ## Runtime counterpart of RegionDef. Holds the generated RegionMap and
 ## the player's walk state (current node + history). Created by
 ## RegionPlanner.plan(). RegionDef is the template; Region is the live
-## thing.
+## thing. Mutated by RegionRunController in response to EventBus
+## signals — UI never calls advance_to() directly.
 ##
 ## Navigation is undirected: from the current node you can move to any
 ## connected neighbor (forward or backward), and visited nodes can be
@@ -14,6 +15,10 @@ extends RefCounted
 ##
 ## There is no defined exit; the run scene shows "Go to next region" as
 ## an always-available escape. Termination is the player's call.
+##
+## Resource (not RefCounted) per CLAUDE.md migrability rule. Methods
+## are pure interpretation of the held state — same precedent as
+## CharacterDef.stat_at_level.
 
 var def: RegionDef = null
 var map: RegionMap = null

@@ -17,6 +17,9 @@ extends Resource
 
 @export_group("Presentation")
 @export var background: Texture2D = null
+## Used by the (forthcoming) Realm meta-map to tint this region's icon.
+## Not consumed by the run scene yet; pure data field for now.
+@export var icon_color: Color = Color.WHITE
 
 @export_group("Encounters")
 ## Weights keyed by EventNode.Kind (int). Sum need not be 100; values

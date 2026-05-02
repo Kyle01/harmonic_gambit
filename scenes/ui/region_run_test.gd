@@ -15,6 +15,7 @@ static var target_region: RegionDef = null
 
 var _region: Region = null
 var _node_buttons: Dictionary = {}  # MapNode.id (int) -> MapNodeButton
+var _controller: RegionRunController = null
 
 @onready var background_rect: TextureRect = $Background
 @onready var edge_layer: Node2D = $EdgeLayer
@@ -26,6 +27,7 @@ func _ready() -> void:
 	if target_region != null and target_region.background != null:
 		background_rect.texture = target_region.background
 	next_region_button.pressed.connect(_on_next_region)
+	EventBus.region_advanced.connect(_on_region_advanced)
 	if target_region != null:
 		_build_map()
 	next_region_button.grab_focus()
@@ -39,6 +41,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _build_map() -> void:
 	var stream: RandomNumberGenerator = RNG.get_stream("region_%s" % str(target_region.id))
 	_region = RegionPlanner.plan(target_region, stream)
+	_controller = RegionRunController.new()
+	_controller.set_region(_region)
+	add_child(_controller)
 	for node: MapNode in _region.map.nodes.values():
 		var button: MapNodeButton = MAP_NODE_SCENE.instantiate()
 		node_layer.add_child(button)
@@ -51,7 +56,11 @@ func _build_map() -> void:
 
 
 func _on_node_pressed(node_id: int) -> void:
-	_region.advance_to(node_id)
+	# UI emits intent on the bus; RegionRunController handles the mutation.
+	EventBus.region_node_chosen.emit(node_id)
+
+
+func _on_region_advanced(_prev_node_id: int, _new_node_id: int, _kind: int) -> void:
 	_redraw_edges()
 	_refresh_node_states()
 

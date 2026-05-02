@@ -10,6 +10,7 @@ display_name = "The Introduction"
 description = "Where the Realm first sings to you. Soft hands, gentle questions, the occasional song."
 encounter_count = 8
 background = ExtResource("2_bg")
+icon_color = Color(0.5529, 0.9490, 0.7176, 1)
 encounter_distribution = {
 0: 35,
 1: 55,
