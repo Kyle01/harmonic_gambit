@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="RegionDef" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/region_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/regions/the_expanse_bg.png" id="2_bg"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"the_expanse"
+display_name = "The Expanse"
+description = "An open sky and an open field. The Realm at its quietest — where a chord can carry a long way."
+encounter_count = 8
+background = ExtResource("2_bg")
+icon_color = Color(0.40, 0.60, 0.90, 1)
+encounter_distribution = {
+0: 45,
+1: 30,
+2: 25,
+}
+node_count = 14
+branching_bias = 0.6
+reconvergence_bias = 0.5

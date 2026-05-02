@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/regions/the_city_bg.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/regions/the_city_bg.png",
+    "asset_type": "background"
+  },
+  "output_path": "assets/sprites/regions/the_city_bg.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/regions/the_city_bg.png.import"
+  },
+  "rendered_prompt": "16-bit pixel art landscape background in the style of Heinz Edelmann Yellow Submarine journey vistas and Moebius (Jean Giraud) cosmic-threshold landscapes. Full-bleed scene, no border. A psychedelic vista at sunset / dream-hour / gold-hour, warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). 16-bit pixel register: limited shading bands, hand-painted pixels, soft dithering, anti-aliased curves. No text or letters in the image. \n\n# The City \u2014 region background\n\nA vast art-nouveau dream-city of impossibly stacked ivory and\ncream architecture rises from the foreground into the upper sky.\nA wide procession-street enters the frame at the bottom-center\nand curves gently upward between the buildings, populated with\nsilhouetted dreamers and bright market-awnings, vanishing into\na glowing pastel-warm horizon between distant spires.\n\nThis is the **social region** \u2014 a spiral of dreamers stacked\nsky-high. Markets, parlors, ten-thousand small kindnesses of\nstrangers in a hat. Bright, busy, generous; warm but cooler in\nregister than the introduction \u2014 the off-white architecture\ntakes the color cues from the sky.\n\n## The path (the procession-street)\n\nA wide ivory-cobblestone street, worn smooth, enters the frame\nat the bottom-center and curves gently upward. Edges are\ndappled rose-gold from sunset light. Bright market-awnings in\n**every pastel hue** flank the street on both sides at head-height\n\u2014 rose, lavender, mint, peach, cornflower, butter-yellow.\nSilhouetted dreamers (small figures, no facial detail) drift\nalong the street in groups of two and three. Where the\nintroduction uses sunflowers and grass, this scene uses **market\nawnings, lantern-strings, and ornamental ironwork** flanking the\ntrail.\n\n## Around the path (the city)\n\nPast the awnings: an impossibly stacked skyline of ivory and\ncream architecture rises in tiers. Mucha-curve archways, Klimt-gold\nspires with floral filigree, Yellow-Submarine pastel facades with\nbulbous balconies. Buildings bend gently \u2014 none are perfectly\nvertical. They lean toward each other across the street like\ntrees in a canopy. Towers stack on top of towers in dream-logic\nways, each tier set back from the one below. Strings of lanterns\nand banners run between rooftops.\n\nSky takes the upper third (the buildings own the upper-middle):\na pastel-warm gradient running **peach into rose into pale\nlavender**, warming to a small gold band right at the horizon\nglow. Cornflower sparingly above the highest spires for contrast.\nSoft pastel cloud forms with gentle organic spirals weave between\nthe highest towers.\n\n## Psychedelic register\n\nThe psychedelia lives in **scale, stacking, and curve**, not\nsurface decoration:\n\n- Buildings stacked impossibly tall, leaning toward each other.\n- Spires curve and bend gently \u2014 none are perfectly vertical.\n- Glow blooms around lanterns, awning-tops, and the brightest\n  windows like an overexposed photograph.\n- Soft melting cloud silhouettes weaving between towers.\n- The procession-street curves upward into the architecture in a\n  way that defies perspective \u2014 dream-logic depth.\n- Pastel rainbow trim everywhere: lavender shutters, rose\n  cornices, mint domes, peach awnings.\n- The whole scene tilts a few degrees toward dream-logic \u2014 scale\n  is wrong in a way that feels generous and welcoming, not\n  threatening.\n\nHeinz Edelmann's *Yellow Submarine* Pepperland skyline is the\ndirect lineage. Alphonse Mucha's curving ornamental linework.\nGustav Klimt's gold filigree and pattern density. Peter Max's\nwarm-saturated cosmic-pop sky. Moebius's clean dream-logic\narchitecture. Roger Dean's biomorphic stacked-tier language\n(take the language, leave the prog-fantasy connotation).\n\n## Composition\n\n- 16:9 aspect (matches the 1280\u00d7720 logical viewport at category\n  defaults: 400\u00d7225 source, scaled up at runtime via Nearest\n  filter).\n- **Street as leading line.** Foreground bottom-center \u2192 midground\n  curve between awnings \u2192 distant horizon glow between spires.\n  The street starts wide in the foreground and tapers as it\n  recedes into the city.\n- **Open upper-right corner.** A single floating button will sit\n  in the top-right of the runtime UI \u2014 leave that area visually\n  quiet (sky, soft cloud forms only \u2014 no spire intrusion).\n- 16-bit pixel art register: limited shading bands per surface,\n  soft dithering in the gradients, anti-aliased silhouettes,\n  single-color outlines on hero shapes (foreground awnings,\n  building edges, lanterns, dreamer silhouettes).\n- The image is full-bleed, no border, no baked-in lettering.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 400,
+      "height": 225
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-05-02T21:46:30+00:00",
+  "output_sha256": "6ad738afebaf24c50a53df80a0bf84fa6fa0efd9b95b4277f111b49bde6e5d7f",
+  "output_bytes": 117436
+}

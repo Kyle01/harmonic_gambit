@@ -1,0 +1,30 @@
+{
+  "spec_path": "assets/sprites/regions/the_depths_bg.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/regions/the_depths_bg.png",
+    "asset_type": "background"
+  },
+  "output_path": "assets/sprites/regions/the_depths_bg.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/regions/the_depths_bg.png.import"
+  },
+  "rendered_prompt": "16-bit pixel art landscape background in the style of Heinz Edelmann Yellow Submarine journey vistas and Moebius (Jean Giraud) cosmic-threshold landscapes. Full-bleed scene, no border. A psychedelic vista at sunset / dream-hour / gold-hour, warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, coral). 16-bit pixel register: limited shading bands, hand-painted pixels, soft dithering, anti-aliased curves. No text or letters in the image. \n\n# The Depths \u2014 region background\n\nA winding path descends from the foreground into a vast subterranean\ncavern bathed in violet bioluminescence. The path enters the frame\nat the bottom-center and curves down between glowing pools and\noversized mushrooms, vanishing into a deep violet glow at the\nhorizon. The cavern ceiling becomes a \"second sky\" of glowing\nroots, hanging amethyst clusters, and dangling crystal lamps.\n\nThis is the **subterranean region** \u2014 down where the Realm hums in\nits sleep. Bioluminescent, magenta-warm, songs that started\nunderground and never came up. Reverent, dreamy, and slightly\nmystical, but never dim \u2014 the warmth holds even underground.\n\n## The path\n\nA soft worn path, dappled lavender-violet, descends from the\nbottom-center of the frame in shallow turns. Edges glow with soft\nmagenta luminescence. The path winds between glowing pools of\nphosphorescent water and through clusters of head-tall mushrooms,\ndisappearing into the violet horizon glow. Where the introduction\nuses sunflowers and rolling hills, this scene uses **oversized\nglowing mushrooms** (trumpet-shaped, parasol-shaped, tall stalked),\n**dangling vine-curtains**, and **clusters of glowing amethyst**\nflanking the trail on both sides at head-height.\n\n## Around the path\n\nPast the mushrooms: rolling cavern floor in saturated violet,\nmagenta, and rose. Pools of phosphorescent water reflect the\nglow upward. The cavern walls bend inward at the edges of the\nframe, forming a vast natural dome. Tall stalagmites rise like\ncathedral pillars in the middle distance, glowing softly at\ntheir tips.\n\nThe cavern ceiling takes the upper half \u2014 a \"second sky\" of\n**glowing tree-roots** hanging downward, **clusters of amethyst\nand quartz** that catch and refract magenta light, and the\nsilhouettes of dangling crystal lamps. The ceiling glows where\nthe deepest violet runs into rose-coral pockets \u2014 like an aurora\nviewed from below. The horizon (deep cavern center) glows a\ndeep ember-magenta, suggesting heat.\n\n## Psychedelic register\n\nThe psychedelia lives in **light, scale, and bioluminescence**,\nnot surface decoration:\n\n- Mushrooms taller than houses, head-height over the path.\n- The cavern roof bends gently downward at the edges; the cave\n  breathes.\n- Glow blooms around mushroom caps, crystal clusters, and pool\n  surfaces like an overexposed photograph.\n- Soft melting silhouettes of hanging roots and crystal lamps.\n- Multiple small light-sources (phosphorescent pools, glowing\n  cap-tips, crystal clusters) at wrong scales.\n- The whole scene tilts a few degrees toward dream-logic \u2014 scale\n  is wrong in a way that feels reverent, not threatening.\n- Warm light still wins: even underground, no grey, no desat.\n  Wrongness lives in saturation, not darkness.\n\nHeinz Edelmann's *Yellow Submarine* sea-of-monsters and\nunder-the-wave vistas are the direct lineage. Peter Max's\nwarm-saturated cosmic-pop palette in magenta-violet register.\nMoebius's clean dream-logic horizon. Roger Dean's biomorphic\nlandscape language (curving cavern walls, oversized organic\nforms \u2014 take the language, leave the prog-fantasy connotation).\n\n## Composition\n\n- 16:9 aspect (matches the 1280\u00d7720 logical viewport at category\n  defaults: 400\u00d7225 source, scaled up at runtime via Nearest\n  filter).\n- **Path as leading line.** Foreground bottom-center \u2192 midground\n  curve between mushrooms \u2192 distant violet horizon glow. The\n  path starts wide in the foreground and tapers as it descends.\n- **Open upper-right corner.** A single floating button will sit\n  in the top-right of the runtime UI \u2014 leave that area visually\n  quiet (cavern ceiling, soft hanging-root silhouettes only).\n- 16-bit pixel art register: limited shading bands per surface,\n  soft dithering in the gradients, anti-aliased silhouettes,\n  single-color outlines on hero shapes (foreground mushrooms,\n  path edges, crystal clusters).\n- The image is full-bleed, no border, no baked-in lettering.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 400,
+      "height": 225
+    },
+    "seed": 0,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "flat shading",
+    "outline": "single color black outline",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-05-02T21:46:08+00:00",
+  "output_sha256": "f0916cd517a848653beb4ff6b57867a5ffd6dde064f0ac51ea67fec759508f61",
+  "output_bytes": 146537
+}
