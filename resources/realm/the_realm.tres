@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="RealmDef" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/realm_def.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/realm/the_realm_bg.png" id="2_bg"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"the_realm"
+display_name = "The Realm"
+intro_region_id = &"the_introduction"
+finale_region_id = &"the_finale"
+middle_column_weights = [{
+&"the_city": 25.0,
+&"the_depths": 25.0,
+&"the_expanse": 35.0,
+&"the_warp": 15.0,
+}, {
+&"the_city": 20.0,
+&"the_depths": 40.0,
+&"the_expanse": 20.0,
+&"the_warp": 20.0,
+}, {
+&"the_city": 15.0,
+&"the_depths": 35.0,
+&"the_expanse": 20.0,
+&"the_warp": 30.0,
+}, {
+&"the_city": 0.0,
+&"the_depths": 25.0,
+&"the_expanse": 25.0,
+&"the_warp": 50.0,
+}]
+background = ExtResource("2_bg")

@@ -63,6 +63,18 @@ QUALITY_SHADING = "flat shading"  # flat / basic / medium / detailed / highly de
 # for.
 QUALITY_OUTLINE = "single color black outline"
 
+# Per-asset-type overrides for the QUALITY_* knobs above. Anything
+# missing from an entry falls back to the global default. Use this when
+# an asset_type needs a different register than the tarot/landscape
+# default (e.g. an abstract color-field bg wants no outlines and softer
+# shading bands than a tarot character).
+QUALITY_OVERRIDES: dict[str, dict] = {
+    "abstract_background": {
+        "outline": "lineless",
+        "shading": "basic shading",
+    },
+}
+
 # Tight subject lead-ins per asset_type. Pixflux is a small-image
 # generator and loses the plot under verbose composed prompts
 # (empirically: 5500-char prompts produced vista-only scenes with no
@@ -94,6 +106,17 @@ SUBJECT_LEADS: dict[str, str] = {
         "gold-hour, warm-saturated palette (gold-yellow, chartreuse, moss-green, rose, "
         "coral). 16-bit pixel register: limited shading bands, hand-painted pixels, "
         "soft dithering, anti-aliased curves. No text or letters in the image. "
+    ),
+    "abstract_background": (
+        "Pixel art ABSTRACT COLOR-FIELD composition in the spirit of MARK ROTHKO and "
+        "20th-century color-field painting (Rothko, Helen Frankenthaler, Morris Louis). "
+        "Pure color and texture. Soft horizontal bands of color stacked vertically, "
+        "edges feathered with hazy gradients that breathe and glow. Meditative, "
+        "atmospheric, contemplative mood. 16-bit pixel register: heavy ordered "
+        "dithering between bands, tactile pixel grain across each band, anti-aliased "
+        "halos along band edges. Full-bleed, no border. The composition is purely "
+        "abstract — color, texture, and atmosphere only. The body below specifies "
+        "the palette and band arrangement. "
     ),
     "band_card": (
         "Pixel art tarot card. The figure is rendered as a high-contrast SILHOUETTE — "
@@ -129,6 +152,11 @@ ASSET_TYPE_DEFAULTS: dict[str, dict] = {
         "no_background": False,
     },
     "background": {
+        "width": 400,  # 16:9 at full pixflux budget; runtime upscales to 1280×720.
+        "height": 225,
+        "no_background": False,
+    },
+    "abstract_background": {
         "width": 400,  # 16:9 at full pixflux budget; runtime upscales to 1280×720.
         "height": 225,
         "no_background": False,
@@ -201,21 +229,27 @@ def generate_one(
             "Get a key from https://pixellab.ai/account."
         )
 
+    quality = QUALITY_OVERRIDES.get(asset_type, {})
+    detail = quality.get("detail", QUALITY_DETAIL)
+    shading = quality.get("shading", QUALITY_SHADING)
+    outline = quality.get("outline", QUALITY_OUTLINE)
+    text_guidance_scale = quality.get("text_guidance_scale", QUALITY_TEXT_GUIDANCE_SCALE)
+
     client = pixellab.Client(secret=secret)
     print(
         f"  calling pixellab pixflux ({width}x{height}, "
-        f"detail={QUALITY_DETAIL!r}, shading={QUALITY_SHADING!r}, "
-        f"outline={QUALITY_OUTLINE!r}, guidance={QUALITY_TEXT_GUIDANCE_SCALE})..."
+        f"detail={detail!r}, shading={shading!r}, "
+        f"outline={outline!r}, guidance={text_guidance_scale})..."
     )
     response = client.generate_image_pixflux(
         description=rendered_api,
         image_size={"width": width, "height": height},
         no_background=no_background,
         seed=seed,
-        text_guidance_scale=QUALITY_TEXT_GUIDANCE_SCALE,
-        detail=QUALITY_DETAIL,
-        shading=QUALITY_SHADING,
-        outline=QUALITY_OUTLINE,
+        text_guidance_scale=text_guidance_scale,
+        detail=detail,
+        shading=shading,
+        outline=outline,
     )
 
     png_bytes = base64.b64decode(response.image.base64)
@@ -242,10 +276,10 @@ def generate_one(
             "image_size": {"width": width, "height": height},
             "seed": seed,
             "no_background": no_background,
-            "text_guidance_scale": QUALITY_TEXT_GUIDANCE_SCALE,
-            "detail": QUALITY_DETAIL,
-            "shading": QUALITY_SHADING,
-            "outline": QUALITY_OUTLINE,
+            "text_guidance_scale": text_guidance_scale,
+            "detail": detail,
+            "shading": shading,
+            "outline": outline,
             "usage_usd": float(response.usage.usd),
         },
     )
