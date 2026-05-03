@@ -1,0 +1,31 @@
+{
+  "spec_path": "assets/sprites/realm/the_realm_bg.spec.md",
+  "spec_frontmatter": {
+    "path": "assets/sprites/realm/the_realm_bg.png",
+    "asset_type": "abstract_background",
+    "seed": 42
+  },
+  "output_path": "assets/sprites/realm/the_realm_bg.png",
+  "extra_paths": {
+    "import_sidecar": "assets/sprites/realm/the_realm_bg.png.import"
+  },
+  "rendered_prompt": "Pixel art ABSTRACT COLOR-FIELD composition in the spirit of MARK ROTHKO and 20th-century color-field painting (Rothko, Helen Frankenthaler, Morris Louis). Pure color and texture. Soft horizontal bands of color stacked vertically, edges feathered with hazy gradients that breathe and glow. Meditative, atmospheric, contemplative mood. 16-bit pixel register: heavy ordered dithering between bands, tactile pixel grain across each band, anti-aliased halos along band edges. Full-bleed, no border. The composition is purely abstract \u2014 color, texture, and atmosphere only. The body below specifies the palette and band arrangement. \n\n# The Realm \u2014 meta-map background\n\nA pure abstract color-field painting in chartreuse green-gold.\n\nThe painting is a vertical stack of soft horizontal color-fields,\nall in the chartreuse / yellow-green / green-gold register. The\nwhole canvas is one continuous chord of green-gold light. Color\nsits in bands; bands drift in luminance; bands dissolve into\neach other through heavy ordered dithering. Color and atmosphere\nonly \u2014 purely abstract.\n\nThe painting will sit behind small colored discs at runtime, so\nit must stay quiet and recede. Meditative, suspended, glowing.\n\n## Palette: chartreuse / green-gold\n\nEvery pixel of the painting is in the chartreuse range:\n\n- Pale chartreuse (a luminous pale yellow-green like backlit\n  parchment).\n- Warm chartreuse (a glowing yellow-green \u2014 the dominant tone).\n- Deep chartreuse (a saturated green-gold \u2014 rich and luminous).\n\nThe painting is monochromatic in the sense that every band and\nevery dither pixel falls inside this single yellow-green chord.\n\n## Composition\n\nA vertical stack of three soft horizontal chartreuse fields:\n\n- Top: pale chartreuse, the brightest tone, glowing slightly.\n- Middle: warm chartreuse holding steady \u2014 the dominant tone,\n  filling roughly the center half of the canvas.\n- Bottom: deep chartreuse along the lower edge.\n\nEach field is solid color with gentle luminance drift inside\nit; transitions between fields happen across a 30\u201360 pixel\nzone of heavy ordered Bayer-style dithering, where one\nchartreuse interleaves with the next via small checkered\npixel patterns that read as a soft gradient from a distance.\n\n## Texture\n\nA tactile pixel grain across the whole canvas \u2014 gentle\nluminance variation within each chartreuse field. A few\nslightly brighter pockets in the warm-chartreuse mid-field\nact as soft inner glows, as if the canvas is lit from behind\nin places.\n\n## Lineage\n\nIn the lineage of Rothko's color-field abstractions and\nHelen Frankenthaler's stained color compositions: pure color,\npurely abstract, contemplative.\n\n## Frame and aspect\n\n- 16:9 source aspect (400\u00d7225 at the pixflux ceiling; runtime\n  upscales to 1280\u00d7720 with Nearest filter).\n- Bands run *horizontally* \u2014 along the long axis of the image.\n- Full-bleed canvas, edge-to-edge chartreuse.\n",
+  "backend": {
+    "name": "pixellab.generate_image_pixflux",
+    "base_url": "https://api.pixellab.ai/v1",
+    "image_size": {
+      "width": 400,
+      "height": 225
+    },
+    "seed": 42,
+    "no_background": false,
+    "text_guidance_scale": 20.0,
+    "detail": "low detail",
+    "shading": "basic shading",
+    "outline": "lineless",
+    "usage_usd": 0.0
+  },
+  "generated_at_utc": "2026-05-03T22:07:34+00:00",
+  "output_sha256": "df0ac523c923e70bafbebefe3cac79e58eb57e12b376a4d72bbefd01bb32544f",
+  "output_bytes": 70594
+}

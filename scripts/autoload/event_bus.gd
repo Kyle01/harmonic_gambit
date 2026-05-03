@@ -12,3 +12,14 @@ signal sfx_volume_changed(linear: float)
 ## region_advanced so any number of UI/system subscribers can react.
 signal region_node_chosen(node_id: int)
 signal region_advanced(prev_node_id: int, new_node_id: int, kind: int)
+
+## Realm (run-level meta-map) navigation. Same intent/result split as
+## the region signals: realm_node_chosen is UI player intent;
+## RealmRunController validates and emits realm_advanced. Fired with
+## the chosen RealmNode's region_id so subscribers know what region
+## the player is heading into. realm_region_completed is fired by the
+## in-region "Go to next region" UI when the run is realm-driven.
+signal realm_built(realm: Realm)
+signal realm_node_chosen(node_id: int)
+signal realm_advanced(prev_node_id: int, new_node_id: int, region_id: StringName)
+signal realm_region_completed

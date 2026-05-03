@@ -2,6 +2,7 @@ class_name RegionRunTest
 extends Control
 
 const ADMIN_REGIONS_PATH: String = "res://scenes/ui/admin_regions.tscn"
+const ADMIN_THE_REALM_PATH: String = "res://scenes/ui/admin_the_realm.tscn"
 const MAP_NODE_SCENE: PackedScene = preload("res://scenes/ui/components/map_node_button.tscn")
 
 const _EDGE_DEFAULT_COLOR: Color = Color(0.95, 0.93, 0.84, 0.7)
@@ -12,6 +13,10 @@ const _EDGE_DEFAULT_WIDTH: float = 2.0
 const _EDGE_AVAILABLE_WIDTH: float = 3.0
 
 static var target_region: RegionDef = null
+## When true, "Go to next region" returns to the realm map (which then
+## awaits the next node pick) instead of the admin region picker. Set
+## by AdminTheRealm before launching this scene; cleared on exit.
+static var return_to_realm: bool = false
 
 var _region: Region = null
 var _node_buttons: Dictionary = {}  # MapNode.id (int) -> MapNodeButton
@@ -120,4 +125,9 @@ func _redraw_edges() -> void:
 
 func _on_next_region() -> void:
 	target_region = null
+	if return_to_realm:
+		return_to_realm = false
+		EventBus.realm_region_completed.emit()
+		get_tree().change_scene_to_file(ADMIN_THE_REALM_PATH)
+		return
 	get_tree().change_scene_to_file(ADMIN_REGIONS_PATH)
