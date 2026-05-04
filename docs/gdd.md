@@ -67,6 +67,8 @@ This is **closer to FF12's feel than strict turn-based**, but with a single unif
 
 No stat upgrades, no permanent unlocks that make future runs mechanically easier. Every run starts at the same power floor. Skill and deck construction carry the player; unlocks are cosmetic / completionist.
 
+Per-screen design intent (Combat, Inventory, Events, Enemies, Gambit Cards, Band Tuning, Shop, The Realm, Regions, Playable Characters, Band Cards) lives in [`screens.md`](screens.md). The run economy is two distinct resources: **Credits** (soft currency, spent at shops) and **Gambit Chips** (per-character slot-unlock items, equipped via Band Tuning to expand programmable gambit slots).
+
 ---
 
 ## Party
