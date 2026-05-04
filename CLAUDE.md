@@ -11,6 +11,7 @@ Read these when the task calls for it — don't guess from memory.
 - **[`docs/music.md`](docs/music.md)** — world music context: through-line, palette, contrastive NOTs, how regeneration works. **Read before authoring a music spec or running `tools/generate_music.py`.**
 - **[`docs/sound_design.md`](docs/sound_design.md)** — operational audio rules: diegesis, SFX recipes, bus layout, volumes. **Read before tuning any audio system or generating SFX.**
 - **[`docs/world.md`](docs/world.md)** — world brief: the Realm, archetypes, what the world is and is NOT. **Read before writing any copy or generating any art.**
+- **[`docs/screens.md`](docs/screens.md)** — per-screen design intent and current state for every admin-hub-routed screen. **Read before building out any screen tile.**
 - **[`README.md`](README.md)** — dev setup, how to run, project layout.
 
 If a design question isn't answered in `docs/gdd.md`, surface it to the user rather than inventing an answer. The GDD's "Known open questions" section is the active design backlog.
