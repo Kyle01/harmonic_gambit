@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scenes/ui/components/gambit_card_tile.gd" id="1_script"]
 [ext_resource type="Theme" uid="uid://b4hy8mxqr1pk0" path="res://resources/theme/main_theme.tres" id="2_theme"]
@@ -15,6 +15,13 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_circle"]
+bg_color = Color(0.553, 0.404, 0.067, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
 [node name="GambitCardTile" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 420)
 theme = ExtResource("2_theme")
@@ -30,10 +37,11 @@ theme_override_constants/margin_bottom = 18
 
 [node name="Rows" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 0
 
 [node name="NameLabel" type="Label" parent="Margin/Rows"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_type_variation = &"Header"
 theme_override_colors/font_color = Color(0.11, 0.11, 0.11, 1)
 theme_override_font_sizes/font_size = 22
@@ -42,8 +50,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Divider" type="HSeparator" parent="Margin/Rows"]
+[node name="Center" type="CenterContainer" parent="Margin/Rows"]
 layout_mode = 2
+
+[node name="Circle" type="Panel" parent="Margin/Rows/Center"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_circle")
 
 [node name="DescriptionLabel" type="Label" parent="Margin/Rows"]
 layout_mode = 2
@@ -52,5 +65,5 @@ theme_override_colors/font_color = Color(0.11, 0.11, 0.11, 1)
 theme_override_font_sizes/font_size = 14
 text = ""
 horizontal_alignment = 1
-vertical_alignment = 0
+vertical_alignment = 1
 autowrap_mode = 3
