@@ -68,7 +68,7 @@ func _update_multiplier_label() -> void:
 	if target_event == null:
 		multiplier_label.text = ""
 		return
-	var mult: float = target_event.column_multiplier(_column)
+	var mult: float = EventResolver.column_multiplier(target_event, _column)
 	multiplier_label.text = (
 		"coeff %.2f · col %d → ×%.2f" % [target_event.column_effect_multiplier, _column, mult]
 	)
@@ -82,7 +82,7 @@ func _restart() -> void:
 
 
 func _visit(scene_id: StringName) -> void:
-	var scene: EventScene = target_event.get_scene(scene_id)
+	var scene: EventScene = EventResolver.get_scene(target_event, scene_id)
 	if scene == null:
 		push_warning("EventRunDemo: missing scene id %s" % scene_id)
 		return
@@ -167,7 +167,7 @@ func _format_effect_line(effect: String) -> String:
 	if parts.is_empty():
 		return effect
 	var verb: String = parts[0]
-	var mult: float = target_event.column_multiplier(_column) if target_event != null else 1.0
+	var mult: float = EventResolver.column_multiplier(target_event, _column)
 	var rendered: String = effect
 	match verb:
 		"gain_credits":

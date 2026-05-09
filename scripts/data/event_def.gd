@@ -40,17 +40,3 @@ extends Resource
 @export_group("Scene tree")
 @export var entry_scene_id: StringName = &""
 @export var scenes: Array[EventScene] = []
-
-
-## Resolve a scene by id. Returns null if not found.
-func get_scene(scene_id: StringName) -> EventScene:
-	for scene: EventScene in scenes:
-		if scene.id == scene_id:
-			return scene
-	return null
-
-
-## Per-column scaling multiplier. column is the realm column index (0-5).
-## See class doc for the formula.
-func column_multiplier(column: int) -> float:
-	return 1.0 + float(column) * column_effect_multiplier
