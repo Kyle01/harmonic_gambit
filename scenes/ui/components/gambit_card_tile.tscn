@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/components/gambit_card_tile.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://b4hy8mxqr1pk0" path="res://resources/theme/main_theme.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.957, 0.816, 0.247, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.11, 0.11, 0.11, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="GambitCardTile" type="PanelContainer"]
+custom_minimum_size = Vector2(240, 420)
+theme = ExtResource("2_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="Rows" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="NameLabel" type="Label" parent="Margin/Rows"]
+layout_mode = 2
+theme_type_variation = &"Header"
+theme_override_colors/font_color = Color(0.11, 0.11, 0.11, 1)
+theme_override_font_sizes/font_size = 22
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Divider" type="HSeparator" parent="Margin/Rows"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="Margin/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.11, 0.11, 0.11, 1)
+theme_override_font_sizes/font_size = 14
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 0
+autowrap_mode = 3

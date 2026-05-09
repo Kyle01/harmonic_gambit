@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GambitCard" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/gambit_card.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"enemy_most_hp"
+display_name = "Enemy: Most HP"
+flavor = "Always fires. Targets the enemy with the most remaining HP."
+trigger_expr = ""
+target_selector = &"enemy_most_hp"

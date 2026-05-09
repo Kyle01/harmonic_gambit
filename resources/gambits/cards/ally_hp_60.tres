@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GambitCard" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/gambit_card.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ally_hp_60"
+display_name = "Ally < 60% HP"
+flavor = "Fires when an ally's HP drops below 60%. Targets that ally."
+trigger_expr = "ally_hp_lt_60"
+target_selector = &"trigger_match_ally"

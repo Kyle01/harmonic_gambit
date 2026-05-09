@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GambitCard" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/gambit_card.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"random_ally"
+display_name = "Random Ally"
+flavor = "Always fires. Targets a uniformly random living ally."
+trigger_expr = ""
+target_selector = &"random_ally"

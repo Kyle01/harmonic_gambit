@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GambitCard" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/gambit_card.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"enemies_2plus"
+display_name = "2+ Enemies"
+flavor = "Fires when at least 2 enemies are alive. Targets any enemy."
+trigger_expr = "enemies_gte_2"
+target_selector = &"any_enemy"
