@@ -209,25 +209,27 @@ Gambit Cards and Band Cards are deliberately separate sections — they're conce
 
 ## Gambit Cards
 
-**What it is.** A catalog grid of every authored gambit-trigger card. Gambit cards are the "if-then" rules players program their party with: *"if self HP < 50% → Heal"*, *"if enemy with least HP → Attack"*, etc. The deck players assemble from these is the heart of the strategic layer.
+**What it is.** A catalog grid of every authored gambit card. A gambit card is a **(trigger + target_selector) bundle** — *"when self HP < 40% → target self"*, *"always → target the enemy with the least HP"*. The action is supplied at equip-time from the owning character's known abilities (their `learn_list`); priority comes from slot order on the equipped character. Cards do not carry an action_id or priority.
 
 **When it's reached.** Admin hub (Gambit Cards tile) → `scenes/ui/gambit_cards.tscn`. Long-term, reachable from the meta-progression / collection menu.
 
-**What it shows.** Grid of gambit-card tiles. Each tile: trigger expression rendered human-readably, target selector, action category, flavor text. Click → detail page with full breakdown and example use cases.
+**What it shows.** Grid of `GambitCardTile`s — a Monopoly-action-card aesthetic: yellow body, dark border, no art, just card name + description. Cards load from `resources/gambits/cards/` via `GambitCardCatalog.get_all()`.
 
-**Schema / system additions required.**
-- `GambitCardCatalog` autoload — scans `resources/gambits/` for `GambitCard.tres`. Currently no scanner exists.
-- A `gambit_card_detail.tscn` (deferred).
-- Decide whether `GambitCard` exposes its `GambitDef` directly or wraps it for catalog-level metadata (rarity, flavor, family tag).
+**Schema.**
+- `GambitCard` (`scripts/data/gambit_card.gd`) extends `Card`; carries `trigger_expr: String` and `target_selector: StringName`. Inherits `id`, `display_name`, `art`, `flavor` from `Card`.
+- `GambitCardCatalog` (`scripts/data/gambit_card_catalog.gd`) — static `RefCounted` mirror of `BandCardCatalog`. Scans `resources/gambits/cards/`.
+- `GambitEngine` keeps its narrow trigger/selector vocabulary today; the broader vocabulary declared by the v1 cards (HP/MP thresholds, status, count, target selectors) is content-only until the engine evaluator catches up.
 
-**Current state.** Placeholder — title + back button. One starter gambit (`attack_nearest.tres`) exists in `resources/gambits/`.
+**Current state.** 36 starter cards authored across HP triggers (Self/Ally × 4 thresholds), MP triggers (Self/Ally × 4 thresholds), Ally Dead, enemy-targeting selectors, status triggers (Self/Ally debuffed, Ally asleep/silenced/stunned), and aggregate triggers (2+/3+ enemies, party HP avg). Catalog viewer screen built out.
 
-**Open questions.**
-- Are gambit cards atomic (one trigger + one target + one action all bundled), or composable (separate trigger and target cards combined at equip time)? The data schema today (`GambitDef` carries action_id + trigger_expr + target_selector) suggests atomic, but the design has not been finalized.
-- Does the catalog group by trigger family (HP-based / enemy-state / status-based / random)?
-- Do gambit cards have rarity / a tier that affects their drop rate or shop pricing?
+**Deferred follow-ups.**
+- Engine evaluator support for the new trigger expressions and target selectors.
+- Equip UX in Band Tuning — player picks a card and one of the character's known abilities to compose a slotted gambit.
+- `gambit_card_detail.tscn` (per-card detail page).
+- Filter chips / grouping by trigger family.
+- Rarity / tier for drop weighting and shop pricing.
 
-**Status:** `placeholder`.
+**Status:** `built — viewer only` (engine integration pending).
 
 ---
 

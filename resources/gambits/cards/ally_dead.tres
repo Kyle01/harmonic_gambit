@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GambitCard" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/gambit_card.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ally_dead"
+display_name = "Ally Dead"
+flavor = "Fires when any ally is knocked out. Targets the fallen ally."
+trigger_expr = "ally_dead"
+target_selector = &"ally_dead"
