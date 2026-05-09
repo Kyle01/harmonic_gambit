@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/components/gambit_card_tile.gd" id="1_script"]
 [ext_resource type="Theme" uid="uid://b4hy8mxqr1pk0" path="res://resources/theme/main_theme.tres" id="2_theme"]
+[ext_resource type="Script" path="res://scenes/ui/components/pixel_circle.gd" id="3_pixel_circle"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
 bg_color = Color(0.957, 0.816, 0.247, 1)
@@ -14,13 +15,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_circle"]
-bg_color = Color(0.553, 0.404, 0.067, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
 
 [node name="GambitCardTile" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 420)
@@ -53,10 +47,12 @@ autowrap_mode = 3
 [node name="Center" type="CenterContainer" parent="Margin/Rows"]
 layout_mode = 2
 
-[node name="Circle" type="Panel" parent="Margin/Rows/Center"]
-custom_minimum_size = Vector2(120, 120)
+[node name="Circle" type="Control" parent="Margin/Rows/Center"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_circle")
+script = ExtResource("3_pixel_circle")
+pixel_size = 8
+radius_cells = 7
+color = Color(0.85, 0.66, 0.16, 1)
 
 [node name="DescriptionLabel" type="Label" parent="Margin/Rows"]
 layout_mode = 2
