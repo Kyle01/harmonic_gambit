@@ -31,13 +31,15 @@ func _refresh() -> void:
 
 
 func _draw() -> void:
+	# `r*r + r` instead of `r*r` clips the cardinal-axis spikes that an
+	# exact-equality midpoint mask leaves at the top/bottom/left/right.
 	var r: int = radius_cells
-	var r_sq: int = r * r
+	var threshold: int = r * r + r
 	for cx: int in range(2 * r + 1):
 		var dx: int = cx - r
 		for cy: int in range(2 * r + 1):
 			var dy: int = cy - r
-			if dx * dx + dy * dy <= r_sq:
+			if dx * dx + dy * dy <= threshold:
 				draw_rect(
 					Rect2(cx * pixel_size, cy * pixel_size, pixel_size, pixel_size),
 					color,
