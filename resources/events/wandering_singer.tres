@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="EventDef" load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/event_def.gd" id="1_def"]
+[ext_resource type="Script" path="res://scripts/data/event_scene.gd" id="2_scene"]
+[ext_resource type="Script" path="res://scripts/data/event_choice.gd" id="3_choice"]
+[ext_resource type="Script" path="res://scripts/data/event_outcome.gd" id="4_outcome"]
+
+[sub_resource type="Resource" id="Outcome_intro_approach"]
+script = ExtResource("4_outcome")
+weight = 1.0
+next_scene_id = &"she_offers"
+
+[sub_resource type="Resource" id="Outcome_intro_leave"]
+script = ExtResource("4_outcome")
+weight = 1.0
+next_scene_id = &"leave"
+
+[sub_resource type="Resource" id="Outcome_offer_heal"]
+script = ExtResource("4_outcome")
+weight = 1.0
+next_scene_id = &"heal"
+
+[sub_resource type="Resource" id="Outcome_offer_recruit"]
+script = ExtResource("4_outcome")
+weight = 1.0
+next_scene_id = &"recruit"
+
+[sub_resource type="Resource" id="Choice_intro_approach"]
+script = ExtResource("3_choice")
+label = "Approach"
+requirement = ""
+outcomes = [SubResource("Outcome_intro_approach")]
+
+[sub_resource type="Resource" id="Choice_intro_leave"]
+script = ExtResource("3_choice")
+label = "Walk on by"
+requirement = ""
+outcomes = [SubResource("Outcome_intro_leave")]
+
+[sub_resource type="Resource" id="Choice_offer_heal"]
+script = ExtResource("3_choice")
+label = "Ask her to heal our wounds"
+requirement = ""
+outcomes = [SubResource("Outcome_offer_heal")]
+
+[sub_resource type="Resource" id="Choice_offer_recruit"]
+script = ExtResource("3_choice")
+label = "Ask her to walk with us"
+requirement = ""
+outcomes = [SubResource("Outcome_offer_recruit")]
+
+[sub_resource type="Resource" id="Scene_intro"]
+script = ExtResource("2_scene")
+id = &"intro"
+body = "A singer rests against a milestone, an old guitar across her knees. She nods at you without breaking the chord."
+choices = [SubResource("Choice_intro_approach"), SubResource("Choice_intro_leave")]
+effects = []
+
+[sub_resource type="Resource" id="Scene_she_offers"]
+script = ExtResource("2_scene")
+id = &"she_offers"
+body = "'You look weary,' she says, eyes softening. 'I can sing the hurt out of your band — or I can come with you, and we'll share the road.'"
+choices = [SubResource("Choice_offer_heal"), SubResource("Choice_offer_recruit")]
+effects = []
+
+[sub_resource type="Resource" id="Scene_heal"]
+script = ExtResource("2_scene")
+id = &"heal"
+body = "Her song fills the air. The party feels whole again."
+choices = []
+effects = ["heal_party:full"]
+
+[sub_resource type="Resource" id="Scene_recruit"]
+script = ExtResource("2_scene")
+id = &"recruit"
+body = "She slings her guitar and falls in step. The road feels a little less empty."
+choices = []
+effects = ["recruit:singer:1"]
+
+[sub_resource type="Resource" id="Scene_leave"]
+script = ExtResource("2_scene")
+id = &"leave"
+body = "You pass without breaking stride. Her tuning drifts after you on the wind."
+choices = []
+effects = []
+
+[resource]
+script = ExtResource("1_def")
+id = &"wandering_singer"
+display_name = "A Wandering Singer"
+description = "A singer at the roadside. She nods as you approach."
+findable_columns = [0, 1, 2, 3, 4, 5]
+findable_regions = [&"the_introduction", &"the_city", &"the_expanse", &"the_depths", &"the_warp", &"the_finale"]
+column_effect_multiplier = 0.5
+entry_scene_id = &"intro"
+scenes = [SubResource("Scene_intro"), SubResource("Scene_she_offers"), SubResource("Scene_heal"), SubResource("Scene_recruit"), SubResource("Scene_leave")]

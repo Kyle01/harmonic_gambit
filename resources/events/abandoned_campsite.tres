@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EventDef" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/event_def.gd" id="1_def"]
+[ext_resource type="Script" path="res://scripts/data/event_scene.gd" id="2_scene"]
+[ext_resource type="Script" path="res://scripts/data/event_choice.gd" id="3_choice"]
+[ext_resource type="Script" path="res://scripts/data/event_outcome.gd" id="4_outcome"]
+
+[sub_resource type="Resource" id="Outcome_intro_approach"]
+script = ExtResource("4_outcome")
+weight = 1.0
+next_scene_id = &"approach_outcome"
+
+[sub_resource type="Resource" id="Outcome_intro_leave"]
+script = ExtResource("4_outcome")
+weight = 1.0
+next_scene_id = &"leave"
+
+[sub_resource type="Resource" id="Choice_intro_approach"]
+script = ExtResource("3_choice")
+label = "Approach the camp"
+requirement = ""
+outcomes = [SubResource("Outcome_intro_approach")]
+
+[sub_resource type="Resource" id="Choice_intro_leave"]
+script = ExtResource("3_choice")
+label = "Walk on by"
+requirement = ""
+outcomes = [SubResource("Outcome_intro_leave")]
+
+[sub_resource type="Resource" id="Scene_intro"]
+script = ExtResource("2_scene")
+id = &"intro"
+body = "An abandoned campsite slumps in the dust. Embers still glow under the ash. Whoever was here left in a hurry."
+choices = [SubResource("Choice_intro_approach"), SubResource("Choice_intro_leave")]
+effects = []
+
+[sub_resource type="Resource" id="Scene_approach_outcome"]
+script = ExtResource("2_scene")
+id = &"approach_outcome"
+body = "You sift through the ashes. Tucked under a charred bedroll, a small purse of coins."
+choices = []
+effects = ["gain_credits:5"]
+
+[sub_resource type="Resource" id="Scene_leave"]
+script = ExtResource("2_scene")
+id = &"leave"
+body = "You keep walking. Whatever happened here is no business of yours."
+choices = []
+effects = []
+
+[resource]
+script = ExtResource("1_def")
+id = &"abandoned_campsite"
+display_name = "Abandoned Campsite"
+description = "Embers still warm. Nobody in sight."
+findable_columns = [0, 1, 2, 3, 4, 5]
+findable_regions = [&"the_introduction", &"the_city", &"the_expanse", &"the_depths", &"the_warp", &"the_finale"]
+column_effect_multiplier = 0.5
+entry_scene_id = &"intro"
+scenes = [SubResource("Scene_intro"), SubResource("Scene_approach_outcome"), SubResource("Scene_leave")]
