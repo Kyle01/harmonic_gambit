@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/components/gambit_row.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yellow"]
+bg_color = Color(0.945, 0.78, 0.227, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.318, 0.235, 0.067, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="GambitRow" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 20)
+theme_override_styles/panel = SubResource("StyleBoxFlat_yellow")
+script = ExtResource("1_script")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 1
+
+[node name="Row" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NameLabel" type="Label" parent="Margin/Row"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.118, 0.071, 0.027, 1)
+theme_override_font_sizes/font_size = 12
+text = "Name"
+clip_text = true
+
+[node name="TriggerLabel" type="Label" parent="Margin/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.235, 0.157, 0.063, 1)
+theme_override_font_sizes/font_size = 11
+text = "trigger"
+clip_text = true
