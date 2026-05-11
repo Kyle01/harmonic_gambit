@@ -22,35 +22,238 @@ color = Color(0.0588, 0.149, 0.0902, 1)
 mouse_filter = 2
 
 [node name="TitleLabel" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -60.0
-offset_right = 400.0
-offset_bottom = 60.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 48.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_type_variation = &"Title"
 theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
 theme_override_constants/outline_size = 6
-theme_type_variation = &"Title"
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Inventory"
 horizontal_alignment = 1
 vertical_alignment = 1
 mouse_filter = 2
+
+[node name="PresetRow" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -240.0
+offset_top = 52.0
+offset_right = 240.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="EarlyButton" type="Button" parent="PresetRow"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_focus_color = Color(1, 0.898, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "Early"
+
+[node name="MidButton" type="Button" parent="PresetRow"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_focus_color = Color(1, 0.898, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "Mid"
+
+[node name="LateButton" type="Button" parent="PresetRow"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_focus_color = Color(1, 0.898, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "Late"
+
+[node name="HeaderStrip" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 48.0
+offset_top = 104.0
+offset_right = -48.0
+offset_bottom = 172.0
+grow_horizontal = 2
+theme_override_constants/separation = 24
+
+[node name="CreditsPanel" type="PanelContainer" parent="HeaderStrip"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Margin" type="MarginContainer" parent="HeaderStrip/CreditsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="Rows" type="VBoxContainer" parent="HeaderStrip/CreditsPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="CreditsTitle" type="Label" parent="HeaderStrip/CreditsPanel/Margin/Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_font_sizes/font_size = 16
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="CreditsValue" type="Label" parent="HeaderStrip/CreditsPanel/Margin/Rows"]
+layout_mode = 2
+theme_type_variation = &"Header"
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+
+[node name="ChipsPanel" type="PanelContainer" parent="HeaderStrip"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Margin" type="MarginContainer" parent="HeaderStrip/ChipsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="Rows" type="VBoxContainer" parent="HeaderStrip/ChipsPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ChipsTitle" type="Label" parent="HeaderStrip/ChipsPanel/Margin/Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_font_sizes/font_size = 16
+text = "Gambit Chips"
+horizontal_alignment = 1
+
+[node name="ChipsValue" type="Label" parent="HeaderStrip/ChipsPanel/Margin/Rows"]
+layout_mode = 2
+theme_type_variation = &"Header"
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 188.0
+offset_right = -48.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="SectionsBox" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 28
+
+[node name="CharactersSection" type="VBoxContainer" parent="Scroll/SectionsBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CharactersHeader" type="Label" parent="Scroll/SectionsBox/CharactersSection"]
+layout_mode = 2
+theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Characters"
+
+[node name="CharactersGrid" type="GridContainer" parent="Scroll/SectionsBox/CharactersSection"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="GambitCardsSection" type="VBoxContainer" parent="Scroll/SectionsBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GambitCardsHeader" type="Label" parent="Scroll/SectionsBox/GambitCardsSection"]
+layout_mode = 2
+theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Gambit Cards"
+
+[node name="GambitCardsGrid" type="GridContainer" parent="Scroll/SectionsBox/GambitCardsSection"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="BandCardsSection" type="VBoxContainer" parent="Scroll/SectionsBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BandCardsHeader" type="Label" parent="Scroll/SectionsBox/BandCardsSection"]
+layout_mode = 2
+theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Band Cards"
+
+[node name="BandCardsGrid" type="GridContainer" parent="Scroll/SectionsBox/BandCardsSection"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="ItemsSection" type="VBoxContainer" parent="Scroll/SectionsBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ItemsHeader" type="Label" parent="Scroll/SectionsBox/ItemsSection"]
+layout_mode = 2
+theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Items"
+
+[node name="ItemsGrid" type="GridContainer" parent="Scroll/SectionsBox/ItemsSection"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
 
 [node name="BackButton" type="Button" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -72.0
+offset_top = -56.0
 offset_right = 220.0
-offset_bottom = -24.0
+offset_bottom = -16.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
 theme_override_colors/font_hover_color = Color(1, 0.898, 0.4, 1)
