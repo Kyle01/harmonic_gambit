@@ -33,13 +33,17 @@ static func _early() -> Dictionary:
 	return {
 		"credits": 35,
 		"chips": 1,
-		"characters": [
+		"characters":
+		[
 			{"def": _character(&"singer"), "level": 1},
 		],
-		"gambit_cards": _gambit_cards([
-			&"enemy_any",
-			&"self_hp_40",
-		]),
+		"gambit_cards":
+		_gambit_cards(
+			[
+				&"enemy_any",
+				&"self_hp_40",
+			]
+		),
 		"band_cards": [],
 		"items": _items([&"hp_potion"]),
 	}
@@ -49,21 +53,25 @@ static func _mid() -> Dictionary:
 	return {
 		"credits": 240,
 		"chips": 6,
-		"characters": [
+		"characters":
+		[
 			{"def": _character(&"singer"), "level": 4},
 			{"def": _character(&"drummer"), "level": 3},
 			{"def": _character(&"guitar"), "level": 3},
 			{"def": _character(&"singer"), "level": 2},
 		],
-		"gambit_cards": _gambit_cards([
-			&"enemy_any",
-			&"enemy_least_hp",
-			&"self_hp_40",
-			&"ally_hp_40",
-			&"ally_most_damaged",
-			&"ally_dead",
-			&"random_enemy",
-		]),
+		"gambit_cards":
+		_gambit_cards(
+			[
+				&"enemy_any",
+				&"enemy_least_hp",
+				&"self_hp_40",
+				&"ally_hp_40",
+				&"ally_most_damaged",
+				&"ally_dead",
+				&"random_enemy",
+			]
+		),
 		"band_cards": _band_cards([&"soloist", &"rock_band"]),
 		"items": _items([&"hp_potion", &"hp_potion", &"phoenix_down"]),
 	}
@@ -73,7 +81,8 @@ static func _late() -> Dictionary:
 	return {
 		"credits": 980,
 		"chips": 14,
-		"characters": [
+		"characters":
+		[
 			{"def": _character(&"singer"), "level": 9},
 			{"def": _character(&"drummer"), "level": 8},
 			{"def": _character(&"guitar"), "level": 8},
@@ -83,36 +92,45 @@ static func _late() -> Dictionary:
 			{"def": _character(&"singer"), "level": 5},
 			{"def": _character(&"drummer"), "level": 6},
 		],
-		"gambit_cards": _gambit_cards([
-			&"enemy_any",
-			&"enemy_least_hp",
-			&"enemy_most_hp",
-			&"self_hp_20",
-			&"self_hp_40",
-			&"self_hp_60",
-			&"ally_hp_20",
-			&"ally_hp_40",
-			&"ally_hp_60",
-			&"ally_most_damaged",
-			&"ally_dead",
-			&"party_hp_avg_25",
-			&"enemies_3plus",
-			&"random_enemy",
-		]),
-		"band_cards": _band_cards([
-			&"soloist",
-			&"rock_band",
-			&"jazz_trio",
-			&"chamber_ensemble",
-			&"bluegrass",
-		]),
-		"items": _items([
-			&"hp_potion",
-			&"hp_potion",
-			&"hp_potion",
-			&"phoenix_down",
-			&"phoenix_down",
-		]),
+		"gambit_cards":
+		_gambit_cards(
+			[
+				&"enemy_any",
+				&"enemy_least_hp",
+				&"enemy_most_hp",
+				&"self_hp_20",
+				&"self_hp_40",
+				&"self_hp_60",
+				&"ally_hp_20",
+				&"ally_hp_40",
+				&"ally_hp_60",
+				&"ally_most_damaged",
+				&"ally_dead",
+				&"party_hp_avg_25",
+				&"enemies_3plus",
+				&"random_enemy",
+			]
+		),
+		"band_cards":
+		_band_cards(
+			[
+				&"soloist",
+				&"rock_band",
+				&"jazz_trio",
+				&"chamber_ensemble",
+				&"bluegrass",
+			]
+		),
+		"items":
+		_items(
+			[
+				&"hp_potion",
+				&"hp_potion",
+				&"hp_potion",
+				&"phoenix_down",
+				&"phoenix_down",
+			]
+		),
 	}
 
 
