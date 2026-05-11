@@ -161,25 +161,32 @@ Gambit Cards and Band Cards are deliberately separate sections — they're conce
 
 ## Events
 
-**What it is.** A catalog grid of every authored event that can fire on an EVENT-kind node during a run. One event fires per node, chosen at node-build time from a region-weighted distribution. This screen is the dev-and-collection browser; the runtime "play this event right now" UI is a separate screen that doesn't exist yet (`event_node.tscn`, deferred and out of scope here).
+**What it is.** A catalog grid of every authored event that can fire on an EVENT-kind node during a run, plus a read-only **demo runner** that walks any event's scene tree end-to-end. One event fires per node at runtime, chosen from a region-weighted distribution against the node's column. The runtime "play this event on a real node" hookup is deferred — the admin demo runner stands in for it during content authoring.
 
-**When it's reached.** Admin hub (Events tile) → `scenes/ui/events.tscn`. Long-term, reachable from a meta-progression / collection menu like Playable Characters and Band Cards. Discovery-gateable by `CardCatalog`.
+**When it's reached.** Admin hub (Events tile) → `scenes/ui/events.tscn` (grid). Click an event tile's Play button → `scenes/ui/event_run_demo.tscn` (runner). Long-term, the catalog grid is also reachable from a meta-progression / collection menu like Playable Characters and Band Cards (discovery-gateable by `CardCatalog`); the runtime hookup will route EVENT-kind realm-node clicks into a live event-runner scene rather than the demo.
 
-**What it shows.** Grid of event tiles. Each tile: event title, art, short hook description, region-availability tags. Click → detail page with full description, choices, and outcome rolls.
+**What it shows.**
+- *Grid:* tile per event. Title, hook description, scope summary (regions × columns), column-scaling coefficient, Play button.
+- *Demo runner:* current scene's body text + per-choice buttons; a "Preview column" spinbox (0–5) that re-renders numeric effects against `1 + col * coeff`; an effect log panel showing what each entered scene's effects *would* do (`+5 credits → +13 (×2.5)`, `heal party (full)`, `recruit Singer at level 1 → 3`); on terminal scenes a Continue/Restart pair. The demo never mutates `GameState`.
 
-**Schema / system additions required.**
-- `EventDef` Resource — id, title, description, art, choices (Array of choice descriptors), outcome rolls (Array of weighted outcomes per choice). New under `scripts/data/`.
-- `EventCatalog` autoload — scans `resources/events/` for `EventDef.tres` files. Mirrors `RegionCatalog` / `BandCardCatalog`.
-- `.tres` content under `resources/events/` (today empty — `.gitkeep` only).
+**Schema (landed).**
+- `EventDef` (`scripts/data/event_def.gd`) — id, display_name, description, art, `findable_columns: Array[int]`, `findable_regions: Array[StringName]` (both inclusion sets, no sentinel; defaults enumerate the full set), `column_effect_multiplier: float` (effective multiplier at column C = `1 + C * coeff`), `entry_scene_id`, `scenes: Array[EventScene]`.
+- `EventScene` — id, body, `choices: Array[EventChoice]` (empty = terminal), `effects: Array[String]` applied on entry. Stringly-typed effect mini-DSL: `gain_credits:N`, `heal_party:full|N`, `recruit:<id>:N`. Refactor to typed `EventEffect` Resource subclasses once the Inventory system lands.
+- `EventChoice` — label, `requirement: String` (stringly-typed prerequisite, evaluated at runtime; admin demo never blocks), `outcomes: Array[EventOutcome]`. Same typed-Resource refactor planned.
+- `EventOutcome` — `weight: float`, `next_scene_id`. Single-element arrays for deterministic forks; the schema already supports FTL-style 50/50 the moment an event author wants it.
+- `EventCatalog` (`scripts/data/event_catalog.gd`) — RefCounted, `get_all()` mirrors `RegionCatalog` / `GambitCardCatalog`.
 
-**Current state.** Placeholder — title + back button.
+**Current state.** Two starter events authored: *Abandoned Campsite* (1-fork → gold) and *A Wandering Singer* (nested choice → heal-party or recruit-singer). Catalog grid renders both; demo runner walks any event end-to-end with column-scaling preview.
 
-**Open questions.**
-- Are choices structured (`EventChoice` Resource with id + label + outcome ref) or freeform (string scripts evaluated at runtime)?
-- Do outcomes branch via `RNG.get_stream("event")` for reproducibility, and is that stream seeded per node or per run?
-- Do events have prerequisites (party size, instrument present, item carried) that gate their appearance in a region's distribution?
+**Deferred follow-ups.**
+- Runtime hookup: EVENT-kind realm nodes route to a live event-runner scene that mutates `GameState` (credits, party, etc.) and uses `RNG.get_stream("event")` per run.
+- Typed `EventEffect` / `EventChoiceRequirement` Resource subclasses, once Inventory + run-state plumbing land and effect/requirement vocabulary stabilizes.
+- Event detail page (drill-through from the grid). The demo runner currently stands in.
+- Per-scene art (only `EventDef.art` exists today).
+- Discovery-gating against `CardCatalog`.
+- Runtime evaluator for `EventChoice.requirement` and runtime applier for `EventScene.effects`.
 
-**Status:** `placeholder`.
+**Status:** `built — grid + demo runner; runtime hookup deferred`.
 
 ---
 
