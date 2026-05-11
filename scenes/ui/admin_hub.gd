@@ -11,6 +11,7 @@ const INVENTORY_PATH: String = "res://scenes/ui/inventory.tscn"
 const EVENTS_PATH: String = "res://scenes/ui/events.tscn"
 const ENEMIES_PATH: String = "res://scenes/ui/enemies.tscn"
 const GAMBIT_CARDS_PATH: String = "res://scenes/ui/gambit_cards.tscn"
+const ITEMS_PATH: String = "res://scenes/ui/items.tscn"
 const BAND_TUNING_PATH: String = "res://scenes/ui/band_tuning.tscn"
 const SHOP_PATH: String = "res://scenes/ui/shop.tscn"
 
@@ -23,6 +24,7 @@ const SHOP_PATH: String = "res://scenes/ui/shop.tscn"
 @onready var events_tile: Button = $TileGrid/EventsTile
 @onready var enemies_tile: Button = $TileGrid/EnemiesTile
 @onready var gambit_cards_tile: Button = $TileGrid/GambitCardsTile
+@onready var items_tile: Button = $TileGrid/ItemsTile
 @onready var band_tuning_tile: Button = $TileGrid/BandTuningTile
 @onready var shop_tile: Button = $TileGrid/ShopTile
 @onready var back_button: Button = $BackButton
@@ -38,6 +40,7 @@ func _ready() -> void:
 	events_tile.pressed.connect(_go.bind(EVENTS_PATH))
 	enemies_tile.pressed.connect(_go.bind(ENEMIES_PATH))
 	gambit_cards_tile.pressed.connect(_go.bind(GAMBIT_CARDS_PATH))
+	items_tile.pressed.connect(_go.bind(ITEMS_PATH))
 	band_tuning_tile.pressed.connect(_go.bind(BAND_TUNING_PATH))
 	shop_tile.pressed.connect(_go.bind(SHOP_PATH))
 	back_button.pressed.connect(_go.bind(MAIN_MENU_PATH))

@@ -39,6 +39,16 @@ theme_override_font_sizes/font_size = 28
 text = "Name"
 horizontal_alignment = 1
 
+[node name="LevelLabel" type="Label" parent="Margin/Rows"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = ""
+horizontal_alignment = 1
+
 [node name="RoleLabel" type="Label" parent="Margin/Rows"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)

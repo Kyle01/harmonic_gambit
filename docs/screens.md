@@ -137,25 +137,27 @@ The two run-economy resources are referenced throughout. A reminder:
 3. **Band Cards** — owned composition cards. Tiles show activation requirement and effects. Activation is automatic against the chosen lineup; this section is read-only.
 4. **Items** — consumables (potions, tonics, keys, etc.). Generic item bag.
 5. **Credits** — current balance. Plain numeric readout.
-6. **Gambit Chips** — unequipped chip count plus a per-character summary of equipped chips (e.g. *Singer: 3 chips, Drummer: 2*). Equip/unequip happens in Band Tuning, not here — this section is informational.
+6. **Gambit Chips** — flat owned count. A single number; no equipped/unequipped split, no per-character distribution. Inventory shows *what you own*; chip allocation happens in Band Tuning.
 
-Gambit Cards and Band Cards are deliberately separate sections — they're conceptually distinct (trigger rules vs. lineup bonuses) and players will reason about them separately. Do not collapse them into a single "Cards" tab.
+Gambit Cards and Band Cards are deliberately separate sections — they're conceptually distinct (trigger rules vs. lineup bonuses) and players will reason about them separately. Do not collapse them into a single "Cards" tab. Same for the Items + Cards split — items are tools, cards are configuration.
+
+**Discrete instances, not stacks.** Duplicate items, duplicate playable-character cards, etc. each render as their own tile (three potions = three tiles, two Singers = two Singer tiles). No `x3` count badges. This matches the underlying data model where everything is `Array[Resource]` with duplicates allowed; future per-instance state (item charges, character XP) lifts cleanly into typed `OwnedX` Resources without changing the rendering loop.
 
 **Schema / system additions required.**
-- `ItemDef` Resource (id, display_name, description, art, stack rule, on-use effect or marker for runtime to handle). New under `scripts/data/`.
-- `GambitChip` Resource (id, display_name, art, optional rarity). Even if all chips are functionally identical for V1, a Resource type makes them addressable.
-- `GameState` extensions: `credits: int`, `chips: Array[GambitChip]`, `items: Array[ItemInstance]`, `owned_gambit_cards: Array[GambitCard]`, `owned_band_cards: Array[BandCard]`. Today's `CardCatalog` is **cross-run discovered** state, not the per-run owned set — keep these separate.
-- A read-side helper or event for "chips equipped to character X" so the Inventory chip section can render the per-character summary without the Inventory screen reaching into character internals.
+- `ItemDef` Resource (id, display_name, description, art). Stack rule, on-use effect, and rarity deferred to the consumption-runtime PR. **Landed.** `scripts/data/item_def.gd`.
+- `ItemCatalog` (static helper, mirror of `GambitCardCatalog`). Scans `resources/items/`. **Landed.** `scripts/data/item_catalog.gd`.
+- `GambitChip` Resource (id, display_name, art, optional rarity). Deferred — the chips section is just a count today; a typed Resource lands when chip drops/equip-flow ship.
+- `GameState` extensions: `credits: int`, `chips: int`, `items: Array[ItemDef]`, `owned_gambit_cards: Array[GambitCard]`, `owned_band_cards: Array[BandCard]`, `owned_characters: Array[OwnedCharacter]`. Deferred — the admin Inventory screen reads from local fixture snapshots in `scripts/ui/inventory_presets.gd` until something needs to write here. Today's `CardCatalog` is **cross-run discovered** state, not the per-run owned set — keep these separate.
 
-**Current state.** Placeholder — title + back button.
+**Current state.** Built. Header strip (Credits + Gambit Chips) + four stacked card-grid sections (Characters, Gambit Cards, Band Cards, Items). Three preset switches across the top (Early / Mid / Late) swap the displayed inventory from local fixtures — view-only, no `GameState` mutation. Character tiles render `Lv N` per owned instance.
 
 **Open questions.**
-- Do items stack (3× Potion) or are they discrete instances (Potion #1, Potion #2)?
 - Slot / weight cap on the inventory, or unbounded?
 - Do chips have rarity tiers (Common / Rare / etc.) that matter, or are all chips functionally interchangeable?
 - Does opening Inventory pause an active battle, or is it only available outside combat?
+- Does layout pivot needed for late-game density (8 characters + 14 gambit cards + 5 band cards + 5 items scrolls a lot)?
 
-**Status:** `placeholder`.
+**Status:** `partial — admin testing path complete; runtime hookup deferred`.
 
 ---
 
