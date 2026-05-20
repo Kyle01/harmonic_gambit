@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/combat_arena.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/levels/test_arena.tscn" id="2_arena"]
+[ext_resource type="Theme" uid="uid://b4hy8mxqr1pk0" path="res://resources/theme/main_theme.tres" id="3_theme"]
+
+[node name="CombatArena" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Arena" parent="." instance=ExtResource("2_arena")]
+
+[node name="BackLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="BackButton" type="Button" parent="BackLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -72.0
+offset_right = 220.0
+offset_bottom = -24.0
+theme = ExtResource("3_theme")
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_focus_color = Color(1, 0.898, 0.4, 1)
+theme_override_font_sizes/font_size = 22
+text = "Back to Lobby"
