@@ -3,6 +3,8 @@ extends Control
 
 const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_hub.tscn"
 
+static var return_path: String = ADMIN_HUB_PATH
+
 @onready var back_button: Button = $BackButton
 
 
@@ -17,4 +19,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _back() -> void:
-	get_tree().change_scene_to_file(ADMIN_HUB_PATH)
+	var target := return_path
+	return_path = ADMIN_HUB_PATH
+	get_tree().change_scene_to_file(target)

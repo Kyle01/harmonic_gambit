@@ -27,7 +27,7 @@ The two run-economy resources are referenced throughout. A reminder:
 
 **What it is.** The actual in-run battle screen. The moment-to-moment player experience: a shared party action-timer pacing actor windows; on each window, the actor's gambit list resolves to a chosen action; rhythm prompts overlay during execution.
 
-**When it's reached.** Currently from the admin hub (Combat tile), which loads `scenes/ui/admin_combat.tscn` — a thin wrapper that instances `scenes/levels/test_arena.tscn`. Eventually entered when a player lands on a COMBAT-kind node inside a region.
+**When it's reached.** Currently from the admin hub (Combat tile), which loads `scenes/ui/admin_combat.tscn` — a **pre-combat lobby** with two options: *Band Tuning* (routes to the band-tuning placeholder, returning here on Back) and *Start Combat* (routes to `scenes/ui/combat_arena.tscn`, the thin wrapper that instances `scenes/levels/test_arena.tscn`). Eventually entered when a player lands on a COMBAT-kind node inside a region — the lobby gives the player a chance to retune the band before fighting.
 
 **What it shows.** Party members on one side, enemies on the other, shared timer along the top with upcoming actor windows. HUD: HP bars, MP pools, equipped Gambit Chips per character (visual reminder of programmable capacity), active band-card activations. On every action: rhythm hit-window prompt drives bonus magnitude. Battle end → rewards screen (Credits, possibly chips, possibly cards).
 
@@ -246,7 +246,7 @@ Gambit Cards and Band Cards are deliberately separate sections — they're conce
 
 **What it is.** The interactive party builder. Player picks characters from their owned roster into party slots, equips Gambit Chips to expand programmable slot count per character, then orders Gambit Cards into those slots — the order is the gambit priority that `GambitEngine` evaluates lowest-priority-first (FF12 convention).
 
-**When it's reached.** Admin hub (Band Tuning tile) → `scenes/ui/band_tuning.tscn`. Long-term, reachable from a hub UI button when not in active combat — typically used between battles to retune the lineup or rewire gambit priorities.
+**When it's reached.** Admin hub (Band Tuning tile) → `scenes/ui/band_tuning.tscn`. Also reachable from the pre-combat lobby (`scenes/ui/admin_combat.tscn`); when entered that way, Back returns to the lobby instead of the hub (set via `BandTuningScreen.return_path` static var). Long-term, reachable from a hub UI button when not in active combat — typically used between battles to retune the lineup or rewire gambit priorities.
 
 **What it shows.** Three interactive widgets stacked or side-by-side:
 
