@@ -9,23 +9,25 @@ extends Control
 ##
 ## Per-entry optional flags (default false; back-compat with view-only callers):
 ##   equipped : bool — paints a brighter gold border to mark the card as equipped
-##   glow     : bool — adds a pulsing gold halo behind the card
+##   glow     : bool — adds a soft pulsing white halo behind the card
 
 signal focus_changed(index: int)
 signal entry_clicked(index: int)
 
-const SLIVER_STRIDE: int = 60
-const CARD_WIDTH: int = 170
-const CARD_HEIGHT: int = 240
-const SELECTED_RAISE: int = 14
-const HALO_PADDING: int = 14
+@export var card_width: int = 170
+@export var card_height: int = 240
+@export var sliver_stride: int = 60
+@export var selected_raise: int = 14
+@export var halo_padding: int = 0
+@export var show_focus_label: bool = true
 
 var _entries: Array = []
 var _focus_index: int = 0
 var _selected_style: StyleBoxFlat = null
 var _normal_style: StyleBoxFlat = null
 var _equipped_style: StyleBoxFlat = null
-var _halo_style: StyleBoxFlat = null
+var _halo_style_outer: StyleBoxFlat = null
+var _halo_style_inner: StyleBoxFlat = null
 var _halo_tweens: Array[Tween] = []
 
 @onready var fan: Control = $Fan
@@ -35,7 +37,27 @@ var _halo_tweens: Array[Tween] = []
 
 func _ready() -> void:
 	_make_styles()
+	_layout_internals()
 	_apply()
+
+
+func _layout_internals() -> void:
+	# When the focus label is shown, defer to the cascade scene's authored
+	# Fan/FocusLabel positions (back-compat with existing callers).
+	if show_focus_label:
+		return
+	label.visible = false
+	var fan_top: float = 16.0
+	var width: float = fan.size.x if fan.size.x > 0.0 else 600.0
+	var fan_height: float = float(card_height + selected_raise + halo_padding * 2)
+	fan.position = Vector2(0.0, fan_top)
+	fan.size = Vector2(width, fan_height)
+	empty_label.position = Vector2(0.0, fan_top + fan_height * 0.4)
+	empty_label.size = Vector2(width, 30.0)
+
+
+func get_focus_index() -> int:
+	return _focus_index
 
 
 func set_entries(entries: Array) -> void:
@@ -45,10 +67,6 @@ func set_entries(entries: Array) -> void:
 		_focus_index = 0
 	if is_node_ready():
 		_apply()
-
-
-func get_focus_index() -> int:
-	return _focus_index
 
 
 func set_focus_index(index: int) -> void:
@@ -80,17 +98,29 @@ func _make_styles() -> void:
 	_equipped_style.border_width_right = 5
 	_equipped_style.border_width_bottom = 5
 	_equipped_style.border_color = Color(1.0, 0.85, 0.25, 1.0)
-	_halo_style = StyleBoxFlat.new()
-	_halo_style.bg_color = Color(1.0, 0.898, 0.4, 0.18)
-	_halo_style.border_width_left = 6
-	_halo_style.border_width_top = 6
-	_halo_style.border_width_right = 6
-	_halo_style.border_width_bottom = 6
-	_halo_style.border_color = Color(1.0, 0.898, 0.4, 0.9)
-	_halo_style.corner_radius_top_left = 12
-	_halo_style.corner_radius_top_right = 12
-	_halo_style.corner_radius_bottom_left = 12
-	_halo_style.corner_radius_bottom_right = 12
+	# Halo: layered white panels with rounded corners, simulating a soft gradient.
+	_halo_style_outer = StyleBoxFlat.new()
+	_halo_style_outer.bg_color = Color(1.0, 1.0, 1.0, 0.10)
+	_halo_style_outer.border_color = Color(1.0, 1.0, 1.0, 0.35)
+	_halo_style_outer.border_width_left = 4
+	_halo_style_outer.border_width_top = 4
+	_halo_style_outer.border_width_right = 4
+	_halo_style_outer.border_width_bottom = 4
+	_halo_style_outer.corner_radius_top_left = 28
+	_halo_style_outer.corner_radius_top_right = 28
+	_halo_style_outer.corner_radius_bottom_left = 28
+	_halo_style_outer.corner_radius_bottom_right = 28
+	_halo_style_inner = StyleBoxFlat.new()
+	_halo_style_inner.bg_color = Color(1.0, 1.0, 1.0, 0.28)
+	_halo_style_inner.border_color = Color(1.0, 1.0, 1.0, 0.95)
+	_halo_style_inner.border_width_left = 6
+	_halo_style_inner.border_width_top = 6
+	_halo_style_inner.border_width_right = 6
+	_halo_style_inner.border_width_bottom = 6
+	_halo_style_inner.corner_radius_top_left = 14
+	_halo_style_inner.corner_radius_top_right = 14
+	_halo_style_inner.corner_radius_bottom_left = 14
+	_halo_style_inner.corner_radius_bottom_right = 14
 
 
 func _apply() -> void:
@@ -118,28 +148,38 @@ func _kill_halo_tweens() -> void:
 	_halo_tweens.clear()
 
 
+func _effective_stride(n: int) -> int:
+	if n <= 1:
+		return sliver_stride
+	var available: float = max(fan.size.x, float(card_width))
+	var max_stride: int = int((available - float(card_width)) / float(n - 1))
+	return clamp(sliver_stride, 1, max(1, max_stride))
+
+
 func _build_fan() -> void:
 	var focused_card: PanelContainer = null
-	var focused_halo: Panel = null
+	var focused_halo: Control = null
 	var n: int = _entries.size()
-	var total_width: int = (n - 1) * SLIVER_STRIDE + CARD_WIDTH if n > 0 else 0
-	var offset_x: int = max(0, int((fan.size.x - total_width) / 2))
+	var stride: int = _effective_stride(n)
+	var total_width: int = (n - 1) * stride + card_width if n > 0 else 0
+	var offset_x: int = max(0, int((fan.size.x - float(total_width)) / 2.0))
+	var card_baseline_y: int = halo_padding + selected_raise
 	var i: int = 0
 	for entry: Dictionary in _entries:
 		var is_focused: bool = i == _focus_index
 		var is_equipped: bool = entry.get("equipped", false)
 		var has_glow: bool = entry.get("glow", false)
-		var y_offset: int = 0 if is_focused else SELECTED_RAISE
-		var card_pos: Vector2 = Vector2(offset_x + i * SLIVER_STRIDE, y_offset)
+		var y_offset: int = card_baseline_y if not is_focused else card_baseline_y - selected_raise
+		var card_pos: Vector2 = Vector2(offset_x + i * stride, y_offset)
 
-		var halo: Panel = null
+		var halo: Control = null
 		if has_glow:
 			halo = _make_halo(card_pos)
 			fan.add_child(halo)
 
 		var card: PanelContainer = PanelContainer.new()
-		card.custom_minimum_size = Vector2(CARD_WIDTH, CARD_HEIGHT)
-		card.size = Vector2(CARD_WIDTH, CARD_HEIGHT)
+		card.custom_minimum_size = Vector2(card_width, card_height)
+		card.size = Vector2(card_width, card_height)
 		if is_equipped:
 			card.add_theme_stylebox_override("panel", _equipped_style)
 		elif is_focused:
@@ -173,17 +213,33 @@ func _build_fan() -> void:
 		fan.move_child(focused_card, -1)
 
 
-func _make_halo(card_pos: Vector2) -> Panel:
-	var halo: Panel = Panel.new()
-	halo.add_theme_stylebox_override("panel", _halo_style)
-	halo.position = card_pos - Vector2(HALO_PADDING, HALO_PADDING)
-	halo.size = Vector2(CARD_WIDTH + HALO_PADDING * 2, CARD_HEIGHT + HALO_PADDING * 2)
-	halo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+func _make_halo(card_pos: Vector2) -> Control:
+	var group: Control = Control.new()
+	group.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	group.position = Vector2.ZERO
+	group.size = fan.size
+
+	var outer_pad: int = halo_padding
+	var outer: Panel = Panel.new()
+	outer.add_theme_stylebox_override("panel", _halo_style_outer)
+	outer.position = card_pos - Vector2(outer_pad, outer_pad)
+	outer.size = Vector2(card_width + outer_pad * 2, card_height + outer_pad * 2)
+	outer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	group.add_child(outer)
+
+	var inner_pad: int = max(halo_padding / 2, 8)
+	var inner: Panel = Panel.new()
+	inner.add_theme_stylebox_override("panel", _halo_style_inner)
+	inner.position = card_pos - Vector2(inner_pad, inner_pad)
+	inner.size = Vector2(card_width + inner_pad * 2, card_height + inner_pad * 2)
+	inner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	group.add_child(inner)
+
 	var tween: Tween = create_tween().set_loops().set_trans(Tween.TRANS_SINE)
-	tween.tween_property(halo, "modulate:a", 1.0, 0.8)
-	tween.tween_property(halo, "modulate:a", 0.4, 0.8)
+	tween.tween_property(group, "modulate:a", 1.0, 0.7)
+	tween.tween_property(group, "modulate:a", 0.55, 0.7)
 	_halo_tweens.append(tween)
-	return halo
+	return group
 
 
 func _on_card_gui_input(event: InputEvent, index: int) -> void:
