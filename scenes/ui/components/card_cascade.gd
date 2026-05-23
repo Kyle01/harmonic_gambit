@@ -20,6 +20,7 @@ signal entry_clicked(index: int)
 @export var selected_raise: int = 14
 @export var halo_padding: int = 0
 @export var show_focus_label: bool = true
+@export var show_borders: bool = true
 
 var _entries: Array = []
 var _focus_index: int = 0
@@ -180,13 +181,14 @@ func _build_fan() -> void:
 		var card: PanelContainer = PanelContainer.new()
 		card.custom_minimum_size = Vector2(card_width, card_height)
 		card.size = Vector2(card_width, card_height)
-		if is_equipped:
+		if is_equipped and show_borders:
 			card.add_theme_stylebox_override("panel", _equipped_style)
-		elif is_focused:
+		elif is_focused and show_borders:
 			card.add_theme_stylebox_override("panel", _selected_style)
 		else:
 			card.add_theme_stylebox_override("panel", _normal_style)
-			card.modulate = Color(0.82, 0.82, 0.82, 1.0)
+			if not is_focused:
+				card.modulate = Color(0.82, 0.82, 0.82, 1.0)
 		card.position = card_pos
 		card.mouse_filter = Control.MOUSE_FILTER_STOP
 

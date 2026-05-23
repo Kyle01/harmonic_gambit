@@ -160,6 +160,7 @@ card_height = 190
 sliver_stride = 100
 halo_padding = 28
 show_focus_label = false
+show_borders = false
 
 [node name="TopBandCardsCascade" parent="." instance=ExtResource("3_cascade")]
 custom_minimum_size = Vector2(600, 280)
@@ -172,6 +173,7 @@ card_height = 190
 sliver_stride = 100
 halo_padding = 28
 show_focus_label = false
+show_borders = false
 
 [node name="EquippedCountLabel" type="Label" parent="."]
 layout_mode = 0
@@ -221,6 +223,7 @@ card_height = 190
 sliver_stride = 100
 halo_padding = 28
 show_focus_label = false
+show_borders = false
 
 [node name="BottomBandCardsCascade" parent="." instance=ExtResource("3_cascade")]
 custom_minimum_size = Vector2(600, 280)
@@ -233,3 +236,4 @@ card_height = 190
 sliver_stride = 100
 halo_padding = 28
 show_focus_label = false
+show_borders = false
