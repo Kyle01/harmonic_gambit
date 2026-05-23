@@ -98,6 +98,20 @@ Branch protection on `main`: PR required, `validate.yml` must pass, no force-pus
 
 ---
 
+## Paths to skip when exploring
+
+These paths are large, third-party, generated, or empty-of-meaning. Do not `find`, `ls`, `grep`, or `Read` them unless directly necessary for the task:
+
+- `.venv/` — Python tooling deps (1.7k files)
+- `.godot/` — engine cache; regenerated on import
+- `.claude/skills/godot-api/doc_source/` and `doc_api/` — cloned Godot engine repo (~21MB)
+- `screenshots/` — ephemeral QA captures (gitignored)
+- `addons/` — third-party plugins (invoked via MCP, not read directly)
+- `*.uid` — Godot 4.4 sidecars: one line, opaque hash, zero LLM value
+- `.env`, `.env.local` — secrets
+
+---
+
 ## Branch Workflow
 
 - **Never commit directly to `main`.** Every non-trivial change starts on a `feature/<slug>` or `docs/<slug>` branch.
