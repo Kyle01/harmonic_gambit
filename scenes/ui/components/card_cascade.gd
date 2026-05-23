@@ -249,6 +249,9 @@ func _on_card_gui_input(event: InputEvent, index: int) -> void:
 		var mb: InputEventMouseButton = event
 		if mb.button_index == MOUSE_BUTTON_LEFT and mb.pressed:
 			entry_clicked.emit(index)
+			# entry_clicked handlers may rebuild entries; index can now be stale.
+			if index < 0 or index >= _entries.size():
+				return
 			if index != _focus_index:
 				_focus_index = index
 				_clear_fan()
