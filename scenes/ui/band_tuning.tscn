@@ -149,6 +149,17 @@ theme_override_font_sizes/font_size = 20
 text = "Equipped"
 horizontal_alignment = 1
 
+[node name="GambitChipsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 64.0
+offset_right = 1256.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_font_sizes/font_size = 14
+text = "Gambit Chips: 0"
+horizontal_alignment = 2
+
 [node name="TopCharactersCascade" parent="." instance=ExtResource("3_cascade")]
 custom_minimum_size = Vector2(600, 288)
 layout_mode = 0

@@ -26,6 +26,7 @@ var _focused_band_pool_idx: int = -1
 @onready var bottom_band_cards_cascade: CardCascade = $BottomBandCardsCascade
 @onready var equipped_count_label: Label = $EquippedCountLabel
 @onready var activation_label: Label = $ActivationLabel
+@onready var gambit_chips_label: Label = $GambitChipsLabel
 
 
 func _ready() -> void:
@@ -56,6 +57,7 @@ func _load_preset(preset: BandTuningPresets.Preset) -> void:
 	_equipped_char_indices.clear()
 	_equipped_band_idx = -1
 	_focused_band_pool_idx = 0 if _band_pool.size() > 0 else -1
+	_update_total_chips_label()
 	_rebuild_all()
 
 
@@ -148,10 +150,7 @@ func _character_entry(row: Dictionary, is_equipped: bool) -> Dictionary:
 		name_str = def.display_name if def.display_name != "" else str(def.id)
 		art = def.portrait
 	var level: int = row.get("level", 1)
-	var chips: int = row.get("chips", 0)
-	var label: String = (
-		"%s — Lv %d · %d chip%s" % [name_str, level, chips, "" if chips == 1 else "s"]
-	)
+	var label: String = "%s — Lv %d" % [name_str, level]
 	return {
 		"art": art,
 		"label": label,
@@ -203,6 +202,13 @@ func _band_card_name(card: BandCard) -> String:
 
 func _update_equipped_count() -> void:
 	equipped_count_label.text = "Equipped: %d" % _equipped_char_indices.size()
+
+
+func _update_total_chips_label() -> void:
+	var total: int = 0
+	for row: Dictionary in _roster:
+		total += int(row.get("chips", 0))
+	gambit_chips_label.text = "Gambit Chips: %d" % total
 
 
 func _update_activation_label() -> void:
