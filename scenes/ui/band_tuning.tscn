@@ -140,7 +140,7 @@ layout_mode = 0
 offset_left = 24.0
 offset_top = 64.0
 offset_right = 1256.0
-offset_bottom = 90.0
+offset_bottom = 86.0
 theme_type_variation = &"Header"
 theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
@@ -150,35 +150,33 @@ text = "Equipped"
 horizontal_alignment = 1
 
 [node name="TopCharactersCascade" parent="." instance=ExtResource("3_cascade")]
-custom_minimum_size = Vector2(600, 280)
+custom_minimum_size = Vector2(600, 288)
 layout_mode = 0
 offset_left = 24.0
-offset_top = 92.0
+offset_top = 88.0
 offset_right = 624.0
-offset_bottom = 372.0
-card_height = 190
+offset_bottom = 376.0
+card_height = 170
 sliver_stride = 100
-halo_padding = 28
-show_focus_label = false
+halo_padding = 18
 show_borders = false
 
 [node name="TopBandCardsCascade" parent="." instance=ExtResource("3_cascade")]
-custom_minimum_size = Vector2(600, 280)
+custom_minimum_size = Vector2(600, 288)
 layout_mode = 0
 offset_left = 656.0
-offset_top = 92.0
+offset_top = 88.0
 offset_right = 1256.0
-offset_bottom = 372.0
-card_height = 190
+offset_bottom = 376.0
+card_height = 170
 sliver_stride = 100
-halo_padding = 28
-show_focus_label = false
+halo_padding = 18
 show_borders = false
 
 [node name="EquippedCountLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 376.0
+offset_top = 380.0
 offset_right = 624.0
 offset_bottom = 398.0
 theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
@@ -189,7 +187,7 @@ horizontal_alignment = 1
 [node name="ActivationLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 656.0
-offset_top = 376.0
+offset_top = 380.0
 offset_right = 1256.0
 offset_bottom = 398.0
 theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
@@ -201,9 +199,9 @@ autowrap_mode = 2
 [node name="OwnedHeader" type="Label" parent="."]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 404.0
+offset_top = 402.0
 offset_right = 1256.0
-offset_bottom = 430.0
+offset_bottom = 422.0
 theme_type_variation = &"Header"
 theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
@@ -213,27 +211,25 @@ text = "All Owned"
 horizontal_alignment = 1
 
 [node name="BottomCharactersCascade" parent="." instance=ExtResource("3_cascade")]
-custom_minimum_size = Vector2(600, 280)
+custom_minimum_size = Vector2(600, 288)
 layout_mode = 0
 offset_left = 24.0
-offset_top = 432.0
+offset_top = 424.0
 offset_right = 624.0
 offset_bottom = 712.0
-card_height = 190
+card_height = 170
 sliver_stride = 100
-halo_padding = 28
-show_focus_label = false
+halo_padding = 18
 show_borders = false
 
 [node name="BottomBandCardsCascade" parent="." instance=ExtResource("3_cascade")]
-custom_minimum_size = Vector2(600, 280)
+custom_minimum_size = Vector2(600, 288)
 layout_mode = 0
 offset_left = 656.0
-offset_top = 432.0
+offset_top = 424.0
 offset_right = 1256.0
 offset_bottom = 712.0
-card_height = 190
+card_height = 170
 sliver_stride = 100
-halo_padding = 28
-show_focus_label = false
+halo_padding = 18
 show_borders = false

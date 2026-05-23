@@ -43,16 +43,17 @@ func _ready() -> void:
 
 
 func _layout_internals() -> void:
-	# When the focus label is shown, defer to the cascade scene's authored
-	# Fan/FocusLabel positions (back-compat with existing callers).
-	if show_focus_label:
-		return
-	label.visible = false
-	var fan_top: float = 16.0
+	# Defaults reproduce the cascade scene's authored Fan/FocusLabel positions
+	# (16/290/320) so the Inventory layout is unchanged when no overrides apply.
 	var width: float = fan.size.x if fan.size.x > 0.0 else 600.0
+	var fan_top: float = 16.0
 	var fan_height: float = float(card_height + selected_raise + halo_padding * 2)
 	fan.position = Vector2(0.0, fan_top)
 	fan.size = Vector2(width, fan_height)
+	label.visible = show_focus_label
+	if show_focus_label:
+		label.position = Vector2(0.0, fan_top + fan_height + 20.0)
+		label.size = Vector2(width, 30.0)
 	empty_label.position = Vector2(0.0, fan_top + fan_height * 0.4)
 	empty_label.size = Vector2(width, 30.0)
 
