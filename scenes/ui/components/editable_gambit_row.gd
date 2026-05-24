@@ -4,8 +4,13 @@ extends PanelContainer
 ## Yellow editable gambit row — two inline OptionButton dropdowns for the
 ## action (character ability or party item) and the card (condition + target).
 ## Dumb component: the owning screen wires options and listens for changes.
+##
+## Each dropdown carries a leading "—" placeholder so freshly-added rows read
+## as deliberately unconfigured rather than silently auto-filled.
 
 signal selection_changed(action_id: StringName, card_id: StringName)
+
+const PLACEHOLDER_LABEL: String = "—"
 
 var _suppress_emit: bool = false
 
@@ -43,6 +48,8 @@ func get_card_id() -> StringName:
 
 func _populate(button: OptionButton, options: Array) -> void:
 	button.clear()
+	button.add_item(PLACEHOLDER_LABEL, 0)
+	button.set_item_metadata(0, &"")
 	for opt: Dictionary in options:
 		var label: String = opt.get("label", "?")
 		var id_val: StringName = opt.get("id", &"")

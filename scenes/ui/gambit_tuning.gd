@@ -93,7 +93,7 @@ func _on_plus_chip() -> void:
 		return
 	focused["chips_equipped"] = int(focused.get("chips_equipped", 0)) + 1
 	var rows: Array = focused.get("rows", []) as Array
-	rows.append(_default_row(focused))
+	rows.append(GambitDef.new())
 	focused["rows"] = rows
 	_rebuild_all()
 
@@ -195,24 +195,14 @@ func _on_row_changed(action_id: StringName, card_id: StringName, row_idx: int) -
 		row_def = GambitDef.new()
 		rows[row_idx] = row_def
 	row_def.action_id = action_id
+	if card_id == &"":
+		row_def.trigger_expr = ""
+		row_def.target_selector = &""
+		return
 	var card: GambitCard = _card_by_id(card_id)
 	if card != null:
 		row_def.trigger_expr = card.trigger_expr
 		row_def.target_selector = card.target_selector
-
-
-func _default_row(focused: Dictionary) -> GambitDef:
-	var row: GambitDef = GambitDef.new()
-	var def: CharacterDef = focused.get("def")
-	var level: int = int(focused.get("level", 1))
-	var actions: Array = _build_action_options(def, level)
-	if actions.size() > 0:
-		row.action_id = actions[0].get("id", &"")
-	if _all_cards.size() > 0:
-		var first: GambitCard = _all_cards[0]
-		row.trigger_expr = first.trigger_expr
-		row.target_selector = first.target_selector
-	return row
 
 
 func _build_action_options(def: CharacterDef, level: int) -> Array:
