@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/components/shop_offer_tile.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://b4hy8mxqr1pk0" path="res://resources/theme/main_theme.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_purchased"]
+bg_color = Color(0.0784, 0.1804, 0.1098, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.3, 0.36, 0.28, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ShopOfferTile" type="VBoxContainer"]
+custom_minimum_size = Vector2(240, 500)
+theme = ExtResource("2_theme")
+theme_override_constants/separation = 6
+script = ExtResource("1_script")
+
+[node name="ContentSlot" type="Control" parent="."]
+custom_minimum_size = Vector2(240, 420)
+layout_mode = 2
+
+[node name="PurchasedPanel" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(240, 420)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_purchased")
+
+[node name="Margin" type="MarginContainer" parent="PurchasedPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="PurchasedLabel" type="Label" parent="PurchasedPanel/Margin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"Header"
+theme_override_colors/font_color = Color(0.55, 0.65, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+text = "Purchased"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
+text = "5 credits"
+horizontal_alignment = 1
+
+[node name="BuyButton" type="Button" parent="."]
+custom_minimum_size = Vector2(240, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_focus_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_disabled_color = Color(0.45, 0.45, 0.42, 1)
+theme_override_font_sizes/font_size = 16
+text = "Buy"
