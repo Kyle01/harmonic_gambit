@@ -231,7 +231,11 @@ static func _smooth_layout(map: RegionMap) -> void:
 static func _assign_kinds(map: RegionMap, def: RegionDef, stream: RandomNumberGenerator) -> void:
 	for id: int in map.nodes.keys():
 		if id == map.entry_id:
-			map.nodes[id].kind = EventNode.Kind.COMBAT
+			if def.starter_event_id != &"":
+				map.nodes[id].kind = EventNode.Kind.EVENT
+				map.nodes[id].pinned_event_id = def.starter_event_id
+			else:
+				map.nodes[id].kind = EventNode.Kind.COMBAT
 		else:
 			map.nodes[id].kind = _sample_kind(def.encounter_distribution, stream)
 

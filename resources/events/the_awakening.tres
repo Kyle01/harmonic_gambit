@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EventDef" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/event_def.gd" id="1_def"]
+[ext_resource type="Script" path="res://scripts/data/event_scene.gd" id="2_scene"]
+
+[sub_resource type="Resource" id="Scene_awaken"]
+script = ExtResource("2_scene")
+id = &"awaken"
+body = "You wake to a chord you didn't strike. The color of the world hasn't settled — yellow, then green, then a yellow that remembers green.
+
+A voice steps in beside you. She doesn't ask your name. She already knows the song you came in on.
+
+The road is long. Take what the Realm gives now — not much later comes for free."
+choices = []
+effects = ["recruit:singer:1", "grant_chips:2", "gain_credits:10"]
+
+[resource]
+script = ExtResource("1_def")
+id = &"the_awakening"
+display_name = "The Awakening"
+description = "The Realm's first chord. Always the start of the journey."
+findable_columns = []
+findable_regions = []
+column_effect_multiplier = 0.0
+entry_scene_id = &"awaken"
+scenes = [SubResource("Scene_awaken")]
