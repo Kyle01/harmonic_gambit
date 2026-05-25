@@ -75,6 +75,16 @@ These MCPs make the content loop hands-free under Claude Code. None are required
 - **What it does:** music + SFX generation (`compose_music`, `text_to_sound_effects`).
 - **Why we use it:** the soundtrack is the game's third pillar. Prompt structure, the diegesis rule, and the instrument-archetype mapping live in [`docs/sound_design.md`](sound_design.md). Read it before generating any audio.
 
+### OpenSpec CLI
+
+- **What it does:** drives the spec-driven change workflow exposed as `/opsx:propose`, `/opsx:explore`, `/opsx:apply`, and `/opsx:archive` slash commands. The slash-command and skill files live under `.claude/commands/opsx/` and `.claude/skills/openspec-*/` and are tracked in the repo. The CLI itself handles `init`, validation, and change-archival under the hood.
+- **Why we use it:** non-trivial features land through propose → spec → apply → archive instead of free-form vibe coding. Keeps design intent and acceptance criteria pinned alongside the code.
+- **Install:**
+  ```sh
+  npm install -g @fission-ai/openspec
+  ```
+  **Global, not per-project.** The committed `.claude/` markdown is what Claude actually reads — those files work even without the CLI installed. The CLI is only invoked for setup (`openspec init`) and validation, so it's a developer-machine tool like `gh` or `godot`. This repo has no Node ecosystem, and adding a `package.json` solely for one devDependency would drag npm into a GDScript project for no gain. If a future contributor needs it, one line covers onboarding.
+
 ## Dev flow
 
 1. **Branch.** Off `main` as `feature/<slug>` or `docs/<slug>`. Never commit directly to `main`.

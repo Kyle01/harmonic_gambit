@@ -37,6 +37,7 @@ No other dependencies. No C#, no GDExtension, no native addons — this is a har
 - **Aseprite MCP Pro** — pixel-art tool integration; produces Godot-ready `SpriteFrames.tres`.
 - **PixelLab MCP** — AI-assisted sprite generation.
 - **Claude Code Remote Control** — drive sessions from phone (iOS app).
+- **OpenSpec CLI** — drives the `/opsx:propose`/`explore`/`apply`/`archive` slash commands committed under `.claude/` for spec-driven change tracking.
 
 These are configured in `~/.claude.json` (local scope, auto-approved). The repo works without them; they just make content pipelines hands-free.
 
