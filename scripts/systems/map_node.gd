@@ -15,3 +15,7 @@ extends Resource
 @export var kind: int = 0
 @export var next_ids: Array[int] = []
 @export var prev_ids: Array[int] = []
+## When non-empty, the (future) event resolver fires this specific EventDef
+## on entering this node, bypassing the random event picker. Set by
+## RegionPlanner when the owning RegionDef has a starter_event_id.
+@export var pinned_event_id: StringName = &""

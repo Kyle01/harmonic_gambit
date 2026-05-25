@@ -37,3 +37,10 @@ extends Resource
 @export_range(0.0, 1.0) var branching_bias: float = 0.6
 ## 0..1, how often a non-entry node gets a second incoming edge. Drives webbiness.
 @export_range(0.0, 1.0) var reconvergence_bias: float = 0.5
+
+@export_group("Starter")
+## If non-empty, the entry node is forced to EVENT kind and tagged with this
+## event id (see MapNode.pinned_event_id). The future event resolver will
+## fire that specific event instead of rolling from the random pool. Used to
+## pin a deterministic awakening at the start of The Introduction.
+@export var starter_event_id: StringName = &""
