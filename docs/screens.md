@@ -280,15 +280,23 @@ Live preview region (always visible): which Band Cards activate against the chos
 
 **When it's reached.** Admin hub (Shop tile) → `scenes/ui/shop.tscn`. Long-term, entered when a player lands on a SHOP-kind node within a region.
 
-**What it shows.** Header: shopkeeper name + flavor + the player's current Credits balance. Body: a grid of 4–8 offers — a mix of Gambit Cards, Band Cards, Items (consumables), Gambit Chips, and occasionally a character recruit. Each offer shows price in Credits and a buy button. Footer: a "Leave shop" button that returns to the region map. On purchase: confirm dialog → Credits deducts → item moves to Inventory.
+**What it shows.** Header: title + the player's current Credits balance. Body: a 2×3 grid of card offers (3–6 actual cards from across CharacterCatalog / GambitCardCatalog / BandCardCatalog; remaining slots render as blank spacers, no placeholder text) on the left, and a vertical list of every `ItemDef` as compact buyable rows on the right. Each offer shows price in Credits and a Buy button; Buy buttons disable when the player can't afford. On purchase, card tiles flip in-place to a centered "Purchased" panel; items never sell out.
 
 **Schema / system additions required.**
-- Same currency / chip / item / cards-owned schemas that Inventory needs.
-- A `ShopOfferDef` or runtime-generated `ShopOffer` struct (probably runtime — offers are rolled, not authored) with item type, item ref, price.
-- An offer-roll function using `RNG.get_stream("shop")` for run-reproducibility.
+- `scripts/ui/shop_offers.gd` (landed) — naive uniform-random card roll + full-catalog item offers, flat 5/4 credit pricing. Replaced in a v2 PR by a real generator (rarity tiers, region-aware pricing, archetype variants).
+- `scenes/ui/components/shop_offer_tile.tscn` + `shop_item_row.tscn` (landed) — card-offer wrapper and compact item row.
+- For runtime hookup: same currency / chip / item / cards-owned schemas that Inventory needs (deferred). `GameState.credits` does not exist yet — current shop reads the credits value from the Inventory Early/Mid/Late preset fixture and mutates only screen-local state.
 - A region-aware pricing model (deeper regions = higher prices, or fixed across the run?).
 
-**Current state.** Placeholder — title + back button.
+**Current state.** Style-complete admin screen. Header strip with title, Early/Mid/Late preset switcher (mirrors Inventory — 35/240/980 credits), live Credits readout, Back button. 2×3 card grid with reusable `CharacterCardTile` / `GambitCardTile` / `BandCardTile` content. Items column lists the full `ItemCatalog` (`hp_potion`, `phoenix_down` today). Instant-purchase interaction; Buy disables on insufficient credits; switching presets resets credits and re-rolls cards. No GameState mutation, no inventory write-through, no cross-visit persistence.
+
+**Deferred follow-ups.**
+- Real offer-generation algorithm (rarity tiers, region-aware pricing, weighted kind mixing, archetype variants).
+- Real pricing (5/4 flat is placeholder).
+- `GameState.credits` field + EventBus `credits_changed` / `card_purchased` signals.
+- Inventory write-through on purchase (`GameState.owned_*`).
+- Runtime hookup: SHOP-kind realm nodes route into a live shop seeded from the run-state, persisting offers + purchased state across re-entry until the player leaves.
+- Recruit-character offers, Gambit-Chip offers, re-roll, sell-back, confirm modal.
 
 **Open questions.**
 - Re-stock on revisit, or one-shot (each shop node has its own static stock)?
@@ -297,4 +305,4 @@ Live preview region (always visible): which Band Cards activate against the chos
 - Pricing model — fixed per item (defined alongside its `Def`), or scaled by run depth / region tier?
 - Does the shop sell Gambit Chips at all, or are chips only drops-from-combat? (The chip-acquisition design says yes, shop sells them — keep that.)
 
-**Status:** `placeholder`.
+**Status:** `built — style demo; runtime hookup deferred`.
