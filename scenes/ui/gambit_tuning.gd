@@ -1,6 +1,13 @@
 class_name GambitTuningScreen
 extends Control
 
+## Gambit tuning. ADMIN mode is the dev-facing preset-driven editor. RUN
+## mode is a placeholder until the gambit-tuning runtime PR lands — every
+## interactive widget is hidden and a "not yet wired" label takes their
+## place, with Back returning to `return_path`.
+
+enum Mode { ADMIN, RUN }
+
 const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_hub.tscn"
 const CHARACTER_CARD_TILE: PackedScene = preload(
 	"res://scenes/ui/components/character_card_tile.tscn"
@@ -9,18 +16,22 @@ const EDITABLE_GAMBIT_ROW: PackedScene = preload(
 	"res://scenes/ui/components/editable_gambit_row.tscn"
 )
 
+static var mode: Mode = Mode.ADMIN
 static var return_path: String = ADMIN_HUB_PATH
 
 var _snap: Dictionary = {}
 var _focused_idx: int = 0
 var _all_cards: Array[GambitCard] = []
 var _card_options: Array = []
+var _run_placeholder_label: Label = null
 
+@onready var preset_row: HBoxContainer = $PresetRow
 @onready var early_button: Button = $PresetRow/EarlyButton
 @onready var mid_button: Button = $PresetRow/MidButton
 @onready var late_button: Button = $PresetRow/LateButton
 @onready var chips_header: Label = $ChipsHeader
 @onready var back_button: Button = $BackButton
+@onready var character_panel: PanelContainer = $CharacterPanel
 @onready var prev_button: Button = $CharacterPanel/PrevButton
 @onready var next_button: Button = $CharacterPanel/NextButton
 @onready var character_slot: MarginContainer = $CharacterPanel/CharacterColumn/CharacterSlot
@@ -32,18 +43,46 @@ var _card_options: Array = []
 
 
 func _ready() -> void:
+	back_button.pressed.connect(_back)
+	match mode:
+		Mode.ADMIN:
+			_load_admin()
+		Mode.RUN:
+			_load_run()
+
+
+func _exit_tree() -> void:
+	mode = Mode.ADMIN
+	return_path = ADMIN_HUB_PATH
+
+
+func _load_admin() -> void:
 	_all_cards = GambitCardCatalog.get_all()
 	_card_options = _build_card_options()
 	early_button.pressed.connect(_load_preset.bind(GambitTuningPresets.Preset.EARLY))
 	mid_button.pressed.connect(_load_preset.bind(GambitTuningPresets.Preset.MID))
 	late_button.pressed.connect(_load_preset.bind(GambitTuningPresets.Preset.LATE))
-	back_button.pressed.connect(_back)
 	prev_button.pressed.connect(_on_prev)
 	next_button.pressed.connect(_on_next)
 	plus_chip_button.pressed.connect(_on_plus_chip)
 	minus_chip_button.pressed.connect(_on_minus_chip)
 	_load_preset(GambitTuningPresets.Preset.EARLY)
 	early_button.grab_focus()
+
+
+func _load_run() -> void:
+	preset_row.visible = false
+	chips_header.visible = false
+	character_panel.visible = false
+	_run_placeholder_label = Label.new()
+	_run_placeholder_label.text = "Gambit tuning is not yet wired to the active run."
+	_run_placeholder_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_run_placeholder_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_run_placeholder_label.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_run_placeholder_label.add_theme_font_size_override("font_size", 24)
+	_run_placeholder_label.add_theme_color_override("font_color", Color(0.9569, 0.9333, 0.8392))
+	add_child(_run_placeholder_label)
+	back_button.grab_focus()
 
 
 func _unhandled_input(event: InputEvent) -> void:

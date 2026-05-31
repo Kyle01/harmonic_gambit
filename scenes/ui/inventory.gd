@@ -1,10 +1,26 @@
 class_name InventoryScreen
 extends Control
 
+## Inventory screen. ADMIN mode (default) renders the Early/Mid/Late preset
+## fixtures so dev can eyeball card / item layouts at every snapshot. RUN
+## mode hides the preset row and renders from `GameState.owned_*` /
+## `GameState.inventory` / `GameState.credits` / `GameState.chips`.
+##
+## `mode` and `return_path` are static so a launcher can configure them
+## once before `change_scene_to_file`. `_exit_tree` resets both to their
+## ADMIN defaults so a stale RUN configuration can't survive into the
+## next entry.
+
+enum Mode { ADMIN, RUN }
+
 const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_hub.tscn"
 const GAMBIT_ROW_SCENE: PackedScene = preload("res://scenes/ui/components/gambit_row.tscn")
 const ITEM_ICON_SCENE: PackedScene = preload("res://scenes/ui/components/item_icon.tscn")
 
+static var mode: Mode = Mode.ADMIN
+static var return_path: String = ADMIN_HUB_PATH
+
+@onready var preset_row: HBoxContainer = $PresetRow
 @onready var early_button: Button = $PresetRow/EarlyButton
 @onready var mid_button: Button = $PresetRow/MidButton
 @onready var late_button: Button = $PresetRow/LateButton
@@ -18,17 +34,57 @@ const ITEM_ICON_SCENE: PackedScene = preload("res://scenes/ui/components/item_ic
 
 
 func _ready() -> void:
-	early_button.pressed.connect(_load_preset.bind(InventoryPresets.Preset.EARLY))
-	mid_button.pressed.connect(_load_preset.bind(InventoryPresets.Preset.MID))
-	late_button.pressed.connect(_load_preset.bind(InventoryPresets.Preset.LATE))
 	back_button.pressed.connect(_back)
-	_load_preset(InventoryPresets.Preset.EARLY)
-	early_button.grab_focus()
+	match mode:
+		Mode.ADMIN:
+			_load_admin()
+		Mode.RUN:
+			_load_run()
+
+
+func _exit_tree() -> void:
+	mode = Mode.ADMIN
+	return_path = ADMIN_HUB_PATH
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_back()
+
+
+func _load_admin() -> void:
+	preset_row.visible = true
+	early_button.pressed.connect(_load_preset.bind(InventoryPresets.Preset.EARLY))
+	mid_button.pressed.connect(_load_preset.bind(InventoryPresets.Preset.MID))
+	late_button.pressed.connect(_load_preset.bind(InventoryPresets.Preset.LATE))
+	_load_preset(InventoryPresets.Preset.EARLY)
+	early_button.grab_focus()
+
+
+func _load_run() -> void:
+	preset_row.visible = false
+	_render(
+		{
+			"credits": GameState.credits,
+			"chips": GameState.chips,
+			"characters": _owned_character_rows(),
+			"band_cards": GameState.owned_band_cards,
+			"gambit_cards": GameState.owned_gambit_cards,
+			"items": GameState.inventory,
+		}
+	)
+	back_button.grab_focus()
+
+
+func _owned_character_rows() -> Array:
+	# Inventory's character renderer expects `{def, level}` entries. The
+	# run-state owned_characters list is just defs; level lives in the
+	# party (Array[Node]) once instantiated. Until the combat-runtime
+	# PR lands, render every owned character at level 1.
+	var rows: Array = []
+	for def: CharacterDef in GameState.owned_characters:
+		rows.append({"def": def, "level": 1})
+	return rows
 
 
 func _load_preset(preset: InventoryPresets.Preset) -> void:
@@ -99,4 +155,5 @@ func _render_items(items: Array) -> void:
 
 
 func _back() -> void:
-	get_tree().change_scene_to_file(ADMIN_HUB_PATH)
+	var target: String = ADMIN_HUB_PATH if mode == Mode.ADMIN else return_path
+	get_tree().change_scene_to_file(target)

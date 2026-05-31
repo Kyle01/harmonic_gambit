@@ -1,10 +1,18 @@
 class_name BandTuningScreen
 extends Control
 
+## Band tuning. ADMIN mode is the dev-facing preset-driven editor. RUN mode
+## is a placeholder until the band-tuning runtime PR lands — every
+## interactive widget is hidden and a "not yet wired" label takes their
+## place, with Back returning to `return_path`.
+
+enum Mode { ADMIN, RUN }
+
 const ADMIN_HUB_PATH: String = "res://scenes/ui/admin_hub.tscn"
 const BAND_TUNING_PATH: String = "res://scenes/ui/band_tuning.tscn"
 const GAMBIT_TUNING_PATH: String = "res://scenes/ui/gambit_tuning.tscn"
 
+static var mode: Mode = Mode.ADMIN
 static var return_path: String = ADMIN_HUB_PATH
 
 var _roster: Array = []
@@ -13,8 +21,11 @@ var _equipped_char_indices: Array[int] = []
 var _equipped_band_idx: int = -1
 var _force_glow: bool = false
 var _focused_band_pool_idx: int = -1
+var _run_placeholder_label: Label = null
 
+@onready var tabs_row: HBoxContainer = $TabsRow
 @onready var gambit_tuning_tab: Button = $TabsRow/GambitTuningTab
+@onready var preset_row: HBoxContainer = $PresetRow
 @onready var early_button: Button = $PresetRow/EarlyButton
 @onready var mid_button: Button = $PresetRow/MidButton
 @onready var late_button: Button = $PresetRow/LateButton
@@ -30,12 +41,25 @@ var _focused_band_pool_idx: int = -1
 
 
 func _ready() -> void:
+	back_button.pressed.connect(_back)
+	match mode:
+		Mode.ADMIN:
+			_load_admin()
+		Mode.RUN:
+			_load_run()
+
+
+func _exit_tree() -> void:
+	mode = Mode.ADMIN
+	return_path = ADMIN_HUB_PATH
+
+
+func _load_admin() -> void:
 	gambit_tuning_tab.pressed.connect(_on_gambit_tuning_tab_pressed)
 	early_button.pressed.connect(_load_preset.bind(BandTuningPresets.Preset.EARLY))
 	mid_button.pressed.connect(_load_preset.bind(BandTuningPresets.Preset.MID))
 	late_button.pressed.connect(_load_preset.bind(BandTuningPresets.Preset.LATE))
 	glow_toggle.toggled.connect(_on_glow_toggled)
-	back_button.pressed.connect(_back)
 	top_characters_cascade.entry_clicked.connect(_on_top_character_clicked)
 	bottom_characters_cascade.entry_clicked.connect(_on_bottom_character_clicked)
 	top_band_cards_cascade.entry_clicked.connect(_on_top_band_card_clicked)
@@ -43,6 +67,28 @@ func _ready() -> void:
 	bottom_band_cards_cascade.focus_changed.connect(_on_bottom_band_focus_changed)
 	_load_preset(BandTuningPresets.Preset.EARLY)
 	early_button.grab_focus()
+
+
+func _load_run() -> void:
+	tabs_row.visible = false
+	preset_row.visible = false
+	glow_toggle.visible = false
+	top_characters_cascade.visible = false
+	top_band_cards_cascade.visible = false
+	bottom_characters_cascade.visible = false
+	bottom_band_cards_cascade.visible = false
+	equipped_count_label.visible = false
+	activation_label.visible = false
+	gambit_chips_label.visible = false
+	_run_placeholder_label = Label.new()
+	_run_placeholder_label.text = "Band tuning is not yet wired to the active run."
+	_run_placeholder_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_run_placeholder_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_run_placeholder_label.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_run_placeholder_label.add_theme_font_size_override("font_size", 24)
+	_run_placeholder_label.add_theme_color_override("font_color", Color(0.9569, 0.9333, 0.8392))
+	add_child(_run_placeholder_label)
+	back_button.grab_focus()
 
 
 func _unhandled_input(event: InputEvent) -> void:
