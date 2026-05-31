@@ -23,3 +23,11 @@ signal realm_built(realm: Realm)
 signal realm_node_chosen(node_id: int)
 signal realm_advanced(prev_node_id: int, new_node_id: int, region_id: StringName)
 signal realm_region_completed
+
+## Run-state mutations. Fired by every system that writes to GameState's
+## per-run fields so UI/telemetry subscribers don't have to poll. `Card`
+## covers both `GambitCard` and `BandCard` — subscribers can is-check.
+signal credits_changed(new_total: int)
+signal item_acquired(item: ItemDef)
+signal card_acquired(card: Card)
+signal character_recruited(def: CharacterDef)
