@@ -16,6 +16,8 @@ const KIND_COLOR: Dictionary = {
 	EventNode.Kind.SHOP: Color(0.96, 0.78, 0.30, 1.0),
 }
 
+const _UNREVEALED_COLOR: Color = Color(0.95, 0.93, 0.84, 1.0)
+
 const _OUTLINE_CURRENT: Color = Color(1.0, 1.0, 1.0, 1.0)
 const _OUTLINE_AVAILABLE: Color = Color(0.95, 0.93, 0.84, 0.95)
 const _OUTLINE_VISITED: Color = Color(0.70, 0.66, 0.58, 0.5)
@@ -58,12 +60,17 @@ func _gui_input(event: InputEvent) -> void:
 
 func _draw() -> void:
 	var center: Vector2 = size * 0.5
-	var fill: Color = KIND_COLOR.get(kind, Color.WHITE)
-	var outline: Color = _outline_for_state()
+	# Reveal rule: kind color reveals only on history nodes (visited but
+	# no longer current). Unvisited + current stay white so the player
+	# discovers a node's kind by leaving it.
+	var fill: Color
 	if is_visited and not is_current:
-		fill = fill.darkened(0.35)
-	if not is_available and not is_current and not is_visited:
-		fill = fill.darkened(0.55)
+		fill = KIND_COLOR.get(kind, _UNREVEALED_COLOR).darkened(0.35)
+	elif not is_available and not is_current:
+		fill = _UNREVEALED_COLOR.darkened(0.55)
+	else:
+		fill = _UNREVEALED_COLOR
+	var outline: Color = _outline_for_state()
 	draw_circle(center, RADIUS + 2.0, outline)
 	draw_circle(center, RADIUS, fill)
 

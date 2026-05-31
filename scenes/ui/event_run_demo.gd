@@ -163,34 +163,32 @@ func _render_log() -> void:
 
 
 func _format_effect_line(effect: String) -> String:
-	var parts: PackedStringArray = effect.split(":")
-	if parts.is_empty():
-		return effect
-	var verb: String = parts[0]
+	var token: Dictionary = EventEffectParser.parse(effect)
+	var verb: StringName = token.get("verb", &"")
+	var args: Array = token.get("args", [])
 	var mult: float = EventResolver.column_multiplier(target_event, _column)
-	var rendered: String = effect
 	match verb:
-		"gain_credits":
-			rendered = _format_gain_credits(parts, mult, effect)
-		"heal_party":
-			rendered = _format_heal_party(parts, mult, effect)
-		"recruit":
-			rendered = _format_recruit(parts, mult, effect)
-	return rendered
+		EventEffectParser.VERB_GAIN_CREDITS:
+			return _format_gain_credits(args, mult, effect)
+		EventEffectParser.VERB_HEAL_PARTY:
+			return _format_heal_party(args, mult, effect)
+		EventEffectParser.VERB_RECRUIT:
+			return _format_recruit(args, mult, effect)
+	return effect
 
 
-func _format_gain_credits(parts: PackedStringArray, mult: float, fallback: String) -> String:
-	if parts.size() < 2:
+func _format_gain_credits(args: Array, mult: float, fallback: String) -> String:
+	if args.size() < 1:
 		return fallback
-	var base: int = parts[1].to_int()
+	var base: int = String(args[0]).to_int()
 	var scaled: int = int(ceil(float(base) * mult))
 	return "+%d credits → +%d  (×%.2f)" % [base, scaled, mult]
 
 
-func _format_heal_party(parts: PackedStringArray, mult: float, fallback: String) -> String:
-	if parts.size() < 2:
+func _format_heal_party(args: Array, mult: float, fallback: String) -> String:
+	if args.size() < 1:
 		return fallback
-	var amount: String = parts[1]
+	var amount: String = String(args[0])
 	if amount == "full":
 		return "heal party (full restore, no scaling)"
 	var base_hp: int = amount.to_int()
@@ -198,11 +196,11 @@ func _format_heal_party(parts: PackedStringArray, mult: float, fallback: String)
 	return "heal party for %d HP → %d HP each  (×%.2f)" % [base_hp, scaled_hp, mult]
 
 
-func _format_recruit(parts: PackedStringArray, mult: float, fallback: String) -> String:
-	if parts.size() < 3:
+func _format_recruit(args: Array, mult: float, fallback: String) -> String:
+	if args.size() < 2:
 		return fallback
-	var character_id: String = parts[1]
-	var base_level: int = parts[2].to_int()
+	var character_id: String = String(args[0])
+	var base_level: int = String(args[1]).to_int()
 	var scaled_level: int = int(ceil(float(base_level) * mult))
 	var name_text: String = _resolve_character_name(character_id)
 	return (
