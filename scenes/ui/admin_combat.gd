@@ -29,6 +29,7 @@ func _on_band_tuning_pressed() -> void:
 
 
 func _on_start_combat_pressed() -> void:
+	CombatSkipOverlay.return_path = ADMIN_HUB_PATH
 	get_tree().change_scene_to_file(COMBAT_ARENA_PATH)
 
 
