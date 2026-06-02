@@ -27,6 +27,10 @@ Current signals:
 - `actor_window_opened(actor: Node)` — TurnManager → GambitEngine trigger.
 - `music_volume_changed(linear: float)` — AudioSettings → UI sync.
 - `sfx_volume_changed(linear: float)` — AudioSettings → UI sync.
+- `credits_changed(new_total: int)` — emitted when `GameState.credits` mutates (event applier, shop purchase, combat skip reward).
+- `item_acquired(item: ItemDef)` — emitted when an item is appended to `GameState.inventory`.
+- `card_acquired(card: Card)` — emitted when a `GambitCard` or `BandCard` is appended to its owned-cards array.
+- `character_recruited(def: CharacterDef)` — emitted when a `CharacterDef` is appended to `GameState.owned_characters`.
 
 Past-tense naming is mandatory (`health_changed`, not `change_health`).
 
@@ -45,8 +49,17 @@ Seeded per-stream random. **The only sanctioned source of randomness.**
   perturb each other).
 
 ### 3. `GameState` (`game_state.gd`)
-Per-run state only: `current_floor`, `party`, `inventory`, `run_seed`.
-Resets between runs. **Nothing here persists across runs** — that's
+Per-run state only. Fields:
+
+- `current_floor: int`, `party: Array[Node]`, `run_seed: int` — original schema.
+- `inventory: Array[ItemDef]` — the player's owned items (retyped from the original `Array[Resource]`). `ItemCatalog` remains the source of *available* items.
+- `credits: int`, `chips: int` — run-economy resources.
+- `owned_characters: Array[CharacterDef]`, `owned_gambit_cards: Array[GambitCard]`, `owned_band_cards: Array[BandCard]` — per-run discovered/recruited.
+- `active_realm: Realm` — the run's realm meta-map; null in admin paths.
+- `intro_fired: bool` — one-shot guard so revisiting the_introduction's entry node doesn't re-fire the intro event.
+
+`reset_for_new_run(seed: int) -> void` zeroes every field above. Resets
+between runs. **Nothing here persists across runs** — that's
 `CardCatalog`.
 
 ### 4. `CardCatalog` (`card_catalog.gd`)

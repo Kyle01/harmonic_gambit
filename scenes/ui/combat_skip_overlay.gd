@@ -26,6 +26,9 @@ func _ready() -> void:
 
 
 func _on_skip_pressed() -> void:
+	# Stop the autoload heartbeat before the scene change so it doesn't
+	# tick once more against the about-to-be-freed test_arena actors.
+	TurnManager.stop_combat()
 	GameState.credits += SKIP_REWARD
 	EventBus.credits_changed.emit(GameState.credits)
 	var target: String = return_path

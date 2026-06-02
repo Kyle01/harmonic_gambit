@@ -60,11 +60,13 @@ func _gui_input(event: InputEvent) -> void:
 
 func _draw() -> void:
 	var center: Vector2 = size * 0.5
-	# Reveal rule: kind color reveals only on history nodes (visited but
-	# no longer current). Unvisited + current stay white so the player
-	# discovers a node's kind by leaving it.
+	# Reveal rule: kind color reveals as soon as a node is visited — that
+	# is, the moment its encounter has been resolved. The player's current
+	# position is conveyed by the white outline rather than by suppressing
+	# the fill, so a "just-completed" shop/combat shows its color while
+	# you're still standing on it choosing your next move.
 	var fill: Color
-	if is_visited and not is_current:
+	if is_visited:
 		fill = KIND_COLOR.get(kind, _UNREVEALED_COLOR).darkened(0.35)
 	elif not is_available and not is_current:
 		fill = _UNREVEALED_COLOR.darkened(0.55)

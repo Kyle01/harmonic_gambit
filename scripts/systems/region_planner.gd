@@ -34,6 +34,7 @@ static func plan(def: RegionDef, stream: RandomNumberGenerator) -> Region:
 	region.current_node_id = map.entry_id
 	# Use append rather than untyped Array literal to preserve Array[int] type.
 	region.visited_ids.append(map.entry_id)
+	_apply_forced_events(region, def)
 	return region
 
 
@@ -231,13 +232,31 @@ static func _smooth_layout(map: RegionMap) -> void:
 static func _assign_kinds(map: RegionMap, def: RegionDef, stream: RandomNumberGenerator) -> void:
 	for id: int in map.nodes.keys():
 		if id == map.entry_id:
-			if def.starter_event_id != &"":
+			if def.forced_entry_event_id != &"":
 				map.nodes[id].kind = EventNode.Kind.EVENT
-				map.nodes[id].pinned_event_id = def.starter_event_id
 			else:
 				map.nodes[id].kind = EventNode.Kind.COMBAT
 		else:
 			map.nodes[id].kind = _sample_kind(def.encounter_distribution, stream)
+
+
+static func _apply_forced_events(region: Region, def: RegionDef) -> void:
+	if def.forced_entry_event_id == &"":
+		return
+	var found: bool = false
+	for ev: EventDef in EventCatalog.get_all():
+		if ev.id == def.forced_entry_event_id:
+			found = true
+			break
+	if not found:
+		push_error(
+			(
+				"RegionPlanner: forced_entry_event_id '%s' not in EventCatalog for region '%s'"
+				% [def.forced_entry_event_id, def.id]
+			)
+		)
+		return
+	region.forced_event_overrides[region.map.entry_id] = def.forced_entry_event_id
 
 
 # Weighted-random Kind sample. Same algorithm as the previous flat-list
