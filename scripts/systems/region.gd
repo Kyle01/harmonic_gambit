@@ -24,6 +24,10 @@ extends Resource
 @export var map: RegionMap = null
 @export var current_node_id: int = -1
 @export var visited_ids: Array[int] = []
+## Map of node id -> forced EventDef id. Populated by RegionPlanner when
+## the RegionDef declares `forced_entry_event_id`. The event runner reads
+## this on EVENT-kind node entry; an empty entry means "pick randomly".
+@export var forced_event_overrides: Dictionary = {}
 
 
 func current_node() -> MapNode:
@@ -64,3 +68,7 @@ func advance_to(node_id: int) -> void:
 
 func has_started() -> bool:
 	return visited_ids.size() > 1
+
+
+func forced_event_for(node_id: int) -> StringName:
+	return forced_event_overrides.get(node_id, &"")

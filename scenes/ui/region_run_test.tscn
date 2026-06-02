@@ -58,3 +58,36 @@ theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 28
 text = "Go to next region"
+
+[node name="InventoryButton" type="Button" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 220.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.9569, 0.9333, 0.8392, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_focus_color = Color(1, 0.898, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "Inventory"
+
+[node name="QuitButton" type="Button" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -88.0
+offset_right = 220.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.96, 0.36, 0.36, 1)
+theme_override_colors/font_hover_color = Color(1, 0.55, 0.55, 1)
+theme_override_colors/font_focus_color = Color(1, 0.55, 0.55, 1)
+theme_override_colors/font_outline_color = Color(0.0392, 0.1059, 0.0627, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "Quit Run"

@@ -39,8 +39,9 @@ extends Resource
 @export_range(0.0, 1.0) var reconvergence_bias: float = 0.5
 
 @export_group("Starter")
-## If non-empty, the entry node is forced to EVENT kind and tagged with this
-## event id (see MapNode.pinned_event_id). The future event resolver will
-## fire that specific event instead of rolling from the random pool. Used to
-## pin a deterministic awakening at the start of The Introduction.
-@export var starter_event_id: StringName = &""
+## If non-empty, RegionPlanner overrides the entry node's kind to EVENT
+## and records this event id in `Region.forced_event_overrides` so the
+## runtime event runner fires that specific event on entry, bypassing
+## the random pool. `encounter_distribution` still governs every other
+## node — the override is entry-only.
+@export var forced_entry_event_id: StringName = &""

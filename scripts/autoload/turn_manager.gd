@@ -61,7 +61,12 @@ func _fire_next_actor() -> void:
 	EventBus.actor_window_opened.emit(actor)
 
 
-func _alive(actor: Node) -> bool:
+func _alive(actor: Variant) -> bool:
+	# Variant rather than Node: a previously-freed actor still answers as
+	# Object to the typed-parameter check, but binding to a `Node` slot
+	# raises before is_instance_valid() can filter it. Scene changes that
+	# free combat actors (e.g. the placeholder skip overlay) would crash
+	# the autoload on the next tick otherwise.
 	if actor == null or not is_instance_valid(actor):
 		return false
 	if not ("hp" in actor):

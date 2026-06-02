@@ -50,8 +50,8 @@ func _apply(def: EventDef) -> void:
 
 
 func _format_scope(def: EventDef) -> String:
-	# Empty findable arrays = the event can only fire via a pinned reference
-	# (e.g. RegionDef.starter_event_id). The random picker skips it.
+	# Empty findable arrays = the event can only fire via a forced reference
+	# (e.g. RegionDef.forced_entry_event_id). The random picker skips it.
 	if def.findable_regions.is_empty() and def.findable_columns.is_empty():
 		return "pinned (never random)"
 	var region_text: String = "any region"

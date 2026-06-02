@@ -33,7 +33,7 @@ The two run-economy resources are referenced throughout. A reminder:
 
 **Schema / system additions required.** Most foundations exist: `TurnManager` (the heartbeat), `GambitEngine` (action resolution), `CharacterDef`, `EnemyDef`, the EventBus signal contract. Gaps: rhythm UI, band-card runtime activation, reward roll, post-battle return-to-realm flow.
 
-**Current state.** Functional debug arena via `test_arena.tscn`. Gambit resolution and turn pacing work. No rhythm UI, no band-card runtime, no rewards.
+**Current state.** Functional debug arena via `test_arena.tscn`. Gambit resolution and turn pacing work. No rhythm UI, no band-card runtime, no rewards. A placeholder `combat_skip_overlay` (CanvasLayer) sits on top of the arena and exposes the only run-loop resolution path: a Skip button that grants +5 credits and exits to `CombatSkipOverlay.return_path`. The admin Combat tile and run-path COMBAT-kind region nodes both route through this overlay.
 
 **Open questions.**
 - How is the rhythm hit-window rendered without overwhelming a 10-member party at peak action density? (See GDD known-risk.)
@@ -149,7 +149,10 @@ Gambit Cards and Band Cards are deliberately separate sections — they're conce
 - `GambitChip` Resource (id, display_name, art, optional rarity). Deferred — the chips section is just a count today; a typed Resource lands when chip drops/equip-flow ship.
 - `GameState` extensions: `credits: int`, `chips: int`, `items: Array[ItemDef]`, `owned_gambit_cards: Array[GambitCard]`, `owned_band_cards: Array[BandCard]`, `owned_characters: Array[OwnedCharacter]`. Deferred — the admin Inventory screen reads from local fixture snapshots in `scripts/ui/inventory_presets.gd` until something needs to write here. Today's `CardCatalog` is **cross-run discovered** state, not the per-run owned set — keep these separate.
 
-**Current state.** Built. Header strip (Credits + Gambit Chips) + four stacked card-grid sections (Characters, Gambit Cards, Band Cards, Items). Three preset switches across the top (Early / Mid / Late) swap the displayed inventory from local fixtures — view-only, no `GameState` mutation. Character tiles render `Lv N` per owned instance.
+**Current state.** Built, with two modes:
+
+- **ADMIN** (default; admin hub tile). Header strip (Credits + Gambit Chips) + four stacked card-grid sections (Characters, Gambit Cards, Band Cards, Items). Three preset switches across the top (Early / Mid / Late) swap the displayed inventory from local fixtures — view-only, no `GameState` mutation.
+- **RUN** (set via `InventoryScreen.mode = Mode.RUN`; entered via the Inventory button on the region map or realm map). Preset row hidden; every section reads from `GameState.owned_characters` / `owned_gambit_cards` / `owned_band_cards` / `inventory`; credits/chips readouts mirror `GameState`. Back returns to `InventoryScreen.return_path`.
 
 **Open questions.**
 - Slot / weight cap on the inventory, or unbounded?
@@ -157,7 +160,7 @@ Gambit Cards and Band Cards are deliberately separate sections — they're conce
 - Does opening Inventory pause an active battle, or is it only available outside combat?
 - Does layout pivot needed for late-game density (8 characters + 14 gambit cards + 5 band cards + 5 items scrolls a lot)?
 
-**Status:** `partial — admin testing path complete; runtime hookup deferred`.
+**Status:** `built — ADMIN preset path + RUN GameState binding both live`.
 
 ---
 
@@ -178,7 +181,9 @@ Gambit Cards and Band Cards are deliberately separate sections — they're conce
 - `EventOutcome` — `weight: float`, `next_scene_id`. Single-element arrays for deterministic forks; the schema already supports FTL-style 50/50 the moment an event author wants it.
 - `EventCatalog` (`scripts/data/event_catalog.gd`) — RefCounted, `get_all()` mirrors `RegionCatalog` / `GambitCardCatalog`.
 
-**Current state.** Two starter events authored: *Abandoned Campsite* (1-fork → gold) and *A Wandering Singer* (nested choice → heal-party or recruit-singer). Catalog grid renders both; demo runner walks any event end-to-end with column-scaling preview.
+**Current state.** Three events authored: *The Awakening* (the deterministic intro), *Abandoned Campsite* (1-fork → gold) and *A Wandering Singer* (nested choice → heal-party or recruit-singer). Catalog grid renders all three; demo runner walks any event end-to-end with column-scaling preview.
+
+**Runtime hookup.** EVENT-kind region nodes route into `scenes/ui/event_runner.tscn`, which mirrors the demo's scene-tree walk (body + choices + Continue) but applies every entered scene's effects to `GameState` via `EventEffectApplier`. No log panel, no column spinbox — `target_column` is set by the caller. The intro event (`the_awakening`) is forced onto the_introduction region's entry node via `RegionDef.forced_entry_event_id` and excluded from the non-forced random pool by id. `GameState.intro_fired` is the one-shot guard so revisiting the entry node doesn't re-fire it.
 
 **Deferred follow-ups.**
 - Runtime hookup: EVENT-kind realm nodes route to a live event-runner scene that mutates `GameState` (credits, party, etc.) and uses `RNG.get_stream("event")` per run.
@@ -188,7 +193,7 @@ Gambit Cards and Band Cards are deliberately separate sections — they're conce
 - Discovery-gating against `CardCatalog`.
 - Runtime evaluator for `EventChoice.requirement` and runtime applier for `EventScene.effects`.
 
-**Status:** `built — grid + demo runner; runtime hookup deferred`.
+**Status:** `built — grid + demo runner + run-path event_runner (effect applier mutates `GameState`)`.
 
 ---
 
@@ -262,7 +267,7 @@ Live preview region (always visible): which Band Cards activate against the chos
 - A "chip-equip" mutation API (e.g. `Character.equip_chip(chip)` + `unequip_chip(chip)`) that updates the character's programmable slot count.
 - A "compute active band cards from lineup" pure function — used both here (live preview) and in Combat (runtime activation). Single source of truth.
 
-**Current state.** Placeholder — title + back button.
+**Current state.** ADMIN mode is the dev-facing preset-driven editor (preset row + roster picker + chip equip + band-card live preview). RUN mode (`BandTuningScreen.mode = Mode.RUN`) hides every interactive widget and renders a placeholder body — band-tuning runtime is explicitly out of scope until a follow-up PR. Back in RUN mode returns to `BandTuningScreen.return_path`.
 
 **Open questions.**
 - Is party-size cap fixed (4 per FF-style convention) or scaled by something (band-card requirements? a "maximum band" stat that grows during a run?). The GDD mentions party scaling to 10; the immediate screen needs to know its slot count.
@@ -288,7 +293,10 @@ Live preview region (always visible): which Band Cards activate against the chos
 - For runtime hookup: same currency / chip / item / cards-owned schemas that Inventory needs (deferred). `GameState.credits` does not exist yet — current shop reads the credits value from the Inventory Early/Mid/Late preset fixture and mutates only screen-local state.
 - A region-aware pricing model (deeper regions = higher prices, or fixed across the run?).
 
-**Current state.** Style-complete admin screen. Header strip with title, Early/Mid/Late preset switcher (mirrors Inventory — 35/240/980 credits), live Credits readout, Back button. 2×3 card grid with reusable `CharacterCardTile` / `GambitCardTile` / `BandCardTile` content. Items column lists the full `ItemCatalog` (`hp_potion`, `phoenix_down` today). Instant-purchase interaction; Buy disables on insufficient credits; switching presets resets credits and re-rolls cards. No GameState mutation, no inventory write-through, no cross-visit persistence.
+**Current state.** Two modes:
+
+- **ADMIN** — header with Early/Mid/Late preset switcher (35/240/980 credits), live readout, Back to admin hub. 2×3 card grid + Items column. Instant-purchase interaction; switching presets resets credits and re-rolls cards. No GameState mutation.
+- **RUN** (`ShopScreen.mode = Mode.RUN`; entered when a SHOP-kind region node fires). Preset row hidden. Credits readout mirrors `GameState.credits`. Purchases debit `GameState.credits` and emit `EventBus.credits_changed`; item purchases append to `GameState.inventory` (+`item_acquired`); card purchases append to the matching owned-cards array on `GameState` (+`card_acquired`). Card tiles flip to "Purchased" so the same offer cannot be bought twice within the visit. Offer generator (`ShopOffers.roll_card_offers`) is unchanged — the placeholder uniform-random algorithm is still out of scope.
 
 **Deferred follow-ups.**
 - Real offer-generation algorithm (rarity tiers, region-aware pricing, weighted kind mixing, archetype variants).
@@ -305,4 +313,4 @@ Live preview region (always visible): which Band Cards activate against the chos
 - Pricing model — fixed per item (defined alongside its `Def`), or scaled by run depth / region tier?
 - Does the shop sell Gambit Chips at all, or are chips only drops-from-combat? (The chip-acquisition design says yes, shop sells them — keep that.)
 
-**Status:** `built — style demo; runtime hookup deferred`.
+**Status:** `built — ADMIN preset path + RUN GameState binding both live`.
